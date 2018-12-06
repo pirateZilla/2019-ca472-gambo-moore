@@ -6,3 +6,8 @@ This repository is for the Enterprise Computing Final Year Project of Jemil Gamb
 
 ### Contact
 To find out more please contact us by email to declan.moore39@mail.dcu.ie or jemil.gambo2@mail.dcu.ie
+
+### Blogs
+In order to showcase the progress in development of TourGo we have documented contributions across our blogs:
+Declan Moore http://blogs.computing.dcu.ie/wordpress/moored39/
+Jemil Gambo http://blogs.computing.dcu.ie/wordpress/gamboj2/
