@@ -1,11 +1,8 @@
-from django.shortcuts import render
-
-from django.http import HttpResponse 
+from django.shortcuts import render, render_to_response
+from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-	mycontext = {
-		'data' : 'welcome to my TourGo'
+	return render_to_response("index.html")
 
-	}
-	return render(request, 'myapp/index.html', mycontext)
+
