@@ -5,4 +5,8 @@ from django.http import HttpResponse
 def index(request):
 	return render_to_response("index.html")
 
+def quote(request):
+	return render_to_response("quote.html")
 
+def user_dash(request):
+	return render_to_response("user_dash.html")
