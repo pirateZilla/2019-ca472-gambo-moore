@@ -50,8 +50,14 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h1 class="mt-5">Welcome to ToruGo index page </h1>
+        <h1 class="mt-5">TourGo index page </h1>
         <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
+
+        <!-- testing the login funionality  -->
+    {% if user.is_authenticated %}
+        <p>Welcome {{ user.username }} !!!</p>       
+    {% endif %}
+        <!--  login funionality  -->
         <ul class="list-unstyled">
           <li>Bootstrap 4.2.1</li>
           <li>jQuery 3.3.1</li>

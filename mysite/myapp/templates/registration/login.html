@@ -12,10 +12,11 @@
 	{% if next %}
 	<p>hey you can't access this page  </p>
 	{% endif %}
-	
+
+	<h1>Login to TourGo</h1>
 	<form method="post" action="{% url 'login' %}">
 		{% csrf_token %}
-
+	<!-- dec i need you to find out how to edit this to look nicer  -->
 		<P>Usernaem: {{ form.username }} </P>
 		<P>Password: {{ form.password }}</P>
 

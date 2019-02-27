@@ -127,4 +127,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#do not chnage --> ask jemil fisrt
 LOGIN_REDIRECT_URL = '/myapp/index'
