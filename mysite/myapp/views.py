@@ -2,6 +2,8 @@ from django.shortcuts import render, render_to_response, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login	
+#imports the  driver model so we can save the data to it 
+from .models import Driver
 
 # Create your views here.
 
@@ -9,6 +11,21 @@ def index(request):
 	return render_to_response("index.html")
 
 def quote(request):
+	#remember to validate the data collect first 
+	# "firstname" is name="firstname" in the input tag
+	if request.method == "POST":
+		f_name = request.POST.get("firstname")
+		eircode = request.POST.get("eircode")
+		drive_exp = request.POST.get("drive_exp")
+		#sends input data to the model
+		Driver.f_name = f_name
+		Driver.eircode = eircode
+		Driver.drive_exp = drive_exp
+		#Driver.save()
+		print(f_name, eircode, drive_exp)
+		#where do we want to send the user after they submit?
+		#return redirect("/myapp/index/")
+	
 	return render_to_response("quote.html")
 
 def user_dash(request):
@@ -31,3 +48,4 @@ def  register(request):
 
 	context = {'form' : form}
 	return render(request, "registration/register.html", context)
+
