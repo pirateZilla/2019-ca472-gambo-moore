@@ -19,15 +19,20 @@ def quote(request):
 		driver = Driver()
 		###
 
-		f_name = request.POST.get("firstname")
-		eircode = request.POST.get("eircode")
-		drive_exp = request.POST.get("drive_exp")
+		f_name = request.POST.get("fname")
+		l_name = request.POST.get("lname")
+		emp_status = request.POST.get("drive_exp")
+		address = request.POST.get("aLine1")
+		DOB = request.POST.get("bday")
+		licence_type = request.POST.get("licence")
+		NCB = request.POST.get("ncb")
+		print(f_name, l_nam, emp_status, address, DOB, licence_type, NCB)
 		#sends input data to the model
-		driver.f_name = f_name
-		driver.eircode = eircode
-		driver.drive_exp = drive_exp
-		driver.save()
-		print(f_name, eircode, drive_exp)
+		#driver.f_name = f_name
+		#driver.eircode = eircode
+		#driver.drive_exp = drive_exp
+		#driver.save()
+		#print(f_name, eircode, drive_exp)
 		#where do we want to send the user after they submit?
 		#return redirect("/myapp/index/")
 	

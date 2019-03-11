@@ -76,8 +76,13 @@
               console.log("The base price is €" + basePrice);
               console.log("The final insurance cost is €" + finalInsurancePrice);
               
+              //gets the first name input 
+              var fname = document.getElementById("fname").value;
+
               document.getElementById("output1").innerHTML = "The base price is €"+ basePrice;
+              //prints to the html 
              document.getElementById("output2").innerHTML ="hello " + fname + " The final insurance cost is €" + finalInsurancePrice;
+
 
 
           }
@@ -267,8 +272,11 @@
             <input type = "button" onclick = "calculatePremium()" value = "Submit">
         </form>
    <div>      
+          <!-- outputs the users name and insurance -->  
           <p id="output1"></p>
           <p id="output2"></p>
+  
+
 </div>
 </body>
 
