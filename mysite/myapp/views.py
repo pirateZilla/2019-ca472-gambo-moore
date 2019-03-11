@@ -14,14 +14,19 @@ def quote(request):
 	#remember to validate the data collect first 
 	# "firstname" is name="firstname" in the input tag
 	if request.method == "POST":
+
+		#added this line here to save data to the model
+		driver = Driver()
+		###
+
 		f_name = request.POST.get("firstname")
 		eircode = request.POST.get("eircode")
 		drive_exp = request.POST.get("drive_exp")
 		#sends input data to the model
-		Driver.f_name = f_name
-		Driver.eircode = eircode
-		Driver.drive_exp = drive_exp
-		#Driver.save()
+		driver.f_name = f_name
+		driver.eircode = eircode
+		driver.drive_exp = drive_exp
+		driver.save()
 		print(f_name, eircode, drive_exp)
 		#where do we want to send the user after they submit?
 		#return redirect("/myapp/index/")
