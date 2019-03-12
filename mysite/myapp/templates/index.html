@@ -8,12 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
 
   <title>TourGo: Drive the future</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'index_css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   <style>
+
+  html {
+    font-family: roboto;
+  }
 
   nav {
     position: relative;
@@ -35,6 +40,10 @@
   }
   .tour {
     color: black;
+  }
+
+  .btn-primary {
+    background-color: #1565c0;
   }
   
 
@@ -131,6 +140,17 @@ body {
     margin-top: 7rem;
   }
 }
+
+.blur {-webkit-filter: blur(4px);filter: blur(4px);}
+.brightness {-webkit-filter: brightness(0.30);filter: brightness(0.30);}
+.contrast {-webkit-filter: contrast(180%);filter: contrast(180%);}
+.grayscale {-webkit-filter: grayscale(100%);filter: grayscale(100%);}
+.huerotate {-webkit-filter: hue-rotate(180deg);filter: hue-rotate(180deg);}
+.invert {-webkit-filter: invert(100%);filter: invert(100%);}
+.opacity {-webkit-filter: opacity(75%);filter: opacity(75%);}
+.saturate {-webkit-filter: saturate(7); filter: saturate(7);}
+.sepia {-webkit-filter: sepia(100%);filter: sepia(100%);}
+.shadow {-webkit-filter: drop-shadow(8px 8px 10px green);filter: drop-shadow(8px 8px 10px green);}
 
   </style>
 
@@ -234,7 +254,8 @@ body {
           <!-- Three columns of text below the carousel -->
           <div class="row">
             <div class="col-lg-4">
-              <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                <i class="la la-money"></i>
+                <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
               <h2>Drive Cheaper</h2>
               <p>We optimise the cost of driving, with vehicles that are affordable to insure, tax, and maintain. You’ll also learn how to drive for fuel efficiency and look after your car to avoid expensive repairs.</p>
               <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
@@ -265,7 +286,7 @@ body {
               <p class="lead">TourGo is aimed at newer drivers. Our platform and membership make getting on the road easier and more affordable. Telematic technology allows us to make driving accessible and safe, helping you get on the road.</p>
             </div>
             <div class="col-md-5">
-              <img class="featurette-image img-fluid mx-auto" src="{% static 'images/road-ft.jpg' %}" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+              <img class="featurette-image img-fluid mx-auto opacity" src="{% static 'images/road-ft.jpg' %}" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
             </div>
           </div>
   
@@ -277,7 +298,7 @@ body {
               <p class="lead">By bundling your vehicle leasing, insurance, tax, and maintenance into a monthly subscription, TourGo not only handles the headache of managing the costs, but spreads it across your contract period making it easier to manage.</p>
             </div>
             <div class="col-md-5 order-md-1">
-              <img class="featurette-image img-fluid mx-auto" src="{% static 'images/cost-ft.jpg' %}" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+              <img class="featurette-image img-fluid mx-auto opacity" src="{% static 'images/cost-ft.jpg' %}" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
             </div>
           </div>
   
@@ -289,7 +310,7 @@ body {
               <p class="lead">A telematics device in your car provides you with real time information about your driving which is then used to provide learning opportunities to make you a great driver. Learning on maintenance and fuel-efficient driving are also available to reduce the long term costs of driving.</p>
             </div>
             <div class="col-md-5">
-              <img class="featurette-image img-fluid mx-auto" src="{% static 'images/skill-ft.jpg' %}" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+              <img class="featurette-image img-fluid mx-auto opacity" src="{% static 'images/skill-ft.jpg' %}" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
             </div>
           </div>
   
