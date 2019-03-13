@@ -38,8 +38,20 @@ def quote(request):
 	
 	return render_to_response("quote.html")
 
+def about(request):
+	return render_to_response("about.html")
+
+def faq(request):
+	return render_to_response("faq.html")
+
+def contact(request):
+	return render_to_response("contact.html")
+
 def user_dash(request):
 	return render_to_response("user_dash.html")
+
+def login(request):
+	return render_to_response("registration/login.html")
 
 def  register(request):
 	if request.method == 'POST':
