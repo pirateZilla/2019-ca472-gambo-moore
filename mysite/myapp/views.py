@@ -13,30 +13,17 @@ def index(request):
 def quote(request):
 	#remember to validate the data collect first 
 	# "firstname" is name="firstname" in the input tag
-	if request.method == "POST":
+	f_name = request.GET.get('fname')
+	l_name = request.GET.get('lname')
+	dob = request.GET.get('bday')
+	address = request.GET.get('address_l1')
 
-		#added this line here to save data to the model
-		driver = Driver()
-		###
+	print ("jemil is ", f_name, l_name, dob, address )
 
-		f_name = request.POST.get("fname")
-		l_name = request.POST.get("lname")
-		emp_status = request.POST.get("drive_exp")
-		address = request.POST.get("aLine1")
-		DOB = request.POST.get("bday")
-		licence_type = request.POST.get("licence")
-		NCB = request.POST.get("ncb")
-		print(f_name, l_nam, emp_status, address, DOB, licence_type, NCB)
-		#sends input data to the model
-		#driver.f_name = f_name
-		#driver.eircode = eircode
-		#driver.drive_exp = drive_exp
-		#driver.save()
-		#print(f_name, eircode, drive_exp)
-		#where do we want to send the user after they submit?
-		#return redirect("/myapp/index/")
+
 	
-	return render_to_response("quote.html")
+	context={}
+	return render(request, "quote.html", context)
 
 def user_dash(request):
 	return render_to_response("user_dash.html")
