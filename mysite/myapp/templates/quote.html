@@ -94,7 +94,7 @@
 
 <body>
 
-       <form action ='.' method='GET' onsubmit="calculatePremium()">
+       <form action ='/myapp/registration' method='GET' onsubmit="calculatePremium()">
                     <p>Title: <select name="title">
                         <option name="jemil" value="mr" >Mr</option>
                         <option >Mrs</option>
@@ -263,9 +263,11 @@
             <p><select name="claims">
                 <option value="1">1 Year</option>
             </select></p>
-            <button type="submit" name="submit">
+            <button type="submit" name="submit" value="python" >
                 select
-            </button>           
+            </button>    
+
+            <input type = "button" onclick = "calculatePremium()" value = "javaScript">       
 
        </form>
       
