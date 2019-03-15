@@ -1,63 +1,45 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="{% static 'favicon/apple-icon-57x57.png' %}">
+  <link rel="apple-touch-icon" sizes="60x60" href="{% static 'favicon/apple-icon-60x60.png' %}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{% static 'favicon/apple-icon-72x72.png' %}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'favicon/apple-icon-76x76.png' %}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{% static 'favicon/apple-icon-114x114.png' %}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{% static 'favicon/apple-icon-120x120.png' %}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{% static 'favicon/apple-icon-144x144.png' %}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{% static 'favicon/apple-icon-152x152.png' %}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-icon-180x180.png' %}">
+  <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'favicon/android-icon-192x192.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{% static 'favicon/favicon-96x96.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'favicon/manifest.json' %}">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="{% static 'favicon/ms-icon-144x144.png' %}">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Site title -->
+  <title>TourGo: Drive the future</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
 
-  <title>TourGo: Drive the future</title>
+  <!-- Additional CSS #possibly deletable
+  <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">-->
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'index_css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <style>
 
-  html {
-    font-family: roboto;
-  }
+  <!-- Custom Page CSS -->
+  <link href="{% static 'custom_css/index.css' %}" rel="stylesheet">
 
-  nav {
-    position: relative;
-  }
-  .navbar {
-    position:absolute;
-    top:0;
-    z-index:10;
-    background-color: #1565c0;
-    font-family: roboto;
-    opacity: 0.85;
-    width:100%;
-  }
-
-  .navbar-brand {
-    font-family: roboto;
-    font-weight: bold;
-    font-size: 20pt;
-  }
-  .tour {
-    color: black;
-  }
+  <!-- Scroll JS -->
   
-
-  /* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
-
-body {
-  /* padding-top: 3rem; */
-  padding-bottom: 3rem;
-  color: #5a5a5a;
-}
-
-
-
-
-
-  </style>
 
 </head>
 
@@ -65,53 +47,93 @@ body {
 
   <!-- Navigation -->
   <header>
-  <nav class="navbar navbar-expand-lg navbar-dark static-top">
-    <div class="container">
-      <a class="navbar-brand" href="{% url 'index' %}"><span class="tour">Tour</span>Go<img src="{% static 'images/car.png' %}" width="60"/></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'index' %}">home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'quote' %}">get a quote</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">how it works</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'faq' %}">faq</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">contact</a>
-          </li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark static-top" id="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}"><span class="tour">Tour</span>Go<img src="{% static 'images/car.png' %}" width="60"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'index' %}">home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'quote' %}">get a quote</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">how it works</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'faq' %}">faq</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">contact</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-</header>
+    </nav>
+  </header>
+  <!-- Page Content -->
+  <main role="main">
 
- 
-  
-  <main>
         <!-- FOOTER -->
-        <footer class="container">
-          <p class="float-right"><a href="#">Back to top</a></p>
-          <p>&copy; 2019 TourGo &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-        </footer>
+      <div class="ft-container">
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <p class="float-right">
+              <a href="#">Back to top</a>
+            </p>
+            <div class="row">
+              <div class="col-12 col-md">
+                <img class="mb-2" src="{% static 'favicon/favicon-96x96.png' %}" alt="" width="72" height="72">
+                <small class="d-block mb-3 text-muted">&copy; 2018-2019</small>
+              </div>
+              <div class="col-6 col-md">
+                <h5>Features</h5>
+                <ul class="list-unstyled text-small">
+                  <li><a class="text-muted" href="#">Cool stuff</a></li>
+                  <li><a class="text-muted" href="#">Random feature</a></li>
+                  <li><a class="text-muted" href="#">Team feature</a></li>
+                  <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                  <li><a class="text-muted" href="#">Another one</a></li>
+                  <li><a class="text-muted" href="#">Last time</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                  <li><a class="text-muted" href="#">Resource</a></li>
+                  <li><a class="text-muted" href="#">Resource name</a></li>
+                  <li><a class="text-muted" href="#">Another resource</a></li>
+                  <li><a class="text-muted" href="#">Final resource</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                  <li><a class="text-muted" href="#">Team</a></li>
+                  <li><a class="text-muted" href="#">Locations</a></li>
+                  <li><a class="text-muted" href="#">Privacy</a></li>
+                  <li><a class="text-muted" href="#">Terms</a></li>
+                </ul>
+              </div>
+            </div>
+          </footer>
+        </div>
       </main>
-      <div>Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 		    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 		    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-  <!-- Bootstrap core JavaScript -->
+  
+  
+      <!-- Bootstrap core JavaScript -->
   <script src="{% static 'index_css/vendor/jquery/jquery.min.js' %} "></script>
   <script src="{% static 'index_css/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <!-- Scrolling Header JavaScript -->
+  <script src="{% static 'custom_js/scroll.js' %}"></script>
 
 </body>
 
