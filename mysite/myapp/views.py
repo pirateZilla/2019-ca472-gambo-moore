@@ -38,7 +38,11 @@ def user_dash(request):
 	return render_to_response("user_dash.html")
 
 def registration(request):
-	return render_to_response("registration.html")
+
+	premium = request.GET.get('url')
+	print (premium)
+	context={}
+	return render(request, "registration.html", context)
 
 def login(request):
 	return render_to_response("registration/login.html")
