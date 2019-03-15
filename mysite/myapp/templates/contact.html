@@ -1,10 +1,118 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>TourGo: Drive the future</title>
-    </head>
-    <body>
-        <p>test</p>
-    </body>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+
+  <title>TourGo: Drive the future</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'index_css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <style>
+
+  html {
+    font-family: roboto;
+  }
+
+  nav {
+    position: relative;
+  }
+  .navbar {
+    position:absolute;
+    top:0;
+    z-index:10;
+    background-color: #1565c0;
+    font-family: roboto;
+    opacity: 0.85;
+    width:100%;
+  }
+
+  .navbar-brand {
+    font-family: roboto;
+    font-weight: bold;
+    font-size: 20pt;
+  }
+  .tour {
+    color: black;
+  }
+  
+
+  /* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  /* padding-top: 3rem; */
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+}
+
+
+
+
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header>
+  <nav class="navbar navbar-expand-lg navbar-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'index' %}"><span class="tour">Tour</span>Go<img src="{% static 'images/car.png' %}" width="60"/></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'index' %}">home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'quote' %}">get a quote</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">how it works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'faq' %}">faq</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+ 
+  
+  <main>
+        <!-- FOOTER -->
+        <footer class="container">
+          <p class="float-right"><a href="#">Back to top</a></p>
+          <p>&copy; 2019 TourGo &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+      </main>
+      <div>Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 		    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 		    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'index_css/vendor/jquery/jquery.min.js' %} "></script>
+  <script src="{% static 'index_css/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
 </html>
