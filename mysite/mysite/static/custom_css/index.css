@@ -89,7 +89,7 @@ h2 {
 
 body {
   /* padding-top: 3rem; */
-  padding-bottom: 3rem;
+  /* padding-bottom: 3rem; */
   color: #5a5a5a;
 }
 
@@ -192,5 +192,18 @@ body {
 .saturate {-webkit-filter: saturate(7); filter: saturate(7);}
 .sepia {-webkit-filter: sepia(100%);filter: sepia(100%);}
 .shadow {-webkit-filter: drop-shadow(8px 8px 10px green);filter: drop-shadow(8px 8px 10px green);}
+
+/* Footer */
+
+footer {
+    display: block;
+}
+.pt-4 {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;  
+    max-width: 800px;
+}
 
 
