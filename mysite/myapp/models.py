@@ -40,7 +40,7 @@ class Maintenance(models.Model):
     coolent_level = models.CharField(max_length=20, blank=True)
     battery = models.CharField(max_length=20, blank=True)
     oil_level = models.CharField(max_length=20, blank=True)
-    windscreen washer = models.CharField(max_length=20, blank=True)
+    windscreen_washer = models.CharField(max_length=20, blank=True)
     break_fluid = models.CharField(max_length=20, blank=True)
     tyre_dept = models.CharField(max_length=20, blank=True)
    
