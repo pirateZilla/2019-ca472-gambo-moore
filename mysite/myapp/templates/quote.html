@@ -3,234 +3,303 @@
 <html lang="en">
 
 <head>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'favicon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'favicon/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'favicon/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'favicon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'favicon/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'favicon/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'favicon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'favicon/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'favicon/ms-icon-144x144.png' %}">
+    <meta name="theme-color" content="#ffffff">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <!-- Site title -->
+    <title>TourGo: Drive the future</title>
 
-  <title>Welcome to TourGo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <!-- Bootstrap core CSS -->
-  
+    <!-- Additional CSS #possibly deletable
+        <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">-->
 
-  <!-- js calculator -->
-   <script>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'index_css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
-            function calculatePremium() {
-                var basePrice = 2500;
+    <!-- Custom Page CSS -->
+    <link href="{% static 'custom_css/index.css' %}" rel="stylesheet">
+    <link href="{% static 'custom_css/about.css' %}" rel="stylesheet">
 
-                var fname = document.getElementsByName('fname').value;
-                var dob = document.getElementById('bday').value;
-                var bday = +new Date(dob);
-                var age = ~~ ((Date.now() - bday) / (31557600000));
-                var ages = {21:1,22:1.0168,23:1.0173,24:0.9728,25:1.1973,26:1.1826,27:1.1709,28:1.158,29:1.158};
-                var ageBasePrice = ages[age]*basePrice;
+    <!-- Scroll JS -->
 
-                
-                var occ = document.getElementsByName('occupation')[0];
-                var occPc = occ.options[occ.selectedIndex].value;
-                var occSubVal = basePrice - basePrice*occPc;
+    <!-- js calculator -->
+    <script>
 
-                var hh = document.getElementsByName('household')[0];
-                var hhPc = hh.options[hh.selectedIndex].value;
-                var hhSubVal = basePrice - basePrice*hhPc;
+        function calculatePremium() {
+            var basePrice = 2500;
 
-                var car = document.getElementsByName('car')[0];
-                var carPc = car.options[car.selectedIndex].value;
-                var carSubVal = basePrice - basePrice*carPc;
-                
-                var loc = document.getElementsByName('location')[0];
-                var locPc = loc.options[loc.selectedIndex].value;
-                var locSubVal = basePrice - basePrice*locPc;
-
-                var bon = document.getElementsByName('ncb')[0];
-                var bonPc = bon.options[bon.selectedIndex].value;
-                var bonSubVal = basePrice - basePrice*bonPc;
-
-                var lic = document.getElementsByName('licence')[0];
-                var licPc = lic.options[lic.selectedIndex].value;
-                var licSubVal = basePrice - basePrice*licPc;
-                
-                var exp = document.getElementsByName('namedexp')[0];
-                var expPc = exp.options[exp.selectedIndex].value;
-                var expSubVal = basePrice - basePrice*expPc;
-
-                var pen = document.getElementsByName('penalty')[0];
-                var penPc = pen.options[pen.selectedIndex].value;
-                var penSubVal = basePrice - basePrice*penPc;
-
-                var add = document.getElementsByName('Additional Drivers')[0];
-                var addPc = add.options[add.selectedIndex].value;
-                var addSubVal = basePrice - basePrice*addPc;
-
-                var claims = document.getElementsByName('claims')[0];
-                var claimsPc = claims.options[claims.selectedIndex].value;
-                var claimsSubVal = basePrice - basePrice*claimsPc;
-
-              
-
-              var finalInsurancePrice = ageBasePrice - occSubVal - hhSubVal - carSubVal - locSubVal - licSubVal - expSubVal - penSubVal - addSubVal - claimsSubVal;
-              
-              console.log("The base price is €" + basePrice);
-              console.log("The final insurance cost is €" + finalInsurancePrice);
-              
-              //gets the first name input 
-              var fname = document.getElementById("fname").value;
-
-              document.getElementById("output1").innerHTML = "The base price is €"+ basePrice;
-              //prints to the html 
-             document.getElementById("output2").innerHTML ="hello " + fname + " The final insurance cost is €" + finalInsurancePrice;
+            var fname = document.getElementsByName('fname').value;
+            var dob = document.getElementById('bday').value;
+            var bday = +new Date(dob);
+            var age = ~~((Date.now() - bday) / (31557600000));
+            var ages = { 21: 1, 22: 1.0168, 23: 1.0173, 24: 0.9728, 25: 1.1973, 26: 1.1826, 27: 1.1709, 28: 1.158, 29: 1.158 };
+            var ageBasePrice = ages[age] * basePrice;
 
 
-       
-          }
+            var occ = document.getElementsByName('occupation')[0];
+            var occPc = occ.options[occ.selectedIndex].value;
+            var occSubVal = basePrice - basePrice * occPc;
+
+            var hh = document.getElementsByName('household')[0];
+            var hhPc = hh.options[hh.selectedIndex].value;
+            var hhSubVal = basePrice - basePrice * hhPc;
+
+            var car = document.getElementsByName('car')[0];
+            var carPc = car.options[car.selectedIndex].value;
+            var carSubVal = basePrice - basePrice * carPc;
+
+            var loc = document.getElementsByName('location')[0];
+            var locPc = loc.options[loc.selectedIndex].value;
+            var locSubVal = basePrice - basePrice * locPc;
+
+            var bon = document.getElementsByName('ncb')[0];
+            var bonPc = bon.options[bon.selectedIndex].value;
+            var bonSubVal = basePrice - basePrice * bonPc;
+
+            var lic = document.getElementsByName('licence')[0];
+            var licPc = lic.options[lic.selectedIndex].value;
+            var licSubVal = basePrice - basePrice * licPc;
+
+            var exp = document.getElementsByName('namedexp')[0];
+            var expPc = exp.options[exp.selectedIndex].value;
+            var expSubVal = basePrice - basePrice * expPc;
+
+            var pen = document.getElementsByName('penalty')[0];
+            var penPc = pen.options[pen.selectedIndex].value;
+            var penSubVal = basePrice - basePrice * penPc;
+
+            var add = document.getElementsByName('Additional Drivers')[0];
+            var addPc = add.options[add.selectedIndex].value;
+            var addSubVal = basePrice - basePrice * addPc;
+
+            var claims = document.getElementsByName('claims')[0];
+            var claimsPc = claims.options[claims.selectedIndex].value;
+            var claimsSubVal = basePrice - basePrice * claimsPc;
 
 
-      </script>
-      <!-- js calculator -->
+
+            var finalInsurancePrice = ageBasePrice - occSubVal - hhSubVal - carSubVal - locSubVal - licSubVal - expSubVal - penSubVal - addSubVal - claimsSubVal;
+
+            console.log("The base price is €" + basePrice);
+            console.log("The final insurance cost is €" + finalInsurancePrice);
+
+            //gets the first name input 
+            var fname = document.getElementById("fname").value;
+
+            document.getElementById("output1").innerHTML = "The base price is €" + basePrice;
+            //prints to the html 
+            document.getElementById("output2").innerHTML = "hello " + fname + " The final insurance cost is €" + finalInsurancePrice;
+
+
+
+        }
+
+
+    </script>
+    <!-- js calculator -->
 
 </head>
 
 <body>
-
-       <form action ='/myapp/registration' method='GET'>
-                    <p>Title: <select name="title">
-                        <option name="jemil" value="mr" >Mr</option>
-                        <option >Mrs</option>
-                        <option >Ms</option>
-                        <option >Dr</option>
-            </select></p>
-            <p>First Name: <input type="text" name="fname" id="fname"/></p>  
-            <p>Last Name: <input type="text" name="lname" id="lname"/></p>     
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark static-top" id="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'index' %}"><span class="tour">Tour</span>Go<img
+                        src="{% static 'images/car.png' %}" width="60" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'index' %}">home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'quote' %}">get a quote</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'about' %}">how it works</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'faq' %}">faq</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contact' %}">contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Page Content -->
+    <main role="main">
+            <div class="container">
+                    <br />
+                    <br />
+                    <br />
+        <form action='/myapp/registration' method='GET'>
+            <p>Title: <select name="title">
+                    <option name="jemil" value="mr">Mr</option>
+                    <option>Mrs</option>
+                    <option>Ms</option>
+                    <option>Dr</option>
+                </select></p>
+            <p>First Name: <input type="text" name="fname" id="fname" /></p>
+            <p>Last Name: <input type="text" name="lname" id="lname" /></p>
 
             <p>Date of Birth: <input type="date" name="bday" id="bday"></p>
-            
-            
+
+
 
             <p>Employment Status: <select name="occupation">
-                <option value="1">Unemployed</option>
-                <option value="1">Full Time Student</option>
-                <option value="1">Employed - Part Time</option>
-                <option value="1">Employed - Full Time</option>
-                <option value="1">Self Employed</option>
-            </select></p>
+                    <option value="1">Unemployed</option>
+                    <option value="1">Full Time Student</option>
+                    <option value="1">Employed - Part Time</option>
+                    <option value="1">Employed - Full Time</option>
+                    <option value="1">Self Employed</option>
+                </select></p>
 
             <p>My house is: <select name="household">
-                <option value="0.99">Owned by me</option>
-                <option value="1">House/Apt owned by family</option>
-                <option value="1">House/Apt not owned by family</option>
-                <option value="1">Other</option>
-            </select></p>
+                    <option value="0.99">Owned by me</option>
+                    <option value="1">House/Apt owned by family</option>
+                    <option value="1">House/Apt not owned by family</option>
+                    <option value="1">Other</option>
+                </select></p>
 
             <p>Prefered vehicle: <select name="car">
-                <option value="0.87">Seat Mii</option>
-                <option value="0.99">Hyundai i10</option>
-                <option value="1">Toyota Yaris</option>
-                <option value="1.01">Volkswagen Polo</option>
-            </select></p>
+                    <option value="0.87">Seat Mii</option>
+                    <option value="0.99">Hyundai i10</option>
+                    <option value="1">Toyota Yaris</option>
+                    <option value="1.01">Volkswagen Polo</option>
+                </select></p>
 
             <p>Address Line 1: <input type="text" name="address_l1" /></p>
             <p>Address Line 2: <input type="text" name="address_l2" /></p>
 
             <p>Area: <select name="location">
-                <option value="1.1045">Carlow</option>
-                <option value="1.11217">Cavan</option>
-                <option value="0.9961">Clare</option>
-                <option value="0.9828">Cork City North</option>
-                <option value="0.9847">Cork City South</option>
-                <option value="0.8623">Cork County</option>
-                <option value="1.0537">Donegal</option>
-                <option value="1.0279">Dublin 1</option>
-                <option value="0.9979">Dublin 2</option>
-                <option value="0.9977">Dublin 3</option>
-                <option value="0.9010">Dublin 4</option>
-                <option value="0.9977">Dublin 5</option>
-                <option value="0.9881">Dublin 6</option>
-                <option value="0.9414">Dublin 6W</option>
-                <option value="1.0137">Dublin 7</option>
-                <option value="1.0279">Dublin 8</option>
-                <option value="1.1469">Dublin 9</option>
-                <option value="1.0279">Dublin 10</option>
-                <option value="1.2044">Dublin 11</option>
-                <option value="1.0687">Dublin 12</option>
-                <option value="0.8541">Dublin 13</option>
-                <option value="0.7136">Dublin 14</option>
-                <option value="1.0415">Dublin 15</option>
-                <option value="1.006">Dublin 16</option>
-                <option value="1.1220">Dublin 17</option>
-                <option value="0.9702">Dublin 18</option>
-                <option value="1.1132">Dublin 20</option>
-                <option value="1.1132">Dublin 22</option>
-                <option value="1.0649">Dublin 24</option>
-                <option value="0.9184">Dun Laoghaire Rathdown</option>
-                <option value="0.9713">Fingal</option>
-                <option value="1.075">Dublin South</option>
-                <option value="1.0329">Galway City</option>
-                <option value="0.9751">Galway County</option>
-                <option value="0.9184">Dublin County</option>
-                <option value="0.9408">Kerry</option>
-                <option value="0.9785">Celbridge</option>
-                <option value="1.0459">Kilcock</option>
-                <option value="0.9941">Leixlip</option>
-                <option value="0.9651">Maynooth</option>
-                <option value="0.9164">Naas</option>
-                <option value="1.0104">Newbridge</option>
-                <option value="1">Straffan</option>
-                <option value="1.0521">Kildare County</option>
-                <option value="1.0414">Kilkenny</option>
-                <option value="1.0359">Laois</option>
-                <option value="1.2102">Leitrim</option>
-                <option value="1.1925">Limerick City</option>
-                <option value="1.1101">Limerick County</option>
-                <option value="1.2597">Longford</option>
-                <option value="1.1487">Ardee</option>
-                <option value="1.2087">Drogheda</option>
-                <option value="1.3885">Dundalk</option>
-                <option value="1.4611">Louth North County</option>
-                <option value="1.1487">Louth South County</option>
-                <option value="0.9120">Mayo</option>
-                <option value="1.0113">Ashbourne</option>
-                <option value="1.1487">Clonee</option>
-                <option value="0.9709">Dunboyne</option>
-                <option value="0.9324">Dunshaughlin</option>
-                <option value="0.9425">Enfield</option>
-                <option value="1.0968">Garristown</option>
-                <option value="1.0968">Navan</option>
-                <option value="1.1426">Oldtown</option>
-                <option value="1.0214">Rathoath</option>
-                <option value="1.0214">Summerhill</option>
-                <option value="1.0968">Meath County</option>
-                <option value="0.9871">Monaghan</option>
-                <option value="0.9423">Offaly</option>
-                <option value="1.1657">Roscommon</option>
-                <option value="1.1288">Sligo</option>
-                <option value="0.9997">Tipperary North County</option>
-                <option value="0.9991">Tipperary South County</option>
-                <option value="0.9483">Waterford City</option>
-                <option value="0.9033">Waterford County</option>
-                <option value="1.0861">Westmeath</option>
-                <option value="0.8941">Wexford</option>
-                <option value="1.0433">Blessington</option>
-                <option value="0.9977">Bray</option>
-                <option value="1.0651">Greystones</option>
-                <option value="0.9604">Wicklow County</option>
-            </select></p>
+                    <option value="1.1045">Carlow</option>
+                    <option value="1.11217">Cavan</option>
+                    <option value="0.9961">Clare</option>
+                    <option value="0.9828">Cork City North</option>
+                    <option value="0.9847">Cork City South</option>
+                    <option value="0.8623">Cork County</option>
+                    <option value="1.0537">Donegal</option>
+                    <option value="1.0279">Dublin 1</option>
+                    <option value="0.9979">Dublin 2</option>
+                    <option value="0.9977">Dublin 3</option>
+                    <option value="0.9010">Dublin 4</option>
+                    <option value="0.9977">Dublin 5</option>
+                    <option value="0.9881">Dublin 6</option>
+                    <option value="0.9414">Dublin 6W</option>
+                    <option value="1.0137">Dublin 7</option>
+                    <option value="1.0279">Dublin 8</option>
+                    <option value="1.1469">Dublin 9</option>
+                    <option value="1.0279">Dublin 10</option>
+                    <option value="1.2044">Dublin 11</option>
+                    <option value="1.0687">Dublin 12</option>
+                    <option value="0.8541">Dublin 13</option>
+                    <option value="0.7136">Dublin 14</option>
+                    <option value="1.0415">Dublin 15</option>
+                    <option value="1.006">Dublin 16</option>
+                    <option value="1.1220">Dublin 17</option>
+                    <option value="0.9702">Dublin 18</option>
+                    <option value="1.1132">Dublin 20</option>
+                    <option value="1.1132">Dublin 22</option>
+                    <option value="1.0649">Dublin 24</option>
+                    <option value="0.9184">Dun Laoghaire Rathdown</option>
+                    <option value="0.9713">Fingal</option>
+                    <option value="1.075">Dublin South</option>
+                    <option value="1.0329">Galway City</option>
+                    <option value="0.9751">Galway County</option>
+                    <option value="0.9184">Dublin County</option>
+                    <option value="0.9408">Kerry</option>
+                    <option value="0.9785">Celbridge</option>
+                    <option value="1.0459">Kilcock</option>
+                    <option value="0.9941">Leixlip</option>
+                    <option value="0.9651">Maynooth</option>
+                    <option value="0.9164">Naas</option>
+                    <option value="1.0104">Newbridge</option>
+                    <option value="1">Straffan</option>
+                    <option value="1.0521">Kildare County</option>
+                    <option value="1.0414">Kilkenny</option>
+                    <option value="1.0359">Laois</option>
+                    <option value="1.2102">Leitrim</option>
+                    <option value="1.1925">Limerick City</option>
+                    <option value="1.1101">Limerick County</option>
+                    <option value="1.2597">Longford</option>
+                    <option value="1.1487">Ardee</option>
+                    <option value="1.2087">Drogheda</option>
+                    <option value="1.3885">Dundalk</option>
+                    <option value="1.4611">Louth North County</option>
+                    <option value="1.1487">Louth South County</option>
+                    <option value="0.9120">Mayo</option>
+                    <option value="1.0113">Ashbourne</option>
+                    <option value="1.1487">Clonee</option>
+                    <option value="0.9709">Dunboyne</option>
+                    <option value="0.9324">Dunshaughlin</option>
+                    <option value="0.9425">Enfield</option>
+                    <option value="1.0968">Garristown</option>
+                    <option value="1.0968">Navan</option>
+                    <option value="1.1426">Oldtown</option>
+                    <option value="1.0214">Rathoath</option>
+                    <option value="1.0214">Summerhill</option>
+                    <option value="1.0968">Meath County</option>
+                    <option value="0.9871">Monaghan</option>
+                    <option value="0.9423">Offaly</option>
+                    <option value="1.1657">Roscommon</option>
+                    <option value="1.1288">Sligo</option>
+                    <option value="0.9997">Tipperary North County</option>
+                    <option value="0.9991">Tipperary South County</option>
+                    <option value="0.9483">Waterford City</option>
+                    <option value="0.9033">Waterford County</option>
+                    <option value="1.0861">Westmeath</option>
+                    <option value="0.8941">Wexford</option>
+                    <option value="1.0433">Blessington</option>
+                    <option value="0.9977">Bray</option>
+                    <option value="1.0651">Greystones</option>
+                    <option value="0.9604">Wicklow County</option>
+                </select></p>
 
             <p>Licence Type: <select name="licence">
-                <option value="0.7084">Full Licence</option>
-                <option value="1">Provisional Licence</option>
-            </select></p>
+                    <option value="0.7084">Full Licence</option>
+                    <option value="1">Provisional Licence</option>
+                </select></p>
 
             <p>Named Driving Experience: <select name="namedexp">
-                <option value="1">0 Years</option>
-                <option value="0.9443">1 Year</option>
-                <option value="0.9443">2 Years</option>
-                <option value="0.9443">3 Years</option>
-                <option value="0.9443">4 Years</option>
-                <option value="0.9443">5 Years</option>
-                <option value="0.9443">6+ Years</option>
-            </select></p>
+                    <option value="1">0 Years</option>
+                    <option value="0.9443">1 Year</option>
+                    <option value="0.9443">2 Years</option>
+                    <option value="0.9443">3 Years</option>
+                    <option value="0.9443">4 Years</option>
+                    <option value="0.9443">5 Years</option>
+                    <option value="0.9443">6+ Years</option>
+                </select></p>
 
             <p>No Claims Bonus: <select name="ncb">
                     <option value="1">0 Years</option>
@@ -247,43 +316,93 @@
                 </select></p>
 
             <p><select name="penalty">
-                <option value="1">1</option>
-                <option value="1">2</option>
-                <option value="1">3</option>
-                <option value="1">4</option>
-                <option value="1">5</option>
-                <option value="1">6+</option>
-            </select></p>
+                    <option value="1">1</option>
+                    <option value="1">2</option>
+                    <option value="1">3</option>
+                    <option value="1">4</option>
+                    <option value="1">5</option>
+                    <option value="1">6+</option>
+                </select></p>
 
             <p><select name="Additional Drivers">
-                <option value="1">1 named driver</option>
-                <option value="1">2 named drivers</option>
-            </select></p>
+                    <option value="1">1 named driver</option>
+                    <option value="1">2 named drivers</option>
+                </select></p>
 
             <p><select name="claims">
-                <option value="1">1 Year</option>
-            </select></p>
-            <button type="submit" name="submit" value="python" >
+                    <option value="1">1 Year</option>
+                </select></p>
+            <button type="submit" name="submit" value="python">
                 Python
-            </button>    
+            </button>
 
-            <button type = "button" onclick = "calculatePremium()" value = "javaScript">  
-            send data
-            </button>     
-
-
-       </form>
-      
-   <div>      
-          <!-- outputs the users name and insurance -->  
-
-          <p id="output1"></p>
-          <p id="output2"></p>
-
-  
+            <button type="button" onclick="calculatePremium()" value="javaScript">
+                send data
+            </button>
 
 
-</div>
+        </form>
+
+        <div>
+            <!-- outputs the users name and insurance -->
+
+            <p id="output1"></p>
+            <p id="output2"></p>
+
+
+
+
+        </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="ft-container">
+            <footer class="pt-4 my-md-5 pt-md-5 border-top">
+                <p class="float-right">
+                    <a href="#">Back to top</a>
+                </p>
+                <div class="row">
+                    <div class="col-12 col-md">
+                        <a href="{% url 'about' %}"><img class="mb-2" src="{% static 'favicon/favicon-96x96.png' %}"
+                                alt="" width="72" height="72"></a>
+                        <small class="d-block mb-3 text-muted">&copy; 2018-2019</small>
+                    </div>
+                    <div class="col-6 col-md">
+                        <h5>Features</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Home</a></li>
+                            <li><a class="text-muted" href="#">About</a></li>
+                            <li><a class="text-muted" href="#">FAQs</a></li>
+                            <li><a class="text-muted" href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md">
+                        <h5>Resources</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Join TourGo</a></li>
+                            <li><a class="text-muted" href="#">Login</a></li>
+                            <li><a class="text-muted" href="#">Dashboard</a></li>
+                            <li><a class="text-muted" href="#">Learning platform</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md">
+                        <h5>About</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Sitemap</a></li>
+                            <li><a class="text-muted" href="#">Locations</a></li>
+                            <li><a class="text-muted" href="#">Privacy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'index_css/vendor/jquery/jquery.min.js' %} "></script>
+    <script src="{% static 'index_css/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- Scrolling Header JavaScript -->
+    <script src="{% static 'custom_js/scroll.js' %}"></script>
 </body>
 
 </html>
