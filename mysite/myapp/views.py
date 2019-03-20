@@ -13,17 +13,14 @@ def index(request):
 def quote(request):
 	#remember to validate the data collect first 
 	# "firstname" is name="firstname" in the input tag
-	f_name = request.GET.get('fname')
-	l_name = request.GET.get('lname')
-	dob = request.GET.get('bday')
-	address = request.GET.get('address_l1')
 
-	print ("jemil is ", f_name, l_name, dob, address )
+
+
 
 
 	
-	context={}
-	return render(request, "quote.html", context)
+	
+	return render(request, "quote.html")
 
 def about(request):
 	return render_to_response("about.html")
@@ -38,9 +35,25 @@ def user_dash(request):
 	return render_to_response("user_dash.html")
 
 def registration(request):
+	driver = Driver()
 
-	premium = request.GET.get('url')
-	print (premium)
+
+	f_name = request.GET.get('fname')
+	l_name = request.GET.get('lname')
+	dob = request.GET.get('bday')
+	address1 = request.GET.get('address_l1')
+	address2 = request.GET.get('address_l2')
+	print ("the quote details are", f_name, l_name, dob, address1, address2 )
+	#sends input data to the model
+	"""
+	driver.f_name = f_name
+	driver.l_name = l_name
+	driver.address1 = address1
+	driver.address2 = address2
+	driver.save()
+	"""
+	#print(f_name, eircode, drive_exp)
+
 	context={}
 	return render(request, "registration.html", context)
 
