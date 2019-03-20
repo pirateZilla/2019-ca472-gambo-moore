@@ -57,8 +57,7 @@ def registration(request):
 	context={}
 	return render(request, "registration.html", context)
 
-def login(request):
-	return render_to_response("registration/login.html")
+
 
 def  register(request):
 	if request.method == 'POST':
@@ -71,10 +70,12 @@ def  register(request):
 			password = form.cleaned_data['password1']
 			user = authenticate(username=username, password=password) #authenticate is a hash funtion in djnago 
 			login(request,user)
-			return redirect ('index')
+			return redirect ('login')
 	else:
 		form = UserCreationForm()
 
 	context = {'form' : form}
 	return render(request, "registration/register.html", context)
 
+def login(request, user):
+	return redirect ('user_dash')

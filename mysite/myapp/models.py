@@ -58,7 +58,7 @@ class Journeys(models.Model):
     start_time = models.CharField(max_length=20, blank=True)
     end_time = models.CharField(max_length=20, blank=True)
     distance = models.CharField(max_length=20, blank=True)
-    end_location = models.CharField(max_length=20, blank=True)
+    start_location = models.CharField(max_length=20, blank=True)
     end_location = models.CharField(max_length=20, blank=True)
    
 

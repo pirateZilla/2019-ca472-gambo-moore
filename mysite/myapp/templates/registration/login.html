@@ -53,7 +53,7 @@
 	{% endif %}
 
 	<h1>Login to TourGo</h1>
-	<form method="post" action="{% url 'login' %}">
+	<form method="post" action="{% url 'user_dash' %}">
 		{% csrf_token %}
 	<!-- dec i need you to find out how to edit this to look nicer  -->
 		<P>Usernaem: {{ form.username }} </P>
