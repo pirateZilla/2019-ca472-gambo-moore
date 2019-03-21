@@ -78,4 +78,6 @@ def  register(request):
 	return render(request, "registration/register.html", context)
 
 def login(request, user):
+
 	return redirect ('user_dash')
+
