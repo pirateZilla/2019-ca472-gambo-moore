@@ -1,5 +1,5 @@
 html {
-    font-family: roboto;
+    font-family: 'Roboto', sans-serif;
   }
 
   /* nav {
@@ -16,8 +16,7 @@ html {
   }
 
   .navbar-brand {
-    font-family: roboto;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 20pt;
   }
   .tour {
