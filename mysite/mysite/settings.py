@@ -32,7 +32,7 @@ SECRET_KEY = 'dj@21=yn19+vs$phf5^l5g6q6p0&%&v(mg6+4mvn_1xajdkkpf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['piratezilla1.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'piratezilla1.pythonanywhere.com']
 
 
 # Application definition
