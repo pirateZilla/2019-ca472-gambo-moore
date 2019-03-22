@@ -52,7 +52,6 @@ class Maintenance(models.Model):
 
 
 class Journeys(models.Model):
-
     Driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
 
     journey_score = models.CharField(max_length=20, blank=True)
@@ -73,8 +72,7 @@ class Journeys(models.Model):
         
 
 class Speed(models.Model):
-    Journeys = models.OneToOneField(Journeys, on_delete=models.CASCADE, primary_key=True, )
-   
+    Driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
     speed_level = models.PositiveIntegerField( blank=True)
     def  __str__(self):
         return self.speed_level
@@ -82,21 +80,21 @@ class Speed(models.Model):
 
 
 class Fatigue(models.Model):
-    Journeys = models.OneToOneField(Journeys, on_delete=models.CASCADE, primary_key=True, )
+    Driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
     fatigue_level = models.PositiveIntegerField( blank=True)
     def  __str__(self):
         return self.fatigue_level
 
 
 class TimeOfDay(models.Model):
-    Journeys = models.OneToOneField(Journeys, on_delete=models.CASCADE, primary_key=True, )
+    Driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
     time_of_day_level = models.PositiveIntegerField( blank=True)
     def  __str__(self):
         return self.time_of_day_level
 
 
 class Smoothness(models.Model):
-    Journeys = models.OneToOneField(Journeys, on_delete=models.CASCADE, primary_key=True, )
+    Driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
     Smoothness_level = models.PositiveIntegerField( blank=True)
     def  __str__(self):
         return self.Smoothness_level
