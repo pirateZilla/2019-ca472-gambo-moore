@@ -71,7 +71,7 @@ class Journeys(models.Model):
         return self.journey_score
         
 
-class Speed(object):
+class Speed(models.Model):
     Driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
     speed_level = models.PositiveIntegerField( blank=True)
     def  __str__(self):
@@ -79,21 +79,21 @@ class Speed(object):
 
 
 
-class Fatigue(object):
+class Fatigue(models.Model):
     Driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
     fatigue_level = models.PositiveIntegerField( blank=True)
     def  __str__(self):
         return self.fatigue_level
 
 
-class TimeOfDay(object):
+class TimeOfDay(models.Model):
     Driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
     time_of_day_level = models.PositiveIntegerField( blank=True)
     def  __str__(self):
         return self.time_of_day_level
 
 
-class Smoothness(object):
+class Smoothness(models.Model):
     Driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
     Smoothness_level = models.PositiveIntegerField( blank=True)
     def  __str__(self):
