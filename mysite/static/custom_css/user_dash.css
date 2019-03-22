@@ -1,0 +1,18 @@
+.bg-denim {
+  background-color: #1565c0 !important;
+}
+
+.border-left-denim {
+  border-left: 0.25rem solid #1565c0 !important;
+}
+
+.text-denim {
+  color: #1565c0 !important;
+}
+
+.bg-gradient-denim {
+  background-color: #1565c0;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #1565c0), to(#224abe));
+  background-image: linear-gradient(180deg, #1565c0 10%, #224abe 100%);
+  background-size: cover;
+}

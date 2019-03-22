@@ -16,7 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# for static files 
+# for static files
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 STATICFILES_DIRS = (
@@ -32,7 +32,7 @@ SECRET_KEY = 'dj@21=yn19+vs$phf5^l5g6q6p0&%&v(mg6+4mvn_1xajdkkpf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['piratezilla1.pythonanywhere.com']
 
 
 # Application definition
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #n.d i removed this as it was causing issues when i try to send data from templates 
+    #n.d i removed this as it was causing issues when i try to send data from templates
     #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -127,6 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '/home/piratezilla1/2019-ca472-gambo-moore/mysite/static'
 
 #do not chnage --> ask jemil fisrt
 #check login video for more info
