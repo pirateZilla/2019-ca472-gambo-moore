@@ -1,18 +1,49 @@
 .bg-denim {
-  background-color: #1565c0 !important;
+    background-color: #1565c0 !important;
 }
 
 .border-left-denim {
-  border-left: 0.25rem solid #1565c0 !important;
+    border-left: 0.25rem solid #1565c0 !important;
 }
 
 .text-denim {
-  color: #1565c0 !important;
+    color: #1565c0 !important;
 }
 
 .bg-gradient-denim {
-  background-color: #1565c0;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #1565c0), to(#224abe));
-  background-image: linear-gradient(180deg, #1565c0 10%, #224abe 100%);
-  background-size: cover;
+    background-color: #1565c0;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #1565c0), to(#224abe));
+    background-image: linear-gradient(180deg, #1565c0 10%, #224abe 100%);
+    background-size: cover;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* nav {
+  position: relative;
+} */
+
+.navbar {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    background-color: #1565c0;
+    font-family: roboto;
+    opacity: 1;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 20pt !important;
+}
+
+.tour {
+    color: black;
 }

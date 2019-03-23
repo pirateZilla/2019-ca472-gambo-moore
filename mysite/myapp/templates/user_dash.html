@@ -37,13 +37,52 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="{% static 'user_dash_css/css/sb-admin-2.min.css' %}" rel="stylesheet">
   <link href="{% static 'custom_css/user_dash.css' %}" rel="stylesheet">
+  <link href="{% static 'user_dash_css/css/sb-admin-2.min.css' %}" rel="stylesheet">
+  <link href="{% static 'index_css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
-
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark static-top" id="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}"><span class="tour">Tour</span>Go<img
+            src="{% static 'images/car.png' %}" width="60" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'quote' %}">get a quote</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">how it works</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'faq' %}">faq</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'contact' %}">contact
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'user_dash' %}">dashboard</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -386,10 +425,10 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-denim text-uppercase mb-1">Journeys (this week)
-                          {% if user.is_authenticated %}
+                        {% if user.is_authenticated %}
 
-                          <p> welcome {{ user.username }}</p>
-                          {% endif %}
+                        <p> welcome {{ user.username }}</p>
+                        {% endif %}
 
                       </div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">13</div>
