@@ -16,7 +16,7 @@
 
 .text-denim-300 {
   color: #1565c0 !important;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .text-denim-400 {
@@ -90,4 +90,12 @@ html {
 
 .tour {
     color: black;
+}
+
+.nav-link-icon {
+  font-size: 24px !important;
+}
+
+.badge {
+  font-size: 50% !important;
 }
