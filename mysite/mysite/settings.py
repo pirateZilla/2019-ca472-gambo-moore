@@ -38,13 +38,13 @@ ALLOWED_HOSTS = ['127.0.0.1', 'www.tourgo.ie']
 # Application definition
 
 INSTALLED_APPS = [
+    'widget_tweaks',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'widget_tweaks',
     'myapp',
 ]
 
