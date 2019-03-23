@@ -67,20 +67,20 @@ html {
 } */
 
 .nav-cus {
-    position: absolute;
-    top: 0;
-    z-index: 10;
-    background-color: #1565c0;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #1565c0), to(#224abe));
-    background-image: linear-gradient(180deg, #1565c0 10%, #224abe 100%);
-    background-size: cover;
-    font-family: roboto;
-    opacity: 1;
-    width: 100%;
-    padding-top: 0.5rem;
-    padding-right: 1rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
+    position: absolute !important;
+    top: 0 !important;
+    z-index: 10 !important;
+    background-color: #1565c0 !important;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #1565c0), to(#224abe)) !important;
+    background-image: linear-gradient(180deg, #1565c0 10%, #224abe 100%) !important;
+    background-size: cover !important;
+    font-family: roboto !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    padding-top: 0.5rem !important;
+    padding-right: 1rem !important;
+    padding-bottom: 0.5rem !important;
+    padding-left: 1rem !important;
 }
 
 .navbar-brand {
