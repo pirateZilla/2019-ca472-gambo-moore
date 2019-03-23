@@ -6,8 +6,49 @@
     border-left: 0.25rem solid #1565c0 !important;
 }
 
+.border-bottom-denim {
+  border-bottom: 0.25rem solid #224abe !important;
+}
+
 .text-denim {
     color: #1565c0 !important;
+}
+
+.text-denim-300 {
+  color: #1565c0 !important;
+  opacity: 0.7;
+}
+
+.text-denim-400 {
+  color: #1565c0 !important;
+  opacity: 0.7;
+}
+
+.btn-primary {
+  color: #fff !important;
+  background-color: #1565c0 !important;
+  border-color: #1565c0 !important;
+}
+
+.btn-primary:hover {
+  color: #fff !important;
+  background-color: #3f81cb !important;
+  border-color: #3f81cb !important;
+}
+
+.text-success-300 {
+  color: #1cc88a !important;
+  opacity: 0.7;
+}
+
+.text-info-300 {
+  color: #36b9cc !important;
+  opacity: 0.7;
+}
+
+.text-warning-300 {
+  color: #f6c23e !important;
+  opacity: 0.7;
 }
 
 .bg-gradient-denim {
@@ -25,11 +66,14 @@ html {
   position: relative;
 } */
 
-.navbar {
+.nav-cus {
     position: absolute;
     top: 0;
     z-index: 10;
     background-color: #1565c0;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #1565c0), to(#224abe));
+    background-image: linear-gradient(180deg, #1565c0 10%, #224abe 100%);
+    background-size: cover;
     font-family: roboto;
     opacity: 1;
     width: 100%;
