@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html>
 
@@ -39,6 +40,7 @@
 	<!-- Custom Page CSS -->
 	<link href="{% static 'custom_css/index.css' %}" rel="stylesheet">
 	<link href="{% static 'custom_css/about.css' %}" rel="stylesheet">
+	<link href="{% static 'custom_css/login.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -98,9 +100,9 @@
 			<h1>Login to TourGo</h1>
 			<form method="post" action="{% url 'user_dash' %}">
 				{% csrf_token %}
-				<!-- dec i need you to find out how to edit this to look nicer  -->
-				<P>Username: {{ form.username }} </P>
-				<P>Password: {{ form.password }}</P>
+				<!-- dec i need you to find out how to edit this to look nicer -----REPLY I FIGURED IT OUT WITH WIDGET TWEAKS -->
+				<P>Username: {{ form.username|add_class:"input-lg" }} </P>
+				<P>Password: {{ form.password|add_class:"input-lg" }}</P>
 
 				<P><input type="submit"=value="login"></P>
 				<input type="hidden" name="next" value="{{ next }}">
