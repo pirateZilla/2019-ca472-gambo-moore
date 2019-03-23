@@ -39,7 +39,7 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  
+
   <link href="{% static 'user_dash_css/css/sb-admin-2.min.css' %}" rel="stylesheet">
   <link href="{% static 'custom_css/user_dash.css' %}" rel="stylesheet">
   <link href="{% static 'index_css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -47,45 +47,7 @@
 </head>
 
 <body id="page-top">
-  <header>
-    <nav class="navbar nav-cus navbar-expand-lg navbar-dark static-top border-bottom-denim" id="navbar">
-      <div class="container">
-        <a class="navbar-brand" href="{% url 'index' %}"><span class="tour">Tour</span>Go<img
-            src="{% static 'images/car.png' %}" width="60" /></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'index' %}">home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'quote' %}">get a quote</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">how it works</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'faq' %}">faq</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'contact' %}">contact</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'user_dash' %}">dashboard
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -93,9 +55,12 @@
     <ul class="navbar-nav bg-gradient-denim sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        
-        <div class="sidebar-brand-text mx-3">Your Driving</div>
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'index' %}">
+
+        <div class="sidebar-brand-text mx-3">
+          <span class="tour">Tour</span><span class="go">Go</span><img src="{% static 'images/car.png' %}" width="60" />
+        </div>
+
       </a>
 
       <!-- Divider -->
@@ -103,7 +68,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{% url 'user_dash' %}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -150,6 +115,7 @@
         </div>
       </li>
 
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -195,6 +161,43 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Site
+      </div>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}">
+          <i class="fas fa-fw fa-home"></i>
+          <span>Home</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}">
+          <i class="fas fa-fw fa-network-wired"></i>
+          <span>About</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'faq' %}">
+          <i class="fas fa-fw fa-info"></i>
+          <span>FAQs</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'contact' %}">
+          <i class="fas fa-fw fa-envelope"></i>
+          <span>Contact</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
@@ -259,8 +262,8 @@
 
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link nav-link-icon dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link nav-link-icon dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw text-denim-300"></i>
                 <!-- Counter - Alerts -->
                 <span class="badge badge-danger badge-counter">3+</span>
@@ -279,7 +282,8 @@
                   </div>
                   <div>
                     <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">New Learning resources are now available on the Learning Platform. Check them out!</span>
+                    <span class="font-weight-bold">New Learning resources are now available on the Learning Platform.
+                      Check them out!</span>
                   </div>
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -310,8 +314,8 @@
 
             <!-- Nav Item - Messages -->
             <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link nav-link-icon dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link nav-link-icon dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw text-denim-300"></i>
                 <!-- Counter - Messages -->
                 <span class="badge badge-danger badge-counter">7</span>
@@ -328,7 +332,8 @@
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div class="font-weight-bold">
-                    <div class="text-truncate">Looks like your due and upgrade! If you'd like to upgrade to a new car please see our...</div>
+                    <div class="text-truncate">Looks like your due and upgrade! If you'd like to upgrade to a new car
+                      please see our...</div>
                     <div class="small text-gray-500">Emma (Vehicles) · 58m</div>
                   </div>
                 </a>
@@ -338,7 +343,8 @@
                     <div class="status-indicator"></div>
                   </div>
                   <div>
-                    <div class="text-truncate">To clarify your question, when you're approaching a roundabout be sure to...</div>
+                    <div class="text-truncate">To clarify your question, when you're approaching a roundabout be sure
+                      to...</div>
                     <div class="small text-gray-500">Jae (Learning) · 1d</div>
                   </div>
                 </a>
@@ -348,7 +354,8 @@
                     <div class="status-indicator bg-warning"></div>
                   </div>
                   <div>
-                    <div class="text-truncate">Your credit card details have been updated. Thank you for letting us know. All future payments will be charged to this new method.</div>
+                    <div class="text-truncate">Your credit card details have been updated. Thank you for letting us
+                      know. All future payments will be charged to this new method.</div>
                     <div class="small text-gray-500">Thomas (Payments) · 2d</div>
                   </div>
                 </a>
@@ -358,7 +365,8 @@
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div>
-                    <div class="text-truncate">We've just finished servicing your Volkswagen Polo and it's ready for you to collect.</div>
+                    <div class="text-truncate">We've just finished servicing your Volkswagen Polo and it's ready for you
+                      to collect.</div>
                     <div class="small text-gray-500">Yvette (Service) · 2w</div>
                   </div>
                 </a>
