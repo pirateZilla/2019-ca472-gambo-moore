@@ -118,27 +118,33 @@
 					<div class="col-6 col-md">
 						<h5>Features</h5>
 						<ul class="list-unstyled text-small">
-							<li><a class="text-muted" href="#">Home</a></li>
-							<li><a class="text-muted" href="#">About</a></li>
-							<li><a class="text-muted" href="#">FAQs</a></li>
-							<li><a class="text-muted" href="#">Contact</a></li>
+							<li><a class="text-muted" href="{% url 'index' %}">Home</a></li>
+							<li><a class="text-muted" href="{% url 'about' %}">About</a></li>
+							<li><a class="text-muted" href="{% url 'faq' %}">FAQs</a></li>
+							<li><a class="text-muted" href="{% url 'contact' %}">Contact</a></li>
 						</ul>
 					</div>
 					<div class="col-6 col-md">
 						<h5>Resources</h5>
 						<ul class="list-unstyled text-small">
-							<li><a class="text-muted" href="#">Join TourGo</a></li>
-							<li><a class="text-muted" href="#">Login</a></li>
-							<li><a class="text-muted" href="#">Dashboard</a></li>
-							<li><a class="text-muted" href="#">Learning platform</a></li>
+							<li><a class="text-muted" href="{% url 'quote' %}">Join TourGo</a></li>
+							<li><a class="text-muted" href="{% url 'login' %}">Login</a></li>
+							<li><a class="text-muted" href="{% url 'user_dash' %}">Dashboard</a></li>
+							<li><a class="text-muted" href="{% url 'user_dash' %}">Learning platform</a></li>
 						</ul>
 					</div>
 					<div class="col-6 col-md">
 						<h5>About</h5>
 						<ul class="list-unstyled text-small">
-							<li><a class="text-muted" href="#">Sitemap</a></li>
-							<li><a class="text-muted" href="#">Locations</a></li>
-							<li><a class="text-muted" href="#">Privacy</a></li>
+							<li><a class="text-muted"
+									href="https://gitlab.computing.dcu.ie/moored39/2019-ca472-gambo-moore">Sitemap</a>
+							</li>
+							<li><a class="text-muted"
+									href="https://gitlab.computing.dcu.ie/moored39/2019-ca472-gambo-moore">Locations</a>
+							</li>
+							<li><a class="text-muted"
+									href="https://gitlab.computing.dcu.ie/moored39/2019-ca472-gambo-moore">Privacy</a>
+							</li>
 						</ul>
 					</div>
 				</div>
