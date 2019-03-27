@@ -98,7 +98,7 @@
 			{% endif %}
 
 			<h1>Login to TourGo</h1>
-			<form method="post" action="{% url 'user_dash' %}">
+			<form method="post" action="{% url 'quote' %}">
 				{% csrf_token %}
 				<!-- dec i need you to find out how to edit this to look nicer -----REPLY I FIGURED IT OUT WITH WIDGET TWEAKS -->
 				<P>Username: {{ form.username|add_class:"input-lg" }} </P>

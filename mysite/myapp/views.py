@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login	
 #imports the  driver model so we can save the data to it 
-from .models import Driver
+from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay
 
 # Create your views here.
 
@@ -11,16 +11,11 @@ def index(request):
 	return render_to_response("index.html")
 
 def quote(request):
-	#remember to validate the data collect first 
-	# "firstname" is name="firstname" in the input tag
+	#print (request.user)
 
-
-
-
-
+	context = {}
 	
-	
-	return render(request, "quote.html")
+	return render(request, "quote.html", context)
 
 def about(request):
 	return render_to_response("about.html")
@@ -32,7 +27,29 @@ def contact(request):
 	return render_to_response("contact.html")
 
 def user_dash(request):
-	return render_to_response("user_dash.html")
+
+	#SQL QUERIES for jemil
+	average_JS = Driver.objects.raw('''select myapp_driver.id,  ROUND(AVG(journey_score)) AS avg_journey_score
+											from myapp_driver
+											join myapp_journeys on myapp_driver.id = myapp_journeys.Driver_id
+											where f_name = "jemil"; 
+											''')# just change "jemil"
+
+	num_journeys_this_week = Journeys.objects.raw('''select myapp_journeys.id, count(myapp_journeys.id) as trips
+													from myapp_journeys
+													where Driver_id = "1"; 
+	 												''')# just chnage the ID
+	km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
+										from myapp_journeys
+										where Driver_id = "1";
+								 	''') #JUST CHNAGE THE id 
+	context = {
+
+	"journey_score": average_JS,
+	"num_trips": num_journeys_this_week,
+	"km_driven": km_driven
+	}
+	return render_to_response("user_dash.html", context)
 
 def registration(request):
 	driver = Driver()
@@ -79,5 +96,6 @@ def  register(request):
 
 def login(request, user):
 
-	return redirect ('user_dash')
+	context = {}
+	return redirect ('quote', context)
 
