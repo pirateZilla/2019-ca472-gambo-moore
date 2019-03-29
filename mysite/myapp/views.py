@@ -12,8 +12,19 @@ def index(request):
 
 def quote(request):
 	#print (request.user)
+	user_id = request.GET.get('user_id')
+	#print (user_id)
 
-	context = {}
+	km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
+										from myapp_journeys
+										where Driver_id = %s ;
+								 	''', [user_id]) 
+
+	for x in km_driven:
+		print (x.km_driven)
+	context = {
+	"km_driven": km_driven,
+	}
 	
 	return render(request, "quote.html", context)
 
@@ -28,59 +39,65 @@ def contact(request):
 
 def user_dash(request):
 
-	#SQL QUERIES for jemil
-	average_JS = Driver.objects.raw('''select myapp_driver.id,  ROUND(AVG(journey_score)) AS avg_journey_score
+	#collects the driver ID from the dropdown 
+	user_id = request.GET.get('user_id')
+
+	#SQL QUERIES for diffent drivers 
+	average_JS = Driver.objects.raw('''select myapp_driver.id,  ROUND(AVG(journey_score)) AS avg_journey_score, myapp_driver.f_name, myapp_driver.l_name
 											from myapp_driver
 											join myapp_journeys on myapp_driver.id = myapp_journeys.Driver_id
-											where f_name = "jemil"; 
-											''')# just change "jemil"
+											where myapp_driver.id = %s;
+											''', [user_id]) 
 
 	num_journeys_this_week = Journeys.objects.raw('''select myapp_journeys.id, count(myapp_journeys.id) as trips
 													from myapp_journeys
-													where Driver_id = "1"; 
-	 												''')# just chnage the ID
+													where Driver_id = %s; 
+	 												''', [user_id]) 
 	km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
 										from myapp_journeys
-										where Driver_id = "1";
-								 	''') #JUST CHNAGE THE id 
-	avg_smoothness = Smoothness.objects.raw('''select myapp_journeys.id, Round (avg(myapp_smoothness.Smoothness_level)) AS avg_smoothness
+										where Driver_id = %s;
+								 	''', [user_id])
+
+	avg_smoothness = Smoothness.objects.raw('''select myapp_journeys.id, Round (avg(myapp_smoothness.Smoothness_level)) AS avg_smoothness, 
+												myapp_car.car_type,  myapp_car.car_mileage, myapp_car.car_reg, myapp_car.engine_size
 												from myapp_car inner join myapp_journeys on myapp_car.Driver_id = myapp_journeys.Driver_id
 												inner join myapp_smoothness on
  												myapp_smoothness.Journeys_id = myapp_journeys.id
-												where myapp_car.Driver_id = "1";
-											''')# just chnage the ID
+												where myapp_car.Driver_id = %s;
+											''', [user_id]) 
+
 	avg_fatigue = Fatigue.objects.raw('''select myapp_journeys.id,  Round (avg(myapp_fatigue.fatigue_level)) AS avg_fatigue
 										from myapp_car inner join myapp_journeys on myapp_car.Driver_id = myapp_journeys.Driver_id
 										inner join myapp_fatigue on
  										myapp_fatigue.Journeys_id = myapp_journeys.id
-										where myapp_car.Driver_id = "1";
-									 ''')
+										where myapp_car.Driver_id = %s;
+									 ''', [user_id]) 
 
 	avg_speed = Speed.objects.raw('''select myapp_journeys.id,  Round (avg(myapp_speed.speed_level)) AS avg_speed
 									from myapp_car inner join myapp_journeys on myapp_car.Driver_id = myapp_journeys.Driver_id
 									inner join myapp_speed on
  									myapp_speed.Journeys_id = myapp_journeys.id
-									where myapp_car.Driver_id = "1";
+									where myapp_car.Driver_id = %s;
+	 							''', [user_id]) 
 
-	 							''')
 	TimeOfDay_level= TimeOfDay.objects.raw('''select myapp_journeys.id, Round (avg(myapp_timeofday.time_of_day_level)) AS avg_timeofday
 											from myapp_car inner join myapp_journeys on myapp_car.Driver_id = myapp_journeys.Driver_id
 											inner join myapp_timeofday on
  											myapp_timeofday.Journeys_id = myapp_journeys.id
-											where myapp_car.Driver_id = "1";
+											where myapp_car.Driver_id = %s;
+	 									''', [user_id]) 
 
-
-
-	 ''')
+	#test 
 	for x in TimeOfDay_level:
 		print (x.avg_timeofday)
 
+	#send to the templte
 	context = {
 
 	"journey_score": average_JS,
 	"num_trips": num_journeys_this_week,
 	"km_driven": km_driven,
-	"Smoothness": avg_smoothness ,
+	"smoothness": avg_smoothness ,
 	"fatigue": avg_fatigue ,
 	"speed": avg_speed ,
 	"TimeOfDay": TimeOfDay_level,

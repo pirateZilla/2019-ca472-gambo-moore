@@ -365,6 +365,8 @@
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div>
+
+
                     <div class="text-truncate">We've just finished servicing your Volkswagen Polo and it's ready for you
                       to collect.</div>
                     <div class="small text-gray-500">Yvette (Service) · 2w</div>
@@ -380,7 +382,13 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Jemil Gambo</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                                                            {% for x in journey_score %}
+                                                                             {{ x.f_name }} {{x.l_name}}
+                                                                            {% endfor %}
+
+
+                </span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -415,7 +423,24 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Volkswagen Polo</h1>
+            <form action="{% url 'user_dash'  %}" method="get">
+            Select Driver:  <select name="user_id">
+
+              <option value="1">Jemil</option>
+              <option value="2">Decalan</option>   
+              <option value="3">Sean</option> 
+              <option value="4">Roisin</option> 
+              <option value="5">Peter</option>
+              <option value="6">Frank</option>  
+              </select>
+              <input type="submit" value = "Enter"/>
+              <br><br>
+              </form>
+            <h1 class="h3 mb-0 text-gray-800">
+                                              {% for x in smoothness %}
+                                              {{ x.car_type }}
+                                              {% endfor %}
+            </h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-car-side fa-sm text-white-50"></i> Vehicle Profile</a>
           </div>
@@ -654,7 +679,11 @@
                   <div class="card bg-denim text-white shadow">
                     <div class="card-body">
                       Vehicle
-                      <div class="text-white-50 small">Volkswagen Polo</div>
+                      <div class="text-white-50 small">
+                                              {% for x in smoothness %}
+                                              {{ x.car_type }}
+                                              {% endfor %}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -662,7 +691,12 @@
                   <div class="card bg-success text-white shadow">
                     <div class="card-body">
                       Registration
-                      <div class="text-white-50 small">191D1854</div>
+                      <div class="text-white-50 small">
+                                              {% for x in smoothness %}
+                                              {{ x.car_reg }}
+                                              {% endfor %}
+
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -670,7 +704,13 @@
                   <div class="card bg-info text-white shadow">
                     <div class="card-body">
                       Engine size
-                      <div class="text-white-50 small">1.0l Petrol</div>
+                      <div class="text-white-50 small">
+                                              {% for x in smoothness %}
+                                              {{ x.engine_size }}
+                                              {% endfor %}
+
+
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -678,7 +718,13 @@
                   <div class="card bg-warning text-white shadow">
                     <div class="card-body">
                       Mileage
-                      <div class="text-white-50 small">4752 km</div>
+                      <div class="text-white-50 small">
+                                              {% for x in smoothness %}
+                                              {{ x.car_mileage }}
+                                              {% endfor %}
+
+
+                      </div>
                     </div>
                   </div>
                 </div>
