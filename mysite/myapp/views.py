@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login	
 #imports the  driver model so we can save the data to it 
 from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay
+import pprint
 
 # Create your views here.
 
@@ -17,8 +18,8 @@ def quote(request):
 
 	km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
 										from myapp_journeys
-										where Driver_id = %s ;
-								 	''', [user_id]) 
+										where Driver_id = 1 ;
+								 	''',) 
 
 	for x in km_driven:
 		print (x.km_driven)
@@ -88,10 +89,10 @@ def user_dash(request):
 	 									''', [user_id]) 
 
 	#test 
-	for x in TimeOfDay_level:
+	for x in avg_smoothness:
 		print (x.avg_timeofday)
-
 	#send to the templte
+	#print (km_driven[0])
 	context = {
 
 	"journey_score": average_JS,
@@ -153,3 +154,6 @@ def login(request, user):
 	context = {}
 	return redirect ('quote', context)
 
+
+def maintenance_checklist(request):
+	return render( request, "maintenance_checklist.html")
