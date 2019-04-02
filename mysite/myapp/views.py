@@ -156,4 +156,29 @@ def login(request, user):
 
 
 def maintenance_checklist(request):
+	maintenance = Maintenance()
+
+
+	oil_level = request.GET.get('oil_level')
+	battery_level= request.GET.get('battery_level')
+	coolent_level = request.GET.get('coolent_level')
+	tyre_depth = request.GET.get('tyre_depth')
+	windscreen_washer_level = request.GET.get('windscreen_washer_level')
+	print ("the maintenance results are", oil_level, battery_level, coolent_level, tyre_depth, windscreen_washer_level)
+	#sends input data to the model
+	"""
+	driver.f_name = f_name
+	driver.l_name = l_name
+	driver.address1 = address1
+	driver.address2 = address2
+	driver.save()
+	"""
+	#print(f_name, eircode, drive_exp)
+
+
 	return render( request, "maintenance_checklist.html")
+
+def learning_platform(request):
+
+
+	return render(request, "learning_platform.html")
