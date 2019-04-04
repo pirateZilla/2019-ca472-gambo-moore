@@ -5,15 +5,17 @@ from django.contrib.auth import authenticate, login
 #imports the  driver model so we can save the data to it 
 from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay
 import pprint
+import json
 
 # Create your views here.
 
 def index(request):
 	return render_to_response("index.html")
 
-def quote(request):
+def quote(request, ):
 	#print (request.user)
 	user_id = request.GET.get('user_id')
+
 	#print (user_id)
 
 	km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
@@ -23,6 +25,10 @@ def quote(request):
 
 	for x in km_driven:
 		print (x.km_driven)
+
+
+
+
 	context = {
 	"km_driven": km_driven,
 	}
@@ -40,8 +46,13 @@ def contact(request):
 
 def user_dash(request):
 
+	#google maps funtionality 
+
+
+
 	#collects the driver ID from the dropdown 
 	user_id = request.GET.get('user_id')
+
 
 	#SQL QUERIES for diffent drivers 
 	average_JS = Driver.objects.raw('''select myapp_driver.id,  ROUND(AVG(journey_score)) AS avg_journey_score, myapp_driver.f_name, myapp_driver.l_name
@@ -88,11 +99,22 @@ def user_dash(request):
 											where myapp_car.Driver_id = %s;
 	 									''', [user_id]) 
 
-	#test 
-	for x in avg_smoothness:
-		print (x.avg_timeofday)
-	#send to the templte
-	#print (km_driven[0])
+	
+
+	#collects the start and end location of a driver journey n.b it only looks at the last journey
+	start_location = Journeys.objects.raw('''select myapp_journeys.id, myapp_journeys.start_location, myapp_journeys.end_location 
+		from myapp_journeys where myapp_journeys.Driver_id =%s''', [user_id])
+	
+	#has to have a defult figure or map functionality wont work
+	maps_start = "0"
+	maps_end ="0"
+	for x in start_location:
+		maps_start = x.start_location
+		maps_end = x.end_location
+
+	#google maps link with API key for journey locations 	
+	src="https://www.google.com/maps/embed/v1/directions?origin="+ maps_start + "&"  + "destination="+maps_end + "&key=AIzaSyAEIIVLTLc_JfDkoF_j3lv8Y5j6qpf5NoI"
+
 	context = {
 
 	"journey_score": average_JS,
@@ -102,6 +124,8 @@ def user_dash(request):
 	"fatigue": avg_fatigue ,
 	"speed": avg_speed ,
 	"TimeOfDay": TimeOfDay_level,
+	"start_location": start_location,
+	"src": src
 
 	}
 	return render_to_response("user_dash.html", context)
@@ -181,4 +205,8 @@ def maintenance_checklist(request):
 def learning_platform(request):
 
 
+
+
 	return render(request, "learning_platform.html")
+
+

@@ -504,7 +504,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Learning Tasks</div>
+                      <a href="/learning_platform/"><div class="text-xs font-weight-bold text-info text-uppercase mb-1">Learning Tasks</div></a>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
                           <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
@@ -529,7 +529,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Maintenance Tasks</div>
+                      <a href="/maintenance_checklist/"><div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Maintenance Tasks</div></a>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
                           <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">100%</div>
@@ -762,8 +762,11 @@
                 </div>
                 <div class="card-body">
                   <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                      src="{% static 'user_dash_css/img/undraw_city_driver.svg' %}" alt="">
+                    <iframe class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+
+                    frameborder="0" style="border:0"
+src={{src}} allowfullscreen></iframe>
+                   
                   </div>
                   <h4 class="small font-weight-bold">Start <span class="float-right">End</span></h4>
                   <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow"
