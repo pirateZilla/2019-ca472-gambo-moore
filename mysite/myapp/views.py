@@ -1,212 +1,218 @@
 from django.shortcuts import render, render_to_response, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login	
-#imports the  driver model so we can save the data to it 
+from django.contrib.auth import authenticate, login
+# imports the  driver model so we can save the data to it
 from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay
 import pprint
 import json
 
 # Create your views here.
 
+
 def index(request):
-	return render_to_response("index.html")
+    return render_to_response("index.html")
+
 
 def quote(request, ):
-	#print (request.user)
-	user_id = request.GET.get('user_id')
+    #print (request.user)
+    user_id = request.GET.get('user_id')
 
-	#print (user_id)
+    #print (user_id)
 
-	km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
+    km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
 										from myapp_journeys
 										where Driver_id = 1 ;
-								 	''',) 
+								 	''',)
 
-	for x in km_driven:
-		print (x.km_driven)
+    for x in km_driven:
+        print(x.km_driven)
 
+    context = {
+        "km_driven": km_driven,
+    }
 
+    return render(request, "quote.html", context)
 
-
-	context = {
-	"km_driven": km_driven,
-	}
-	
-	return render(request, "quote.html", context)
 
 def about(request):
-	return render_to_response("about.html")
+    return render_to_response("about.html")
+
 
 def faq(request):
-	return render_to_response("faq.html")
+    return render_to_response("faq.html")
+
 
 def contact(request):
-	return render_to_response("contact.html")
+    return render_to_response("contact.html")
+
 
 def user_dash(request):
 
-	#google maps funtionality 
+    # google maps funtionality
 
+    # collects the driver ID from the dropdown
+    user_id = request.GET.get('user_id')
 
-
-	#collects the driver ID from the dropdown 
-	user_id = request.GET.get('user_id')
-
-
-	#SQL QUERIES for diffent drivers 
-	average_JS = Driver.objects.raw('''select myapp_driver.id,  ROUND(AVG(journey_score)) AS avg_journey_score, myapp_driver.f_name, myapp_driver.l_name
+    # SQL QUERIES for diffent drivers
+    average_JS = Driver.objects.raw('''select myapp_driver.id,  ROUND(AVG(journey_score)) AS avg_journey_score, myapp_driver.f_name, myapp_driver.l_name
 											from myapp_driver
 											join myapp_journeys on myapp_driver.id = myapp_journeys.Driver_id
 											where myapp_driver.id = %s;
-											''', [user_id]) 
+											''', [user_id])
 
-	num_journeys_this_week = Journeys.objects.raw('''select myapp_journeys.id, count(myapp_journeys.id) as trips
+    num_journeys_this_week = Journeys.objects.raw('''select myapp_journeys.id, count(myapp_journeys.id) as trips
 													from myapp_journeys
 													where Driver_id = %s; 
-	 												''', [user_id]) 
-	km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
+	 												''', [user_id])
+    km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
 										from myapp_journeys
 										where Driver_id = %s;
 								 	''', [user_id])
 
-	avg_smoothness = Smoothness.objects.raw('''select myapp_journeys.id, Round (avg(myapp_smoothness.Smoothness_level)) AS avg_smoothness, 
+    avg_smoothness = Smoothness.objects.raw('''select myapp_journeys.id, Round (avg(myapp_smoothness.Smoothness_level)) AS avg_smoothness, 
 												myapp_car.car_type,  myapp_car.car_mileage, myapp_car.car_reg, myapp_car.engine_size
 												from myapp_car inner join myapp_journeys on myapp_car.Driver_id = myapp_journeys.Driver_id
 												inner join myapp_smoothness on
  												myapp_smoothness.Journeys_id = myapp_journeys.id
 												where myapp_car.Driver_id = %s;
-											''', [user_id]) 
+											''', [user_id])
 
-	avg_fatigue = Fatigue.objects.raw('''select myapp_journeys.id,  Round (avg(myapp_fatigue.fatigue_level)) AS avg_fatigue
+    avg_fatigue = Fatigue.objects.raw('''select myapp_journeys.id,  Round (avg(myapp_fatigue.fatigue_level)) AS avg_fatigue
 										from myapp_car inner join myapp_journeys on myapp_car.Driver_id = myapp_journeys.Driver_id
 										inner join myapp_fatigue on
  										myapp_fatigue.Journeys_id = myapp_journeys.id
 										where myapp_car.Driver_id = %s;
-									 ''', [user_id]) 
+									 ''', [user_id])
 
-	avg_speed = Speed.objects.raw('''select myapp_journeys.id,  Round (avg(myapp_speed.speed_level)) AS avg_speed
+    avg_speed = Speed.objects.raw('''select myapp_journeys.id,  Round (avg(myapp_speed.speed_level)) AS avg_speed
 									from myapp_car inner join myapp_journeys on myapp_car.Driver_id = myapp_journeys.Driver_id
 									inner join myapp_speed on
  									myapp_speed.Journeys_id = myapp_journeys.id
 									where myapp_car.Driver_id = %s;
-	 							''', [user_id]) 
+	 							''', [user_id])
 
-	TimeOfDay_level= TimeOfDay.objects.raw('''select myapp_journeys.id, Round (avg(myapp_timeofday.time_of_day_level)) AS avg_timeofday
+    TimeOfDay_level = TimeOfDay.objects.raw('''select myapp_journeys.id, Round (avg(myapp_timeofday.time_of_day_level)) AS avg_timeofday
 											from myapp_car inner join myapp_journeys on myapp_car.Driver_id = myapp_journeys.Driver_id
 											inner join myapp_timeofday on
  											myapp_timeofday.Journeys_id = myapp_journeys.id
 											where myapp_car.Driver_id = %s;
-	 									''', [user_id]) 
+	 									''', [user_id])
 
-	
-
-	#collects the start and end location of a driver journey n.b it only looks at the last journey
-	start_location = Journeys.objects.raw('''select myapp_journeys.id, myapp_journeys.start_location, myapp_journeys.end_location 
+    # collects the start and end location of a driver journey n.b it only looks at the last journey
+    start_location = Journeys.objects.raw('''select myapp_journeys.id, myapp_journeys.start_location, myapp_journeys.end_location 
 		from myapp_journeys where myapp_journeys.Driver_id =%s''', [user_id])
-	
-	#has to have a defult figure or map functionality wont work
-	maps_start = "0"
-	maps_end ="0"
-	for x in start_location:
-		maps_start = x.start_location
-		maps_end = x.end_location
 
-	#google maps link with API key for journey locations 	
-	src="https://www.google.com/maps/embed/v1/directions?origin="+ maps_start + "&"  + "destination="+maps_end + "&key=AIzaSyAEIIVLTLc_JfDkoF_j3lv8Y5j6qpf5NoI"
+    # has to have a defult figure or map functionality wont work
+    maps_start = "0"
+    maps_end = "0"
+    for x in start_location:
+        maps_start = x.start_location
+        maps_end = x.end_location
 
-	context = {
+    # google maps link with API key for journey locations
+    src = "https://www.google.com/maps/embed/v1/directions?origin=" + maps_start + \
+        "&" + "destination="+maps_end + "&key=AIzaSyAEIIVLTLc_JfDkoF_j3lv8Y5j6qpf5NoI"
 
-	"journey_score": average_JS,
-	"num_trips": num_journeys_this_week,
-	"km_driven": km_driven,
-	"smoothness": avg_smoothness ,
-	"fatigue": avg_fatigue ,
-	"speed": avg_speed ,
-	"TimeOfDay": TimeOfDay_level,
-	"start_location": start_location,
-	"src": src
+    context = {
 
-	}
-	return render_to_response("user_dash.html", context)
+        "journey_score": average_JS,
+        "num_trips": num_journeys_this_week,
+        "km_driven": km_driven,
+        "smoothness": avg_smoothness,
+        "fatigue": avg_fatigue,
+        "speed": avg_speed,
+        "TimeOfDay": TimeOfDay_level,
+        "start_location": start_location,
+        "src": src
+
+    }
+    return render_to_response("user_dash.html", context)
+
 
 def registration(request):
-	driver = Driver()
+    driver = Driver()
 
-
-	f_name = request.GET.get('fname')
-	l_name = request.GET.get('lname')
-	dob = request.GET.get('bday')
-	address1 = request.GET.get('address_l1')
-	address2 = request.GET.get('address_l2')
-	print ("the quote details are", f_name, l_name, dob, address1, address2 )
-	#sends input data to the model
-	"""
+    f_name = request.GET.get('fname')
+    l_name = request.GET.get('lname')
+    dob = request.GET.get('bday')
+    address1 = request.GET.get('address_l1')
+    address2 = request.GET.get('address_l2')
+    print("the quote details are", f_name, l_name, dob, address1, address2)
+    # sends input data to the model
+    """
 	driver.f_name = f_name
 	driver.l_name = l_name
 	driver.address1 = address1
 	driver.address2 = address2
 	driver.save()
 	"""
-	#print(f_name, eircode, drive_exp)
+    #print(f_name, eircode, drive_exp)
 
-	context={}
-	return render(request, "registration.html", context)
+    context = {}
+    return render(request, "registration.html", context)
 
 
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
 
-def  register(request):
-	if request.method == 'POST':
-		form = UserCreationForm(request.POST)
+        # checks if data passed to the form is valid
+        if form.is_valid():
+            form.save()  # saves info to the DB --> creating a new user
+            # get data passed from the form
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            # authenticate is a hash funtion in djnago
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('login')
+    else:
+        form = UserCreationForm()
 
-		#checks if data passed to the form is valid 
-		if form.is_valid():
-			form.save() #saves info to the DB --> creating a new user
-			username = form.cleaned_data['username'] #get data passed from the form
-			password = form.cleaned_data['password1']
-			user = authenticate(username=username, password=password) #authenticate is a hash funtion in djnago 
-			login(request,user)
-			return redirect ('login')
-	else:
-		form = UserCreationForm()
+    context = {'form': form}
+    return render(request, "registration/register.html", context)
 
-	context = {'form' : form}
-	return render(request, "registration/register.html", context)
 
 def login(request, user):
 
-	context = {}
-	return redirect ('quote', context)
+    context = {}
+    return redirect('quote', context)
 
 
 def maintenance_checklist(request):
-	maintenance = Maintenance()
+    maintenance = Maintenance()
 
-
-	oil_level = request.GET.get('oil_level')
-	battery_level= request.GET.get('battery_level')
-	coolent_level = request.GET.get('coolent_level')
-	tyre_depth = request.GET.get('tyre_depth')
-	windscreen_washer_level = request.GET.get('windscreen_washer_level')
-	print ("the maintenance results are", oil_level, battery_level, coolent_level, tyre_depth, windscreen_washer_level)
-	#sends input data to the model
-	"""
+    oil_level = request.GET.get('oil_level')
+    battery_level = request.GET.get('battery_level')
+    coolent_level = request.GET.get('coolent_level')
+    tyre_depth = request.GET.get('tyre_depth')
+    windscreen_washer_level = request.GET.get('windscreen_washer_level')
+    print("the maintenance results are", oil_level, battery_level,
+          coolent_level, tyre_depth, windscreen_washer_level)
+    # sends input data to the model
+    """
 	driver.f_name = f_name
 	driver.l_name = l_name
 	driver.address1 = address1
 	driver.address2 = address2
 	driver.save()
 	"""
-	#print(f_name, eircode, drive_exp)
+    #print(f_name, eircode, drive_exp)
 
+    return render(request, "maintenance_checklist.html")
 
-	return render( request, "maintenance_checklist.html")
 
 def learning_platform(request):
 
+    return render(request, "learning_platform.html")
 
 
-
-	return render(request, "learning_platform.html")
-
-
+def speed_learn(request):
+    return render_to_response("speed_learn.html")
+def fatigue_learn(request):
+    return render_to_response("fatigue_learn.html")
+def smoothness_learn(request):
+    return render_to_response("smoothness_learn.html")
+def tod_learn(request):
+    return render_to_response("tod_learn.html")

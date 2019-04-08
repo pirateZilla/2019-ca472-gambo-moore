@@ -16,7 +16,11 @@ urlpatterns = [
     path('faq/', views.faq, name='faq'),  
     path('registration/', views.registration, name='registration'),
     path('maintenance_checklist/', views.maintenance_checklist, name='maintenance_checklist'),
-    path('learning_platform/', views.learning_platform, name='learning_platform')
+    path('learning_platform/', views.learning_platform, name='learning_platform'),
+    path('speed_learn/', views.speed_learn, name='speed_learn'),
+    path('smoothness_learn/', views.smoothness_learn, name='smoothness_learn'),
+    path('fatigue_learn/', views.fatigue_learn, name='fatigue_learn'),
+    path('tod_learn/', views.tod_learn, name='tod_learn')
 
  
 ]
