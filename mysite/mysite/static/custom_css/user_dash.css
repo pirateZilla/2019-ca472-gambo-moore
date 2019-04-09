@@ -113,6 +113,6 @@ html {
 }
 
 .selector {
-    position: absolute;
-    left: 10px;
+    position: absolute !important;
+    left: 10px !important;
 }
