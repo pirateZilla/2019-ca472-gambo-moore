@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login
 from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay
 import pprint
 import json
+from django.core.serializers.json import DjangoJSONEncoder
 
 # Create your views here.
 
@@ -99,11 +100,6 @@ def user_dash(request):
 											where myapp_car.Driver_id = %s;
 	 									''', [user_id])
 
-    # km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
-	# 									from myapp_journeys
-	# 									where Driver_id = 1 ;
-	# 							 	''',)
-
 
 
 
@@ -142,6 +138,7 @@ def user_dash(request):
     todScoreWeekAvg = "0"
     for x in TimeOfDay_level:
        todScoreWeekAvg = x.avg_timeofday
+
 
     # google maps link with API key for journey locations
     src = "https://www.google.com/maps/embed/v1/directions?origin=" + maps_start + \
