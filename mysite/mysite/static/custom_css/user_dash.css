@@ -111,3 +111,8 @@ html {
 .badge {
     font-size: 50% !important;
 }
+
+.selector {
+    position: absolute;
+    left: 10px;
+}
