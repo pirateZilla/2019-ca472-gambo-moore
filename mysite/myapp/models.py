@@ -56,8 +56,8 @@ class Journeys(models.Model):
 
     journey_score = models.CharField(max_length=20, blank=True)
     date = models.DateField(default=date.today)
-    start_time = models.DateTimeField(default=timezone.now)
-    end_time = models.DateTimeField(default=timezone.now)
+    start_time = models.CharField(max_length=20, blank=True)
+    end_time = models.CharField(max_length=20, blank=True)
     distance = models.PositiveIntegerField( blank=True)
     start_location = models.CharField(max_length=20, blank=True)
     end_location = models.CharField(max_length=20, blank=True)

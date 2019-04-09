@@ -658,22 +658,20 @@
                   <h6 class="m-0 font-weight-bold text-denim">Score Breakdown</h6>
                 </div>
                 <div class="card-body">
-                  <h4 class="small font-weight-bold">Speed <span class="float-right">20%</span></h4>
+                  <h4 class="small font-weight-bold">Speed <span class="float-right">{{speedScoreWeekAvg}}%</span></h4>
                   <div class="progress mb-4">
                     <!-- ASSESS THIS -->
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 10%" aria-valuenow="{% for x in avg_speed %}
-                    {{ x.avg_speed }} 
-                  {% endfor %}" aria-valuemin="0"
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: {{speedScoreWeekAvg}}%" aria-valuenow="{{speedScoreWeekAvg}}" aria-valuemin="0"
                       aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Smoothness <span class="float-right">40%</span></h4>
+                  <h4 class="small font-weight-bold">Smoothness <span class="float-right">{{fatigueScoreWeekAvg}}%</span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40"
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: {{fatigueScoreWeekAvg}}%" aria-valuenow="{{fatigueScoreWeekAvg}}"
                       aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Fatigue <span class="float-right">60%</span></h4>
+                  <h4 class="small font-weight-bold">Fatigue <span class="float-right">{{smoothScoreWeekAvg}}%</span></h4>
                   <div class="progress mb-4">
-                    <div class="bg-denim progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60"
+                    <div class="bg-denim progress-bar" role="progressbar" style="width: {{smoothScoreWeekAvg}}%" aria-valuenow="{{smoothScoreWeekAvg}}"
                       aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                   <h4 class="small font-weight-bold">Time of Day <span class="float-right">80%</span></h4>
@@ -773,7 +771,7 @@
 
                   </div>
                   <h4 class="small font-weight-bold">Your latest adventure</h4>
-                  <p>Most recently your travelled from PLACEHOLDER to PLACEHOLDER. Your travelled a distance of DISTANCE at an average speed of SPEED and your driver score was SCORE. You departed at DEPARTURETIME and arrived at ARRIVALTIME.</p>
+                  <p>Most recently your travelled from {{start}} to {{end}}. Your travelled a distance of {{distance}}km. Your driver score was {{score}}. You departed at {{time_start}} and arrived at {{time_end}}.</p>
                 </div>
               </div>
 
