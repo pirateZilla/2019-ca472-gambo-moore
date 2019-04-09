@@ -91,14 +91,22 @@ def user_dash(request):
  									myapp_speed.Journeys_id = myapp_journeys.id
 									where myapp_car.Driver_id = %s;
 	 							''', [user_id])
-    
 
-    avg_tod = TimeOfDay.objects.raw('''select myapp_journeys.id, Round (avg(myapp_timeofday.time_of_day_level)) AS avg_timeofday
+    TimeOfDay_level = TimeOfDay.objects.raw('''select myapp_journeys.id, Round (avg(myapp_timeofday.time_of_day_level)) AS avg_timeofday
 											from myapp_car inner join myapp_journeys on myapp_car.Driver_id = myapp_journeys.Driver_id
 											inner join myapp_timeofday on
  											myapp_timeofday.Journeys_id = myapp_journeys.id
 											where myapp_car.Driver_id = %s;
 	 									''', [user_id])
+
+    # km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
+	# 									from myapp_journeys
+	# 									where Driver_id = 1 ;
+	# 							 	''',)
+
+
+
+
 
     # collects the start and end location of a driver journey n.b it only looks at the last journey
     start_location = Journeys.objects.raw('''select myapp_journeys.id, myapp_journeys.distance, myapp_journeys.journey_score, myapp_journeys.end_time, myapp_journeys.start_time, myapp_journeys.start_location, myapp_journeys.end_location 
@@ -118,23 +126,22 @@ def user_dash(request):
         score = x.journey_score
         time_end = x.end_time
         time_start = x.start_time
-    
+
     speedScoreWeekAvg = "0"
     for x in avg_speed:
-        speedScoreWeekAvg = int(x.avg_speed)
+        speedScoreWeekAvg = x.avg_speed
 
     fatigueScoreWeekAvg = "0"
     for x in avg_fatigue:
-        fatigueScoreWeekAvg = int(x.avg_fatigue)
+        fatigueScoreWeekAvg = x.avg_fatigue
 
     smoothScoreWeekAvg = "0"
     for x in avg_smoothness:
-        smoothScoreWeekAvg = int(x.avg_smoothness)
+        smoothScoreWeekAvg = x.avg_smoothness
 
     todScoreWeekAvg = "0"
-    for x in avg_tod:
-        todScoreWeekAvg = x.avg_tod
-
+    for x in TimeOfDay_level:
+       todScoreWeekAvg = x.avg_timeofday
 
     # google maps link with API key for journey locations
     src = "https://www.google.com/maps/embed/v1/directions?origin=" + maps_start + \
@@ -246,9 +253,15 @@ def learning_platform(request):
 
 def speed_learn(request):
     return render_to_response("speed_learn.html")
+
+
 def fatigue_learn(request):
     return render_to_response("fatigue_learn.html")
+
+
 def smoothness_learn(request):
     return render_to_response("smoothness_learn.html")
+
+
 def tod_learn(request):
     return render_to_response("tod_learn.html")
