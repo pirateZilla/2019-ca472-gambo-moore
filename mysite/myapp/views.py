@@ -70,7 +70,7 @@ def user_dash(request):
 										where Driver_id = %s;
 								 	''', [user_id])
 
-    avg_smoothness = Smoothness.objects.raw('''select myapp_journeys.id, Round (avg(myapp_smoothness.Smoothness_level)) AS avg_smoothness, 
+    avg_smoothness = Smoothness.objects.raw('''select myapp_journeys.id,  cast(Round (avg(myapp_smoothness.Smoothness_level)) as int)AS avg_smoothness, 
 												myapp_car.car_type,  myapp_car.car_mileage, myapp_car.car_reg, myapp_car.engine_size
 												from myapp_car inner join myapp_journeys on myapp_car.Driver_id = myapp_journeys.Driver_id
 												inner join myapp_smoothness on
@@ -78,21 +78,21 @@ def user_dash(request):
 												where myapp_car.Driver_id = %s;
 											''', [user_id])
 
-    avg_fatigue = Fatigue.objects.raw('''select myapp_journeys.id,  Round (avg(myapp_fatigue.fatigue_level)) AS avg_fatigue
+    avg_fatigue = Fatigue.objects.raw('''select myapp_journeys.id,   cast(Round (avg(myapp_fatigue.fatigue_level)) as int)AS avg_fatigue
 										from myapp_car inner join myapp_journeys on myapp_car.Driver_id = myapp_journeys.Driver_id
 										inner join myapp_fatigue on
  										myapp_fatigue.Journeys_id = myapp_journeys.id
 										where myapp_car.Driver_id = %s;
 									 ''', [user_id])
 
-    avg_speed = Speed.objects.raw('''select myapp_journeys.id,  Round (avg(myapp_speed.speed_level)) AS avg_speed
+    avg_speed = Speed.objects.raw('''select myapp_journeys.id,   cast(Round (avg(myapp_speed.speed_level)) as int)AS avg_speed
 									from myapp_car inner join myapp_journeys on myapp_car.Driver_id = myapp_journeys.Driver_id
 									inner join myapp_speed on
  									myapp_speed.Journeys_id = myapp_journeys.id
 									where myapp_car.Driver_id = %s;
 	 							''', [user_id])
 
-    TimeOfDay_level = TimeOfDay.objects.raw('''select myapp_journeys.id, Round (avg(myapp_timeofday.time_of_day_level)) AS avg_timeofday
+    TimeOfDay_level = TimeOfDay.objects.raw('''select myapp_journeys.id, cast(Round (avg(myapp_timeofday.time_of_day_level)) as int)AS avg_timeofday
 											from myapp_car inner join myapp_journeys on myapp_car.Driver_id = myapp_journeys.Driver_id
 											inner join myapp_timeofday on
  											myapp_timeofday.Journeys_id = myapp_journeys.id
