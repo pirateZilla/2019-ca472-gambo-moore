@@ -5,7 +5,7 @@ function calculatePremium() {
     var dob = document.getElementById('bday').value;
     var bday = +new Date(dob);
     var age = ~~((Date.now() - bday) / (31557600000));
-    var ages = { 21: 1, 22: 1.0168, 23: 1.0173, 24: 0.9728, 25: 0.9673, 26: 0.9592, 27: 0.9507, 28: 0.9856, 29: 1.0122 };
+    var ages = { 21: 1, 22: 1.0168, 23: 1.0173, 24: 0.9728, 25: 1.1973, 26: 1.1826, 27: 1.1709, 28: 1.158, 29: 1.158 };
     var ageBasePrice = ages[age] * basePrice;
 
     var occ = document.getElementsByName('occupation')[0];
@@ -55,9 +55,17 @@ function calculatePremium() {
     var motorTax = 200;
     var excess = 300;
 
-    var finalInsurancePrice = vehicleProcurement + telematicsDevice + telematicsInstall + vehicleMaintenance + motorTax + ageBasePrice - occSubVal - hhSubVal - carSubVal - locSubVal - licSubVal - expSubVal - penSubVal - addSubVal - claimsSubVal;
+    var finalInsurancePrice = ageBasePrice - occSubVal - hhSubVal - carSubVal - bonSubVal - locSubVal - licSubVal - expSubVal - penSubVal - addSubVal - claimsSubVal;
+    
 
-    var monthlyFinalInsurancePrice = finalInsurancePrice/12;
+    //Minimum insurance price fix
+    if (finalInsurancePrice < 300) {
+        finalInsurancePrice = 300;
+    }
+
+    var otherCosts = vehicleProcurement + telematicsDevice + telematicsInstall + vehicleMaintenance + motorTax;
+    var totalCost = finalInsurancePrice + otherCosts;
+    var monthlyFinalInsurancePrice = totalCost/12;
     var roundedMonthlyFinalInsurancePrice = monthlyFinalInsurancePrice.toFixed(2);
 
     console.log("The base price is €" + basePrice);
@@ -282,7 +290,7 @@ function calculatePremium() {
 
     document.getElementById("member").innerHTML = "Membership";
     document.getElementById("premTitle").innerHTML = "Annual Premium";
-    document.getElementById("prem").innerHTML = "€" + finalInsurancePrice;
+    document.getElementById("prem").innerHTML = "€" + totalCost;
     document.getElementById("premMonthTitle").innerHTML = "Monthly Cost";
     document.getElementById("premMonth").innerHTML = "€" + roundedMonthlyFinalInsurancePrice;
     document.getElementById("excessTitle").innerHTML = "Policy Excess";
