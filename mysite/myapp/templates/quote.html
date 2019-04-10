@@ -113,13 +113,16 @@
             var car = document.getElementById("car").value;
             var address_l1 = document.getElementById("address_l1").value;
             var address_l2 = document.getElementById("address_l2").value;
-            var location = document.getElementById("location").value;
-            var licence = document.getElementById("licence").value;
+            var area = document.getElementById("location").value;
+            var licence = document.getElementById("licence").text;
             var ncb = document.getElementById("ncb").value;
             var namedexp = document.getElementById("namedexp").value;
             var penalty = document.getElementById("penalty").value;
             var addDrivers = document.getElementById("addDrivers").value;
             var claims = document.getElementById("claims").value;
+
+            var locationSelect = document.getElementById("location");
+            var area = locationSelect.options[locationSelect.selectedIndex].text;
 
             // form validation
             // console.log(age);
@@ -130,20 +133,18 @@
             //     scroll(0,0)
             //     return false;
             // }
-            
+
 
 
             var dataIsValid = true;
 
-            if (title == ""){
+            if (title == "") {
                 // alert("You must be aged 21-29 in order to use TourGo");
                 document.forms["calculator"]["title"].style.border = "1px solid red";
                 document.getElementById("titlemsg").innerHTML = "Please enter your title";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-
-            else {
+            } else {
                 document.forms["calculator"]["title"].style.border = "";
                 document.getElementById("titlemsg").innerHTML = "";
             }
@@ -151,10 +152,9 @@
             if (fname == "") {
                 document.forms["calculator"]["fname"].style.border = "1px solid red";
                 document.getElementById("fnamemsg").innerHTML = "Please enter your first name";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-            else {
+            } else {
                 document.forms["calculator"]["fname"].style.border = "";
                 document.getElementById("fnamemsg").innerHTML = "";
             }
@@ -162,62 +162,49 @@
             if (lname == "") {
                 document.forms["calculator"]["lname"].style.border = "1px solid red";
                 document.getElementById("lnamemsg").innerHTML = "Please enter your last name";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-            else {
+            } else {
                 document.forms["calculator"]["lname"].style.border = "";
                 document.getElementById("lnamemsg").innerHTML = "";
             }
 
-            if ( !(age >20 && age<30 ) ){
-                // alert("You must be aged 21-29 in order to use TourGo");
+            if (!(age > 20 && age < 30)) {
                 document.forms["calculator"]["bday"].style.border = "1px solid red";
                 document.getElementById("bdaymsg").innerHTML = "TourGo members must be aged 21-29";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-
-            else {
+            } else {
                 document.forms["calculator"]["bday"].style.border = "";
                 document.getElementById("bdaymsg").innerHTML = "";
             }
 
-            if (occupation == ""){
-                // alert("You must be aged 21-29 in order to use TourGo");
+            if (occupation == "") {
                 document.forms["calculator"]["occupation"].style.border = "1px solid red";
                 document.getElementById("emplmsg").innerHTML = "Please enter your employment status";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-
-            else {
+            } else {
                 document.forms["calculator"]["occupation"].style.border = "";
                 document.getElementById("emplmsg").innerHTML = "";
             }
 
-            if (household == ""){
-                // alert("You must be aged 21-29 in order to use TourGo");
+            if (household == "") {
                 document.forms["calculator"]["household"].style.border = "1px solid red";
                 document.getElementById("homemsg").innerHTML = "Please enter your home type";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-
-            else {
+            } else {
                 document.forms["calculator"]["household"].style.border = "";
                 document.getElementById("homemsg").innerHTML = "";
             }
-            
-            if (car == ""){
-                // alert("You must be aged 21-29 in order to use TourGo");
+
+            if (car == "") {
                 document.forms["calculator"]["car"].style.border = "1px solid red";
                 document.getElementById("carmsg").innerHTML = "Please enter your preferred vehicle";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-
-            else {
+            } else {
                 document.forms["calculator"]["car"].style.border = "";
                 document.getElementById("carmsg").innerHTML = "";
             }
@@ -226,131 +213,114 @@
             if (address_l1 == "") {
                 document.forms["calculator"]["address_l1"].style.border = "1px solid red";
                 document.getElementById("adrmsg").innerHTML = "Please enter your address";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-            else {
+            } else {
                 document.forms["calculator"]["address_l1"].style.border = "";
                 document.getElementById("adrmsg").innerHTML = "";
             }
 
-            if (location == ""){
-                // alert("You must be aged 21-29 in order to use TourGo");
+            if (location == "") {
                 document.forms["calculator"]["location"].style.border = "1px solid red";
                 document.getElementById("locmsg").innerHTML = "Please enter the area you live";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-
-            else {
+            } else {
                 document.forms["calculator"]["location"].style.border = "";
                 document.getElementById("locmsg").innerHTML = "";
             }
 
-            if (licence == ""){
-                // alert("You must be aged 21-29 in order to use TourGo");
+            if (licence == "") {
                 document.forms["calculator"]["licence"].style.border = "1px solid red";
                 document.getElementById("licmsg").innerHTML = "Please enter your licence type";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-
-            else {
+            } else {
                 document.forms["calculator"]["licence"].style.border = "";
                 document.getElementById("licmsg").innerHTML = "";
             }
 
-            if (ncb == ""){
-                // alert("You must be aged 21-29 in order to use TourGo");
+            if (ncb == "") {
                 document.forms["calculator"]["ncb"].style.border = "1px solid red";
                 document.getElementById("ncbmsg").innerHTML = "Please enter your claims-free own driving experience";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-
-            else {
+            } else {
                 document.forms["calculator"]["ncb"].style.border = "";
                 document.getElementById("ncbmsg").innerHTML = "";
             }
 
-            if (namedexp == ""){
-                // alert("You must be aged 21-29 in order to use TourGo");
+            if (namedexp == "") {
                 document.forms["calculator"]["namedexp"].style.border = "1px solid red";
                 document.getElementById("nxpmsg").innerHTML = "Please enter your named driving experience";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-
-            else {
+            } else {
                 document.forms["calculator"]["namedexp"].style.border = "";
                 document.getElementById("nxpmsg").innerHTML = "";
             }
 
-            if (penalty == ""){
-                // alert("You must be aged 21-29 in order to use TourGo");
+            if (penalty == "") {
                 document.forms["calculator"]["penalty"].style.border = "1px solid red";
                 document.getElementById("penmsg").innerHTML = "Please enter the number of penalty points you have";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-
-            else {
+            } else {
                 document.forms["calculator"]["penalty"].style.border = "";
                 document.getElementById("penmsg").innerHTML = "";
             }
 
-            if (addDrivers == ""){
-                // alert("You must be aged 21-29 in order to use TourGo");
+            if (addDrivers == "") {
                 document.forms["calculator"]["addDrivers"].style.border = "1px solid red";
                 document.getElementById("addmsg").innerHTML = "Please enter the number of additional drivers you want on your policy";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-
-            else {
+            } else {
                 document.forms["calculator"]["addDrivers"].style.border = "";
                 document.getElementById("addmsg").innerHTML = "";
             }
 
-            if (claims == ""){
-                // alert("You must be aged 21-29 in order to use TourGo");
+            if (claims == "") {
                 document.forms["calculator"]["claims"].style.border = "1px solid red";
                 document.getElementById("clmmsg").innerHTML = "Please enter the number of claims you've made in the past 5 years";
-                scroll(0,0)
+                scroll(0, 0)
                 dataIsValid = false;
-            }
-
-            else {
+            } else {
                 document.forms["calculator"]["claims"].style.border = "";
                 document.getElementById("clmmsg").innerHTML = "";
             }
 
-
-
-            if(dataIsValid) {}   else {
-                alert("You didn't fill out all the fields or filled something in incorrectly.");
+            if (dataIsValid) { } else {
+                alert("You didn't fill out all the fields or filled something in wrong");
                 return false;
             }
 
-            // if (fname == "") {
-            //     document.forms["calculator"]["fname"].style.border = "1px solid red";
-            //     document.getElementById("fnamemsg").innerHTML = "wrong input";
-            //     scroll(0,0)
-            //     return false;
-            // }
+            document.getElementById("personal").innerHTML = "Personal Details";
+            document.getElementById("nameTitle").innerHTML = "Name";
+            document.getElementById("name").innerHTML = title + " " + fname + " " + lname;
+            document.getElementById("addressTitle").innerHTML = "Address";
+            document.getElementById("address").innerHTML = address_l1 + ", " + address_l2 + ", " + area;
+            document.getElementById("ageTitle").innerHTML = "Age";
+            document.getElementById("age").innerHTML = age;
 
-            // if (lname == "") {
-            //     alert("You forgot to fill in your last name.")
-            //     return false;
-            // }
+            document.getElementById("Vehicle").innerHTML = "Vehicle";
+            document.getElementById("brandTitle").innerHTML = "Brand and Model";
+            document.getElementById("brand").innerHTML = car;
+            document.getElementById("engTitle").innerHTML = "Engine";
+            document.getElementById("eng").innerHTML = "1L Petrol; Manual Transmission"
+            document.getElementById("yearTitle").innerHTML = "Year Registered";
+            document.getElementById("year").innerHTML = "2019";
 
-            // if (address_l1 == "") {
-            //     alert("You forgot to fill in the first line of your address.")
-            //     return false;
-            // }
+            document.getElementById("member").innerHTML = "Membership";
+            document.getElementById("premTitle").innerHTML = "Annual Premium";
+            document.getElementById("prem").innerHTML = finalInsurancePrice;
+            document.getElementById("premMonthTitle").innerHTML = "Monthly Cost";
+            document.getElementById("premMonth").innerHTML = finalInsurancePrice/12;
+            document.getElementById("excessTitle").innerHTML = "Policy Excess";
+            document.getElementById("excess").innerHTML = "€1000";
+            document.getElementById("useClassTitle").innerHTML = "Class of use";
+            document.getElementById("useClass").innerHTML = "Social, domestic and pleasure; up to 15,000km per year";
 
-
-            // return true;
 
             document.getElementById("output1").innerHTML = "The base price is €" + basePrice;
             //prints to the html 
@@ -511,7 +481,8 @@
                         <label for="address_l1">Address Line 1</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" name="address_l1" id="address_l1" placeholder="First line of your address" required>
+                        <input type="text" name="address_l1" id="address_l1" placeholder="First line of your address"
+                            required>
                         <div id="adrmsg"></div>
                     </div>
                 </div>
@@ -731,7 +702,29 @@
 
             <div>
                 <!-- outputs the users name and insurance -->
-
+                <p id="personal"></p>
+                <p id="nameTitle"></p>
+                <p id="name"></p>
+                <p id="addressTitle"></p>
+                <p id="address"></p>
+                <p id="ageTitle"></p>
+                <p id="age"></p>
+                <p id="Vehicle"></p>
+                <p id="brandTitle"></p>
+                <p id="brand"></p>
+                <p id="engTitle"></p>
+                <p id="eng"></p>
+                <p id="yearTitle"></p>
+                <p id="year"></p>
+                <p id="member"></p>
+                <p id="premTitle"></p>
+                <p id="prem"></p>
+                <p id="premMonthTitle"></p>
+                <p id="premMonth"></p>
+                <p id="excessTitle"></p>
+                <p id="excess"></p>
+                <p id="useClassTitle"></p>
+                <p id="useClass"></p>
                 <p id="output1"></p>
                 <p id="output2"></p>
 
