@@ -111,9 +111,26 @@
             var address_l2 = document.getElementById("address_l2").value;
 
             // form validation
+            // console.log(age);
+            // if (age == 0){
+            //     // alert("You must be aged 21-29 in order to use TourGo");
+            //     document.forms["calculator"]["bday"].style.border = "1px solid red";
+            //     document.getElementById("bdaymsg").innerHTML = "no input";
+            //     scroll(0,0)
+            //     return false;
+            // }
+
             if ( !(age >20 && age<30 ) ){
-                alert("You must be aged 21-29 in order to use TourGo");
+                // alert("You must be aged 21-29 in order to use TourGo");
+                document.forms["calculator"]["bday"].style.border = "1px solid red";
+                document.getElementById("bdaymsg").innerHTML = "wrong input";
+                scroll(0,0)
                 return false;
+            }
+
+            else {
+                document.forms["calculator"]["bday"].style.border = "";
+                document.getElementById("bdaymsg").innerHTML = "";
             }
 
 
@@ -122,15 +139,15 @@
                 return false;
             }
 
-            if (lname == "") {
-                alert("You forgot to fill in your last name.")
-                return false;
-            }
+            // if (lname == "") {
+            //     alert("You forgot to fill in your last name.")
+            //     return false;
+            // }
 
-            if (address_l1 == "") {
-                alert("You forgot to fill in the first line of your address.")
-                return false;
-            }
+            // if (address_l1 == "") {
+            //     alert("You forgot to fill in the first line of your address.")
+            //     return false;
+            // }
 
 
             // return true;
@@ -194,7 +211,7 @@
             <br />
             <br />
             <br />
-            <form action='/register' method='GET'>
+            <form name="calculator" action='/register' method='GET'>
                 {% if user.is_authenticated %}
                 <h1> Your are logged in as : {{user.username}}</h1>
                 {% else %}
@@ -237,6 +254,7 @@
                     </div>
                     <div class="col-75">
                         <input type="date" name="bday" id="bday" required>
+                        <div id="bdaymsg"></div>
                     </div>
                 </div>
                 <div class="row">
