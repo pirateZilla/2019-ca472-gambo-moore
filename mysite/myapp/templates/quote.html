@@ -51,7 +51,7 @@
 
         function calculatePremium() {
             var basePrice = 2500;
-
+            var title = document.getElementsByName('title').value;
             var fname = document.getElementsByName('fname').value;
             var dob = document.getElementById('bday').value;
             var bday = +new Date(dob);
@@ -105,10 +105,21 @@
             console.log("The final insurance cost is €" + finalInsurancePrice);
 
             //gets the first name input 
+            var title = document.getElementById("title").value;
             var fname = document.getElementById("fname").value;
             var lname = document.getElementById("lname").value;
+            var occupation = document.getElementById("occupation").value;
+            var household = document.getElementById("household").value;
+            var car = document.getElementById("car").value;
             var address_l1 = document.getElementById("address_l1").value;
             var address_l2 = document.getElementById("address_l2").value;
+            var location = document.getElementById("location").value;
+            var licence = document.getElementById("licence").value;
+            var ncb = document.getElementById("ncb").value;
+            var namedexp = document.getElementById("namedexp").value;
+            var penalty = document.getElementById("penalty").value;
+            var addDrivers = document.getElementById("addDrivers").value;
+            var claims = document.getElementById("claims").value;
 
             // form validation
             // console.log(age);
@@ -124,22 +135,22 @@
 
             var dataIsValid = true;
 
-            if ( !(age >20 && age<30 ) ){
+            if (title == ""){
                 // alert("You must be aged 21-29 in order to use TourGo");
-                document.forms["calculator"]["bday"].style.border = "1px solid red";
-                document.getElementById("bdaymsg").innerHTML = "wrong input";
+                document.forms["calculator"]["title"].style.border = "1px solid red";
+                document.getElementById("titlemsg").innerHTML = "Please enter your title";
                 scroll(0,0)
                 dataIsValid = false;
             }
 
             else {
-                document.forms["calculator"]["bday"].style.border = "";
-                document.getElementById("bdaymsg").innerHTML = "";
+                document.forms["calculator"]["title"].style.border = "";
+                document.getElementById("titlemsg").innerHTML = "";
             }
-            
+
             if (fname == "") {
                 document.forms["calculator"]["fname"].style.border = "1px solid red";
-                document.getElementById("fnamemsg").innerHTML = "wrong input";
+                document.getElementById("fnamemsg").innerHTML = "Please enter your first name";
                 scroll(0,0)
                 dataIsValid = false;
             }
@@ -148,11 +159,176 @@
                 document.getElementById("fnamemsg").innerHTML = "";
             }
 
+            if (lname == "") {
+                document.forms["calculator"]["lname"].style.border = "1px solid red";
+                document.getElementById("lnamemsg").innerHTML = "Please enter your last name";
+                scroll(0,0)
+                dataIsValid = false;
+            }
+            else {
+                document.forms["calculator"]["lname"].style.border = "";
+                document.getElementById("lnamemsg").innerHTML = "";
+            }
+
+            if ( !(age >20 && age<30 ) ){
+                // alert("You must be aged 21-29 in order to use TourGo");
+                document.forms["calculator"]["bday"].style.border = "1px solid red";
+                document.getElementById("bdaymsg").innerHTML = "TourGo members must be aged 21-29";
+                scroll(0,0)
+                dataIsValid = false;
+            }
+
+            else {
+                document.forms["calculator"]["bday"].style.border = "";
+                document.getElementById("bdaymsg").innerHTML = "";
+            }
+
+            if (occupation == ""){
+                // alert("You must be aged 21-29 in order to use TourGo");
+                document.forms["calculator"]["occupation"].style.border = "1px solid red";
+                document.getElementById("emplmsg").innerHTML = "Please enter your employment status";
+                scroll(0,0)
+                dataIsValid = false;
+            }
+
+            else {
+                document.forms["calculator"]["occupation"].style.border = "";
+                document.getElementById("emplmsg").innerHTML = "";
+            }
+
+            if (household == ""){
+                // alert("You must be aged 21-29 in order to use TourGo");
+                document.forms["calculator"]["household"].style.border = "1px solid red";
+                document.getElementById("homemsg").innerHTML = "Please enter your home type";
+                scroll(0,0)
+                dataIsValid = false;
+            }
+
+            else {
+                document.forms["calculator"]["household"].style.border = "";
+                document.getElementById("homemsg").innerHTML = "";
+            }
+            
+            if (car == ""){
+                // alert("You must be aged 21-29 in order to use TourGo");
+                document.forms["calculator"]["car"].style.border = "1px solid red";
+                document.getElementById("carmsg").innerHTML = "Please enter your preferred vehicle";
+                scroll(0,0)
+                dataIsValid = false;
+            }
+
+            else {
+                document.forms["calculator"]["car"].style.border = "";
+                document.getElementById("carmsg").innerHTML = "";
+            }
+
+
+            if (address_l1 == "") {
+                document.forms["calculator"]["address_l1"].style.border = "1px solid red";
+                document.getElementById("adrmsg").innerHTML = "Please enter your address";
+                scroll(0,0)
+                dataIsValid = false;
+            }
+            else {
+                document.forms["calculator"]["address_l1"].style.border = "";
+                document.getElementById("adrmsg").innerHTML = "";
+            }
+
+            if (location == ""){
+                // alert("You must be aged 21-29 in order to use TourGo");
+                document.forms["calculator"]["location"].style.border = "1px solid red";
+                document.getElementById("locmsg").innerHTML = "Please enter the area you live";
+                scroll(0,0)
+                dataIsValid = false;
+            }
+
+            else {
+                document.forms["calculator"]["location"].style.border = "";
+                document.getElementById("locmsg").innerHTML = "";
+            }
+
+            if (licence == ""){
+                // alert("You must be aged 21-29 in order to use TourGo");
+                document.forms["calculator"]["licence"].style.border = "1px solid red";
+                document.getElementById("licmsg").innerHTML = "Please enter your licence type";
+                scroll(0,0)
+                dataIsValid = false;
+            }
+
+            else {
+                document.forms["calculator"]["licence"].style.border = "";
+                document.getElementById("licmsg").innerHTML = "";
+            }
+
+            if (ncb == ""){
+                // alert("You must be aged 21-29 in order to use TourGo");
+                document.forms["calculator"]["ncb"].style.border = "1px solid red";
+                document.getElementById("ncbmsg").innerHTML = "Please enter your claims-free own driving experience";
+                scroll(0,0)
+                dataIsValid = false;
+            }
+
+            else {
+                document.forms["calculator"]["ncb"].style.border = "";
+                document.getElementById("ncbmsg").innerHTML = "";
+            }
+
+            if (namedexp == ""){
+                // alert("You must be aged 21-29 in order to use TourGo");
+                document.forms["calculator"]["namedexp"].style.border = "1px solid red";
+                document.getElementById("nxpmsg").innerHTML = "Please enter your named driving experience";
+                scroll(0,0)
+                dataIsValid = false;
+            }
+
+            else {
+                document.forms["calculator"]["namedexp"].style.border = "";
+                document.getElementById("nxpmsg").innerHTML = "";
+            }
+
+            if (penalty == ""){
+                // alert("You must be aged 21-29 in order to use TourGo");
+                document.forms["calculator"]["penalty"].style.border = "1px solid red";
+                document.getElementById("penmsg").innerHTML = "Please enter the number of penalty points you have";
+                scroll(0,0)
+                dataIsValid = false;
+            }
+
+            else {
+                document.forms["calculator"]["penalty"].style.border = "";
+                document.getElementById("penmsg").innerHTML = "";
+            }
+
+            if (addDrivers == ""){
+                // alert("You must be aged 21-29 in order to use TourGo");
+                document.forms["calculator"]["addDrivers"].style.border = "1px solid red";
+                document.getElementById("addmsg").innerHTML = "Please enter the number of additional drivers you want on your policy";
+                scroll(0,0)
+                dataIsValid = false;
+            }
+
+            else {
+                document.forms["calculator"]["addDrivers"].style.border = "";
+                document.getElementById("addmsg").innerHTML = "";
+            }
+
+            if (claims == ""){
+                // alert("You must be aged 21-29 in order to use TourGo");
+                document.forms["calculator"]["claims"].style.border = "1px solid red";
+                document.getElementById("clmmsg").innerHTML = "Please enter the number of claims you've made in the past 5 years";
+                scroll(0,0)
+                dataIsValid = false;
+            }
+
+            else {
+                document.forms["calculator"]["claims"].style.border = "";
+                document.getElementById("clmmsg").innerHTML = "";
+            }
 
 
 
             if(dataIsValid) {}   else {
-                alert("errMsg");
+                alert("You didn't fill out all the fields or filled something in incorrectly.");
                 return false;
             }
 
@@ -247,13 +423,14 @@
                         <label for="title">Title</label>
                     </div>
                     <div class="col-75">
-                        <select name="title" required>
+                        <select name="title" id="title" required>
                             <option value="" disabled selected>Please select</option>
                             <option name="jemil" value="mr">Mr</option>
                             <option>Mrs</option>
                             <option>Ms</option>
                             <option>Dr</option>
                         </select>
+                        <div id="titlemsg"></div>
                     </div>
                 </div>
                 <div class="row">
@@ -288,7 +465,7 @@
                         <label for="employment">Employment Status</label>
                     </div>
                     <div class="col-75">
-                        <select name="occupation" required>
+                        <select name="occupation" id="occupation" required>
                             <option value="" disabled selected>Please select</option>
                             <option value="1">Unemployed</option>
                             <option value="1">Full Time Student</option>
@@ -304,13 +481,14 @@
                         <label for="household">My home is</label>
                     </div>
                     <div class="col-75">
-                        <select name="household" required>
+                        <select name="household" id="household" required>
                             <option value="" disabled selected>Please select</option>
                             <option value="0.99">Owned by me</option>
                             <option value="1">House/Apt owned by family</option>
                             <option value="1">House/Apt not owned by family</option>
                             <option value="1">Other</option>
                         </select>
+                        <div id="homemsg"></div>
                     </div>
                 </div>
                 <div class="row">
@@ -318,13 +496,14 @@
                         <label for="car">Vehicle preference</label>
                     </div>
                     <div class="col-75">
-                        <select name="car" required>
+                        <select name="car" id="car" required>
                             <option value="" disabled selected>Please select</option>
                             <option value="0.87">Seat Mii</option>
                             <option value="0.99">Hyundai i10</option>
                             <option value="1">Toyota Yaris</option>
                             <option value="1.01">Volkswagen Polo</option>
                         </select>
+                        <div id="carmsg"></div>
                     </div>
                 </div>
                 <div class="row">
@@ -333,6 +512,7 @@
                     </div>
                     <div class="col-75">
                         <input type="text" name="address_l1" id="address_l1" placeholder="First line of your address" required>
+                        <div id="adrmsg"></div>
                     </div>
                 </div>
                 <div class="row">
@@ -348,7 +528,7 @@
                         <label for="location">Area</label>
                     </div>
                     <div class="col-75">
-                        <select name="location" required>
+                        <select name="location" id="location" required>
                             <option value="" disabled selected>Please select</option>
                             <option value="1.1045">Carlow</option>
                             <option value="1.11217">Cavan</option>
@@ -432,6 +612,7 @@
                             <option value="1.0651">Greystones</option>
                             <option value="0.9604">Wicklow County</option>
                         </select>
+                        <div id="locmsg"></div>
                     </div>
                 </div>
                 <div class="row">
@@ -439,11 +620,12 @@
                         <label for="licence">Licence Type</label>
                     </div>
                     <div class="col-75">
-                        <select name="licence" required>
+                        <select name="licence" id="licence" required>
                             <option value="" disabled selected>Please select</option>
                             <option value="0.7084">Full Licence</option>
                             <option value="1">Provisional Licence</option>
                         </select>
+                        <div id="licmsg"></div>
                     </div>
                 </div>
                 <div class="row">
@@ -451,7 +633,7 @@
                         <label for="ncb">Years experience driving (claims free)</label>
                     </div>
                     <div class="col-75">
-                        <select name="ncb" required>
+                        <select name="ncb" id="ncb" required>
                             <option value="" disabled selected>Please select</option>
                             <option value="1">0 Years</option>
                             <option value="0.5980">1 Year</option>
@@ -465,6 +647,7 @@
                             <option value="0.1471">9 Years</option>
                             <option value="0.879">10 Years</option>
                         </select>
+                        <div id="ncbmsg"></div>
                     </div>
                 </div>
                 <div class="row">
@@ -472,7 +655,7 @@
                         <label for="namedexp">Years experience driving (named driver)</label>
                     </div>
                     <div class="col-75">
-                        <select name="namedexp" required>
+                        <select name="namedexp" id="namedexp" required>
                             <option value="" disabled selected>Please select</option>
                             <option value="1">0 Years</option>
                             <option value="0.9443">1 Year</option>
@@ -482,6 +665,7 @@
                             <option value="0.9443">5 Years</option>
                             <option value="0.9443">6+ Years</option>
                         </select>
+                        <div id="nxpmsg"></div>
                     </div>
                 </div>
                 <div class="row">
@@ -489,7 +673,7 @@
                         <label for="penalty">Have you any penalty points?</label>
                     </div>
                     <div class="col-75">
-                        <select name="penalty" required>
+                        <select name="penalty" id="penalty" required>
                             <option value="" disabled selected>Please select</option>
                             <option value="1">1</option>
                             <option value="1">2</option>
@@ -498,6 +682,7 @@
                             <option value="1">5</option>
                             <option value="1">6+</option>
                         </select>
+                        <div id="penmsg"></div>
                     </div>
                 </div>
                 <div class="row">
@@ -505,12 +690,13 @@
                         <label for="addDrivers">Additional Drivers</label>
                     </div>
                     <div class="col-75">
-                        <select name="addDrivers" required>
+                        <select name="addDrivers" id="addDrivers" required>
                             <option value="" disabled selected>Please select</option>
                             <option value="1">0 named driver</option>
                             <option value="1">1 named driver</option>
                             <option value="1">2 named drivers</option>
                         </select>
+                        <div id="addmsg"></div>
                     </div>
                 </div>
                 <div class="row">
@@ -518,12 +704,13 @@
                         <label for="claims">Claims in the last 5 Years</label>
                     </div>
                     <div class="col-75">
-                        <select name="claims" required>
+                        <select name="claims" id="claims" required>
                             <option value="" disabled selected>Please select</option>
                             <option value="1">0</option>
                             <option value="1">1</option>
                             <option value="1">2</option>
                         </select>
+                        <div id="clmmsg"></div>
                     </div>
                 </div>
                 <div class="row">
