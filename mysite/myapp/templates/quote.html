@@ -106,6 +106,34 @@
 
             //gets the first name input 
             var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var address_l1 = document.getElementById("address_l1").value;
+            var address_l2 = document.getElementById("address_l2").value;
+
+            // form validation
+            if ( !(age >20 && age<30 ) ){
+                alert("You must be aged 21-29 in order to use TourGo");
+                return false;
+            }
+
+
+            if (fname == "") {
+                alert("You forgot to fill in your first name.")
+                return false;
+            }
+
+            if (lname == "") {
+                alert("You forgot to fill in your last name.")
+                return false;
+            }
+
+            if (address_l1 == "") {
+                alert("You forgot to fill in the first line of your address.")
+                return false;
+            }
+
+
+            // return true;
 
             document.getElementById("output1").innerHTML = "The base price is €" + basePrice;
             //prints to the html 
@@ -178,7 +206,8 @@
                         <label for="title">Title</label>
                     </div>
                     <div class="col-75">
-                        <select name="title">
+                        <select name="title" required>
+                            <option value="" disabled selected>Please select</option>
                             <option name="jemil" value="mr">Mr</option>
                             <option>Mrs</option>
                             <option>Ms</option>
@@ -191,7 +220,7 @@
                         <label for="fname">First Name</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" name="fname" id="fname" placeholder="Your First Name...">
+                        <input type="text" name="fname" id="fname" placeholder="Your First Name..." required>
                     </div>
                 </div>
                 <div class="row">
@@ -199,7 +228,7 @@
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" name="lname" id="lname" placeholder="Your Last Name...">
+                        <input type="text" name="lname" id="lname" placeholder="Your Last Name..." required>
                     </div>
                 </div>
                 <div class="row">
@@ -207,7 +236,7 @@
                         <label for="date">Date of Birth</label>
                     </div>
                     <div class="col-75">
-                        <input type="date" name="bday" id="bday">
+                        <input type="date" name="bday" id="bday" required>
                     </div>
                 </div>
                 <div class="row">
@@ -215,7 +244,8 @@
                         <label for="employment">Employment Status</label>
                     </div>
                     <div class="col-75">
-                        <select name="occupation">
+                        <select name="occupation" required>
+                            <option value="" disabled selected>Please select</option>
                             <option value="1">Unemployed</option>
                             <option value="1">Full Time Student</option>
                             <option value="1">Employed - Part Time</option>
@@ -229,7 +259,8 @@
                         <label for="household">My home is</label>
                     </div>
                     <div class="col-75">
-                        <select name="household">
+                        <select name="household" required>
+                            <option value="" disabled selected>Please select</option>
                             <option value="0.99">Owned by me</option>
                             <option value="1">House/Apt owned by family</option>
                             <option value="1">House/Apt not owned by family</option>
@@ -242,7 +273,8 @@
                         <label for="car">Vehicle preference</label>
                     </div>
                     <div class="col-75">
-                        <select name="car">
+                        <select name="car" required>
+                            <option value="" disabled selected>Please select</option>
                             <option value="0.87">Seat Mii</option>
                             <option value="0.99">Hyundai i10</option>
                             <option value="1">Toyota Yaris</option>
@@ -255,7 +287,7 @@
                         <label for="address_l1">Address Line 1</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" name="address_l1" id="address_l1" placeholder="First line of your address">
+                        <input type="text" name="address_l1" id="address_l1" placeholder="First line of your address" required>
                     </div>
                 </div>
                 <div class="row">
@@ -271,7 +303,8 @@
                         <label for="location">Area</label>
                     </div>
                     <div class="col-75">
-                        <select name="location">
+                        <select name="location" required>
+                            <option value="" disabled selected>Please select</option>
                             <option value="1.1045">Carlow</option>
                             <option value="1.11217">Cavan</option>
                             <option value="0.9961">Clare</option>
@@ -361,7 +394,8 @@
                         <label for="licence">Licence Type</label>
                     </div>
                     <div class="col-75">
-                        <select name="licence">
+                        <select name="licence" required>
+                            <option value="" disabled selected>Please select</option>
                             <option value="0.7084">Full Licence</option>
                             <option value="1">Provisional Licence</option>
                         </select>
@@ -372,7 +406,8 @@
                         <label for="ncb">Years experience driving (claims free)</label>
                     </div>
                     <div class="col-75">
-                        <select name="ncb">
+                        <select name="ncb" required>
+                            <option value="" disabled selected>Please select</option>
                             <option value="1">0 Years</option>
                             <option value="0.5980">1 Year</option>
                             <option value="0.5618">2 Years</option>
@@ -392,7 +427,8 @@
                         <label for="namedexp">Years experience driving (named driver)</label>
                     </div>
                     <div class="col-75">
-                        <select name="namedexp">
+                        <select name="namedexp" required>
+                            <option value="" disabled selected>Please select</option>
                             <option value="1">0 Years</option>
                             <option value="0.9443">1 Year</option>
                             <option value="0.9443">2 Years</option>
@@ -408,7 +444,8 @@
                         <label for="penalty">Have you any penalty points?</label>
                     </div>
                     <div class="col-75">
-                        <select name="penalty">
+                        <select name="penalty" required>
+                            <option value="" disabled selected>Please select</option>
                             <option value="1">1</option>
                             <option value="1">2</option>
                             <option value="1">3</option>
@@ -423,7 +460,8 @@
                         <label for="addDrivers">Additional Drivers</label>
                     </div>
                     <div class="col-75">
-                        <select name="addDrivers">
+                        <select name="addDrivers" required>
+                            <option value="" disabled selected>Please select</option>
                             <option value="1">0 named driver</option>
                             <option value="1">1 named driver</option>
                             <option value="1">2 named drivers</option>
@@ -435,7 +473,8 @@
                         <label for="claims">Claims in the last 5 Years</label>
                     </div>
                     <div class="col-75">
-                        <select name="claims">
+                        <select name="claims" required>
+                            <option value="" disabled selected>Please select</option>
                             <option value="1">0</option>
                             <option value="1">1</option>
                             <option value="1">2</option>
@@ -443,7 +482,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <button class="btn" type="button" onclick="calculatePremium()" value="javaScript">
+                    <button class="btn" type="button" onclick="return calculatePremium()" value="javaScript">
                         Submit (JS)
                     </button>
 
