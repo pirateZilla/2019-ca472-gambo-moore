@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 # imports the  driver model so we can save the data to it
-from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay
+from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay, Month_journey
 import pprint
 import json
 from django.core.serializers.json import DjangoJSONEncoder
@@ -100,7 +100,7 @@ def user_dash(request):
 											where myapp_car.Driver_id = %s;
 	 									''', [user_id])
 
-    month_journey_score = Month_journey.objects.raw('''SELECT myapp_month_journey.month, myapp_month_journey.monthly_journey_score
+    month_journey_score = Month_journey.objects.raw('''SELECT myapp_month_journey.id, myapp_month_journey.month, myapp_month_journey.monthly_journey_score
 		                                            from myapp_month_journey 
                                                     WHERE myapp_month_journey.Driver_id = %s;
                                                     ''', [user_id])
@@ -110,9 +110,17 @@ def user_dash(request):
 
     # collects the start and end location of a driver journey n.b it only looks at the last journey
     start_location = Journeys.objects.raw('''select myapp_journeys.id, myapp_journeys.distance, myapp_journeys.journey_score, myapp_journeys.end_time, myapp_journeys.start_time, myapp_journeys.start_location, myapp_journeys.end_location
-		from myapp_journeys where myapp_journeys.Driver_id= % s''', [user_id])
+		from myapp_journeys where myapp_journeys.Driver_id= %s''', [user_id])
+
+    
 
     # has to have a defult figure or map functionality wont work
+    month_score = "0"
+    for x in month_journey_score:
+        month_score = x.monthly_journey_score
+
+    print(month_score)
+
     maps_start = "0"
     maps_end = "0"
     distance = "0"
@@ -168,7 +176,8 @@ def user_dash(request):
         "speedScoreWeekAvg": speedScoreWeekAvg,
         "fatigueScoreWeekAvg": fatigueScoreWeekAvg,
         "smoothScoreWeekAvg": smoothScoreWeekAvg,
-        "todScoreWeekAvg": todScoreWeekAvg
+        "todScoreWeekAvg": todScoreWeekAvg,
+        "month_score": month_score
 
     }
     return render_to_response("user_dash.html", context)
