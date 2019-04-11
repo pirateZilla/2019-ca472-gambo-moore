@@ -20,7 +20,9 @@ urlpatterns = [
     path('speed_learn/', views.speed_learn, name='speed_learn'),
     path('smoothness_learn/', views.smoothness_learn, name='smoothness_learn'),
     path('fatigue_learn/', views.fatigue_learn, name='fatigue_learn'),
-    path('tod_learn/', views.tod_learn, name='tod_learn')
+    path('tod_learn/', views.tod_learn, name='tod_learn'),
+    path('thanks/', views.thanks, name='thanks'),
+    path('email/', views.email, name='email'),
 
  
 ]
