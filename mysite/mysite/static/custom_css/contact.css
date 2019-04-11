@@ -19,11 +19,11 @@
   }
 
   input[type=email] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
+    width: 100% !important;
+    padding: 12px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    resize: vertical !important;
   }
   
   label {
@@ -85,7 +85,7 @@
   }
 
   .jumbotron {
-    background-image: url("../images/contact-us.jpg");
+    background-image: url("../images/contact-us.jpg") !important;
     background-size: cover;
     min-height: 600px;
     margin-bottom: 4rem;
