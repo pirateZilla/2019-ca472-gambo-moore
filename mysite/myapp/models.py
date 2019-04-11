@@ -99,4 +99,34 @@ class Smoothness(models.Model):
     def  __str__(self):
         return self.Smoothness_level
 
+
+class Month_journey(models.Model):
+    Driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
+    month =  models.CharField(max_length=20, blank=True)
+    monthly_journey_score =  models.PositiveIntegerField( blank=True)
+    def  __str__(self):
+        return self.month
+class real_user(models.Model):
+
+  time=  models.CharField(max_length=20, blank=True)
+  lat =  models.CharField(max_length=20, blank=True)
+  lon =  models.CharField(max_length=20, blank=True)
+  elevation =  models.CharField(max_length=20, blank=True)
+  accuracy =  models.CharField(max_length=20, blank=True)
+  bearing =  models.CharField(max_length=20, blank=True)
+  speed =  models.CharField(max_length=20, blank=True)
+  satellites =  models.CharField(max_length=20, blank=True)
+  provider =  models.CharField(max_length=20, blank=True)
+  hdop =  models.CharField(max_length=20, blank=True)
+  vdop = models.CharField(max_length=20, blank=True)
+  pdop = models.CharField(max_length=20, blank=True)
+  geoidheight = models.CharField(max_length=20, blank=True)
+  ageofdgpsdata =  models.CharField(max_length=20, blank=True)
+  dgpsid =  models.CharField(max_length=20, blank=True)
+  activity =  models.CharField(max_length=20, blank=True)
+  battery =  models.CharField(max_length=20, blank=True)
+  annotation =  models.CharField(max_length=20, blank=True)
+  def  __str__(self):
+     return self.time
+
         
