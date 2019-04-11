@@ -83,3 +83,29 @@
       margin-top: 0;
     }
   }
+
+  .jumbotron {
+    background-image: url("../images/contact-us.jpg");
+    background-size: cover;
+    min-height: 600px;
+    margin-bottom: 4rem;
+    top: 0;
+}
+
+.btn {
+  padding: .5rem 1rem;
+  border: none;
+  font-size: 1.25rem;
+  line-height:1.5;
+  border-radius: .3rem;
+  cursor: pointer;
+  width: 100%;
+  color: #fff;
+  background-color: #1565c0;
+  margin: .3rem;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #003c8f;
+}

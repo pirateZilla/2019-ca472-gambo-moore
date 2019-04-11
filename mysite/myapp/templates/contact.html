@@ -94,19 +94,23 @@
     <!-- Page Content -->
     <main role="main">
         <div class="jumbotron"></div>
-
+        
         <div class="container-form">
-            <br />
-            <br />
-            <br />
+            <h2>Contact us</h2>
+            <p>For any queries about our site, services, or issues you might be having please feel free to contact us using the form below.</p>
+            <br/>
             <form method="POST" action="https://formspree.io/tourgodrive@gmail.com">
 
 
                 <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                <br/>
+                <br/>
                 <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
+                <br/>
+                <br/>
                 <input type="email" name="email" placeholder="Your email">
-
+                <br/>
+                <br/>
                 <select id="topic" name="topic">
                     <option value="" disabled selected>Topic</option>
                     <option value="policy">Update/Amend Membership</option>
@@ -117,10 +121,12 @@
                     <option value="vehicle">Issue with your vehicle</option>
                     <option value="other">Other</option>
                 </select>
-
+                <br/>
+                <br/>
                 <textarea name="message" placeholder="Your message..."></textarea>
-
-                <button type="submit">Send message</button>
+                <br/>
+                <br/>
+                <button class="btn" type="submit">Send message</button>
             </form>
         </div>
 
