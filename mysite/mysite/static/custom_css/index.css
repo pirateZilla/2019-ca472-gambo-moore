@@ -251,3 +251,10 @@ footer {
     max-width: 800px;
 }
 
+.jumbotron {
+    background-image: url("../images/image3.jpg");
+    background-size: cover;
+    min-height: 600px;
+    margin-bottom: 4rem;
+    top: 0;
+}
