@@ -93,31 +93,34 @@
     </header>
     <!-- Page Content -->
     <main role="main">
+        <div class="jumbotron"></div>
 
         <div class="container-form">
             <br />
             <br />
             <br />
-            <form action="action_page.php">
+            <form method="POST" action="https://formspree.io/tourgodrive@gmail.com">
 
-                <label for="fname">First Name</label>
+
                 <input type="text" id="fname" name="firstname" placeholder="Your name..">
-
-                <label for="lname">Last Name</label>
                 <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 
-                <label for="country">Country</label>
-                <select id="country" name="country">
-                    <option value="australia">Australia</option>
-                    <option value="canada">Canada</option>
-                    <option value="usa">USA</option>
+                <input type="email" name="email" placeholder="Your email">
+
+                <select id="topic" name="topic">
+                    <option value="" disabled selected>Topic</option>
+                    <option value="policy">Update/Amend Membership</option>
+                    <option value="billing">Billing Issue</option>
+                    <option value="newCust">New Customer Enquiry</option>
+                    <option value="maintain">Maintenance Request</option>
+                    <option value="site">Issue with the site</option>
+                    <option value="vehicle">Issue with your vehicle</option>
+                    <option value="other">Other</option>
                 </select>
 
-                <label for="subject">Subject</label>
-                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                <textarea name="message" placeholder="Your message..."></textarea>
 
-                <input type="submit" value="Submit">
-
+                <button type="submit">Send message</button>
             </form>
         </div>
 
