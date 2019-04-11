@@ -16,10 +16,10 @@ def index(request):
 
 
 def quote(request, ):
-    #print (request.user)
+    # print (request.user)
     user_id = request.GET.get('user_id')
 
-    #print (user_id)
+    # print (user_id)
 
     km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
 										from myapp_journeys
@@ -64,14 +64,14 @@ def user_dash(request):
 
     num_journeys_this_week = Journeys.objects.raw('''select myapp_journeys.id, count(myapp_journeys.id) as trips
 													from myapp_journeys
-													where Driver_id = %s; 
+													where Driver_id = %s;
 	 												''', [user_id])
     km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
 										from myapp_journeys
 										where Driver_id = %s;
 								 	''', [user_id])
 
-    avg_smoothness = Smoothness.objects.raw('''select myapp_journeys.id,  cast(Round (avg(myapp_smoothness.Smoothness_level)) as int)AS avg_smoothness, 
+    avg_smoothness = Smoothness.objects.raw('''select myapp_journeys.id,  cast(Round (avg(myapp_smoothness.Smoothness_level)) as int)AS avg_smoothness,
 												myapp_car.car_type,  myapp_car.car_mileage, myapp_car.car_reg, myapp_car.engine_size
 												from myapp_car inner join myapp_journeys on myapp_car.Driver_id = myapp_journeys.Driver_id
 												inner join myapp_smoothness on
@@ -100,13 +100,17 @@ def user_dash(request):
 											where myapp_car.Driver_id = %s;
 	 									''', [user_id])
 
+    month_journey_score = Month_journey.objects.raw('''SELECT myapp_month_journey.month, myapp_month_journey.monthly_journey_score
+		                                            from myapp_month_journey 
+                                                    WHERE myapp_month_journey.Driver_id = %s;
+                                                    ''', [user_id])
 
 
 
 
     # collects the start and end location of a driver journey n.b it only looks at the last journey
-    start_location = Journeys.objects.raw('''select myapp_journeys.id, myapp_journeys.distance, myapp_journeys.journey_score, myapp_journeys.end_time, myapp_journeys.start_time, myapp_journeys.start_location, myapp_journeys.end_location 
-		from myapp_journeys where myapp_journeys.Driver_id =%s''', [user_id])
+    start_location = Journeys.objects.raw('''select myapp_journeys.id, myapp_journeys.distance, myapp_journeys.journey_score, myapp_journeys.end_time, myapp_journeys.start_time, myapp_journeys.start_location, myapp_journeys.end_location
+		from myapp_journeys where myapp_journeys.Driver_id= % s''', [user_id])
 
     # has to have a defult figure or map functionality wont work
     maps_start = "0"
@@ -187,7 +191,7 @@ def registration(request):
 	driver.address2 = address2
 	driver.save()
 	"""
-    #print(f_name, eircode, drive_exp)
+    # print(f_name, eircode, drive_exp)
 
     context = {}
     return render(request, "registration.html", context)
@@ -238,7 +242,7 @@ def maintenance_checklist(request):
 	driver.address2 = address2
 	driver.save()
 	"""
-    #print(f_name, eircode, drive_exp)
+    # print(f_name, eircode, drive_exp)
 
     return render(request, "maintenance_checklist.html")
 
