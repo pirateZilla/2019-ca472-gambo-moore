@@ -29,6 +29,18 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
+var jan = parseInt(document.getElementById("jan").value);
+var feb = parseInt(document.getElementById("feb").value);
+var mar = parseInt(document.getElementById("mar").value);
+var apr = parseInt(document.getElementById("apr").value);
+var may = parseInt(document.getElementById("may").value);
+var jun = parseInt(document.getElementById("jun").value);
+var jul = parseInt(document.getElementById("jul").value);
+var aug = parseInt(document.getElementById("aug").value);
+var sep = parseInt(document.getElementById("sep").value);
+var oct = parseInt(document.getElementById("oct").value);
+var nov = parseInt(document.getElementById("nov").value);
+var dec = parseInt(document.getElementById("dec").value);
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -46,7 +58,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(63, 129, 203, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [68, 69, 72, 70, 77, 74, 73, 79, 80, 78, 81, 86],
+      data: [jun, jul, aug, sep, oct, nov, dec, jan, feb, mar, apr, may],
     }],
   },
   options: {

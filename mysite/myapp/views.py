@@ -115,11 +115,15 @@ def user_dash(request):
     
 
     # has to have a defult figure or map functionality wont work
+    month_score_array = []
     month_score = "0"
     for x in month_journey_score:
+        
         month_score = x.monthly_journey_score
+        month_score_array.append(month_score)
+    #     print(month_score)
 
-    print(month_score)
+    # print(month_score_array)
 
     maps_start = "0"
     maps_end = "0"
@@ -177,7 +181,8 @@ def user_dash(request):
         "fatigueScoreWeekAvg": fatigueScoreWeekAvg,
         "smoothScoreWeekAvg": smoothScoreWeekAvg,
         "todScoreWeekAvg": todScoreWeekAvg,
-        "month_score": month_score
+        "month_score": month_score,
+        "array": month_score_array
 
     }
     return render_to_response("user_dash.html", context)

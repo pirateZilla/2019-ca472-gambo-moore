@@ -595,6 +595,18 @@
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-area">
+                      <input  type="hidden" id="jan" name="jan" value="{% if array %}{{array.0}}{% endif %}">
+                      <input  type="hidden" id="feb" name="feb" value="{% if array %}{{array.1}}{% endif %}">
+                      <input  type="hidden" id="mar" name="mar" value="{% if array %}{{array.2}}{% endif %}">
+                      <input  type="hidden" id="apr" name="apr" value="{% if array %}{{array.3}}{% endif %}">
+                      <input  type="hidden" id="may" name="may" value="{% if array %}{{array.4}}{% endif %}">
+                      <input  type="hidden" id="jun" name="jun" value="{% if array %}{{array.5}}{% endif %}">
+                      <input  type="hidden" id="jul" name="jul" value="{% if array %}{{array.6}}{% endif %}">
+                      <input  type="hidden" id="aug" name="aug" value="{% if array %}{{array.7}}{% endif %}">
+                      <input  type="hidden" id="sep" name="sep" value="{% if array %}{{array.8}}{% endif %}">
+                      <input  type="hidden" id="oct" name="oct" value="{% if array %}{{array.9}}{% endif %}">
+                      <input  type="hidden" id="nov" name="nov" value="{% if array %}{{array.10}}{% endif %}">
+                      <input  type="hidden" id="dec" name="dec" value="{% if array %}{{array.11}}{% endif %}">
                     <canvas id="myAreaChart"></canvas>
                   </div>
                 </div>
