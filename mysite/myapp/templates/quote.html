@@ -105,7 +105,7 @@
                     <br />
                     <br />
                     <br />
-                    <form name="calculator" action='/register' method='GET'>
+                    <form name="calculator" action='.' method='GET'>
                         <!-- {% if user.is_authenticated %}
                 <h1> Your are logged in as : {{user.username}}</h1>
                 {% else %}
@@ -132,6 +132,7 @@
                                 <label for="fname">First Name</label>
                             </div>
                             <div class="col-75">
+                                <input type="text" id="name1" name="name1" value="">
                                 <input type="text" name="fname" id="fname" placeholder="Your First Name..." required>
                                 <div id="fnamemsg"></div>
                             </div>
@@ -414,7 +415,7 @@
                             <button class="btn" type="button" onclick="return calculatePremium()" value="javaScript">
                                 Submit (JS)
                             </button>
-                            <input type="hidden" id="name1" name="name1"></input>
+                            
                         </div>
                         <div class="row">
 
