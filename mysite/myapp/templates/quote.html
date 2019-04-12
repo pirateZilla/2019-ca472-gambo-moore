@@ -57,425 +57,444 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark static-top" id="navbar">
-            <div class="container">
-                <a class="navbar-brand" href="{% url 'index' %}"><span class="tour">Tour</span>Go<img
-                        src="{% static 'images/car.png' %}" width="60" /></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'index' %}">home</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'quote' %}">get a quote
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'about' %}">how it works</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'faq' %}">faq</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'contact' %}">contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'user_dash' %}">dashboard</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- Page Content -->
-    <main role="main">
-        <div class="container-form">
-            <br />
-            <br />
-            <br />
-            <form name="calculator" action='/register' method='GET'>
-                <!-- {% if user.is_authenticated %}
+    <div id="page-container">
+        <div id="content-wrap">
+            <header>
+                <nav class="navbar navbar-expand-lg navbar-dark static-top" id="navbar">
+                    <div class="container">
+                        <a class="navbar-brand" href="{% url 'index' %}"><span class="tour">Tour</span>Go<img
+                                src="{% static 'images/car.png' %}" width="60" /></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'index' %}">home</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'quote' %}">get a quote
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'about' %}">how it works</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'login' %}">login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'faq' %}">faq</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'contact' %}">contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'user_dash' %}">dashboard</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <!-- Page Content -->
+            <main role="main">
+                <div class="container-form">
+                    <br />
+                    <br />
+                    <br />
+                    <form name="calculator" action='/register' method='GET'>
+                        <!-- {% if user.is_authenticated %}
                 <h1> Your are logged in as : {{user.username}}</h1>
                 {% else %}
                 <h1> your're not logged in </h1>
                 {% endif %} -->
-                <h1>Get a Quote</h1>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="title">Title</label>
-                    </div>
-                    <div class="col-75">
-                        <select name="title" id="title" required>
-                            <option value="" disabled selected>Please select</option>
-                            <option>Mr</option>
-                            <option>Mrs</option>
-                            <option>Ms</option>
-                            <option>Dr</option>
-                        </select>
-                        <div id="titlemsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="fname">First Name</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" name="fname" id="fname" placeholder="Your First Name..." required>
-                        <div id="fnamemsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="lname">Last Name</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" name="lname" id="lname" placeholder="Your Last Name..." required>
-                        <div id="lnamemsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="date">Date of Birth</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="date" name="bday" id="bday" required>
-                        <div id="bdaymsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="employment">Employment Status</label>
-                    </div>
-                    <div class="col-75">
-                        <select name="occupation" id="occupation" required>
-                            <option value="" disabled selected>Please select</option>
-                            <option value="1">Unemployed</option>
-                            <option value="1">Full Time Student</option>
-                            <option value="1">Employed - Part Time</option>
-                            <option value="1">Employed - Full Time</option>
-                            <option value="1">Self Employed</option>
-                        </select>
-                        <div id="emplmsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="household">My home is</label>
-                    </div>
-                    <div class="col-75">
-                        <select name="household" id="household" required>
-                            <option value="" disabled selected>Please select</option>
-                            <option value="0.99">Owned by me</option>
-                            <option value="1">House/Apt owned by family</option>
-                            <option value="1">House/Apt not owned by family</option>
-                            <option value="1">Other</option>
-                        </select>
-                        <div id="homemsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="car">Vehicle preference</label>
-                    </div>
-                    <div class="col-75">
-                        <select name="car" id="car" required>
-                            <option value="" disabled selected>Please select</option>
-                            <option value="0.87">Seat Mii</option>
-                            <option value="0.99">Hyundai i10</option>
-                            <option value="1">Toyota Yaris</option>
-                            <option value="1.01">Volkswagen Polo</option>
-                        </select>
-                        <div id="carmsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="address_l1">Address Line 1</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" name="address_l1" id="address_l1" placeholder="First line of your address"
-                            required>
-                        <div id="adrmsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="address_l2">Address Line 2</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" name="address_l2" id="address_l2" placeholder="Second line of your address">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="location">Area</label>
-                    </div>
-                    <div class="col-75">
-                        <select name="location" id="location" required>
-                            <option value="" disabled selected>Please select</option>
-                            <option value="1.1045">Carlow</option>
-                            <option value="1.11217">Cavan</option>
-                            <option value="0.9961">Clare</option>
-                            <option value="0.9828">Cork City North</option>
-                            <option value="0.9847">Cork City South</option>
-                            <option value="0.8623">Cork County</option>
-                            <option value="1.0537">Donegal</option>
-                            <option value="1.0279">Dublin 1</option>
-                            <option value="0.9979">Dublin 2</option>
-                            <option value="0.9977">Dublin 3</option>
-                            <option value="0.9010">Dublin 4</option>
-                            <option value="0.9977">Dublin 5</option>
-                            <option value="0.9881">Dublin 6</option>
-                            <option value="0.9414">Dublin 6W</option>
-                            <option value="1.0137">Dublin 7</option>
-                            <option value="1.0279">Dublin 8</option>
-                            <option value="1.1469">Dublin 9</option>
-                            <option value="1.0279">Dublin 10</option>
-                            <option value="1.2044">Dublin 11</option>
-                            <option value="1.0687">Dublin 12</option>
-                            <option value="0.8541">Dublin 13</option>
-                            <option value="0.7136">Dublin 14</option>
-                            <option value="1.0415">Dublin 15</option>
-                            <option value="1.006">Dublin 16</option>
-                            <option value="1.1220">Dublin 17</option>
-                            <option value="0.9702">Dublin 18</option>
-                            <option value="1.1132">Dublin 20</option>
-                            <option value="1.1132">Dublin 22</option>
-                            <option value="1.0649">Dublin 24</option>
-                            <option value="0.9184">Dun Laoghaire Rathdown</option>
-                            <option value="0.9713">Fingal</option>
-                            <option value="1.075">Dublin South</option>
-                            <option value="1.0329">Galway City</option>
-                            <option value="0.9751">Galway County</option>
-                            <option value="0.9184">Dublin County</option>
-                            <option value="0.9408">Kerry</option>
-                            <option value="0.9785">Celbridge</option>
-                            <option value="1.0459">Kilcock</option>
-                            <option value="0.9941">Leixlip</option>
-                            <option value="0.9651">Maynooth</option>
-                            <option value="0.9164">Naas</option>
-                            <option value="1.0104">Newbridge</option>
-                            <option value="1">Straffan</option>
-                            <option value="1.0521">Kildare County</option>
-                            <option value="1.0414">Kilkenny</option>
-                            <option value="1.0359">Laois</option>
-                            <option value="1.2102">Leitrim</option>
-                            <option value="1.1925">Limerick City</option>
-                            <option value="1.1101">Limerick County</option>
-                            <option value="1.2597">Longford</option>
-                            <option value="1.1487">Ardee</option>
-                            <option value="1.2087">Drogheda</option>
-                            <option value="1.3885">Dundalk</option>
-                            <option value="1.4611">Louth North County</option>
-                            <option value="1.1487">Louth South County</option>
-                            <option value="0.9120">Mayo</option>
-                            <option value="1.0113">Ashbourne</option>
-                            <option value="1.1487">Clonee</option>
-                            <option value="0.9709">Dunboyne</option>
-                            <option value="0.9324">Dunshaughlin</option>
-                            <option value="0.9425">Enfield</option>
-                            <option value="1.0968">Garristown</option>
-                            <option value="1.0968">Navan</option>
-                            <option value="1.1426">Oldtown</option>
-                            <option value="1.0214">Rathoath</option>
-                            <option value="1.0214">Summerhill</option>
-                            <option value="1.0968">Meath County</option>
-                            <option value="0.9871">Monaghan</option>
-                            <option value="0.9423">Offaly</option>
-                            <option value="1.1657">Roscommon</option>
-                            <option value="1.1288">Sligo</option>
-                            <option value="0.9997">Tipperary North County</option>
-                            <option value="0.9991">Tipperary South County</option>
-                            <option value="0.9483">Waterford City</option>
-                            <option value="0.9033">Waterford County</option>
-                            <option value="1.0861">Westmeath</option>
-                            <option value="0.8941">Wexford</option>
-                            <option value="1.0433">Blessington</option>
-                            <option value="0.9977">Bray</option>
-                            <option value="1.0651">Greystones</option>
-                            <option value="0.9604">Wicklow County</option>
-                        </select>
-                        <div id="locmsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="licence">Licence Type</label>
-                    </div>
-                    <div class="col-75">
-                        <select name="licence" id="licence" required>
-                            <option value="" disabled selected>Please select</option>
-                            <option value="0.7084">Full Licence</option>
-                            <option value="1">Provisional Licence</option>
-                        </select>
-                        <div id="licmsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="ncb">Years experience driving (claims free)</label>
-                    </div>
-                    <div class="col-75">
-                        <select name="ncb" id="ncb" required>
-                            <option value="" disabled selected>Please select</option>
-                            <option value="1">0 Years</option>
-                            <option value="0.5980">1 Year</option>
-                            <option value="0.5618">2 Years</option>
-                            <option value="0.5026">3 Years</option>
-                            <option value="0.4433">4 Years</option>
-                            <option value="0.3841">5 Years</option>
-                            <option value="0.3249">6 Years</option>
-                            <option value="0.2656">7 Years</option>
-                            <option value="0.2064">8 Years</option>
-                            <option value="0.1471">9 Years</option>
-                            <option value="0.0879">10 Years</option>
-                        </select>
-                        <div id="ncbmsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="namedexp">Years experience driving (named driver)</label>
-                    </div>
-                    <div class="col-75">
-                        <select name="namedexp" id="namedexp" required>
-                            <option value="" disabled selected>Please select</option>
-                            <option value="1">0 Years</option>
-                            <option value="0.9443">1 Year</option>
-                            <option value="0.9443">2 Years</option>
-                            <option value="0.9443">3 Years</option>
-                            <option value="0.9443">4 Years</option>
-                            <option value="0.9443">5 Years</option>
-                            <option value="0.9443">6+ Years</option>
-                        </select>
-                        <div id="nxpmsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="penalty">Have you any penalty points?</label>
-                    </div>
-                    <div class="col-75">
-                        <select name="penalty" id="penalty" required>
-                            <option value="" disabled selected>Please select</option>
-                            <option value="1">0</option>
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1.05">3</option>
-                            <option value="1.05">4</option>
-                            <option value="1.1">5</option>
-                            <option value="1.1">6+</option>
-                        </select>
-                        <div id="penmsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="addDrivers">Additional Drivers</label>
-                    </div>
-                    <div class="col-75">
-                        <select name="addDrivers" id="addDrivers" required>
-                            <option value="" disabled selected>Please select</option>
-                            <option value="1">0 named driver</option>
-                            <option value="1">1 named driver</option>
-                            <option value="1">2 named drivers</option>
-                        </select>
-                        <div id="addmsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="claims">Claims in the last 5 Years</label>
-                    </div>
-                    <div class="col-75">
-                        <select name="claims" id="claims" required>
-                            <option value="" disabled selected>Please select</option>
-                            <option value="1">0</option>
-                            <option value="1.05">1</option>
-                            <option value="1.1">2+</option>
-                        </select>
-                        <div id="clmmsg"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <button class="btn" type="button" onclick="return calculatePremium()" value="javaScript">
-                        Submit (JS)
-                    </button>
+                        <h1>Get a Quote</h1>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="title">Title</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="title" id="title" required>
+                                    <option value="" disabled selected>Please select</option>
+                                    <option>Mr</option>
+                                    <option>Mrs</option>
+                                    <option>Ms</option>
+                                    <option>Dr</option>
+                                </select>
+                                <div id="titlemsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="fname">First Name</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="fname" id="fname" placeholder="Your First Name..." required>
+                                <div id="fnamemsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">Last Name</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="lname" id="lname" placeholder="Your Last Name..." required>
+                                <div id="lnamemsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="date">Date of Birth</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" name="bday" id="bday" required>
+                                <div id="bdaymsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="employment">Employment Status</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="occupation" id="occupation" required>
+                                    <option value="" disabled selected>Please select</option>
+                                    <option value="1">Unemployed</option>
+                                    <option value="1">Full Time Student</option>
+                                    <option value="1">Employed - Part Time</option>
+                                    <option value="1">Employed - Full Time</option>
+                                    <option value="1">Self Employed</option>
+                                </select>
+                                <div id="emplmsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="household">My home is</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="household" id="household" required>
+                                    <option value="" disabled selected>Please select</option>
+                                    <option value="0.99">Owned by me</option>
+                                    <option value="1">House/Apt owned by family</option>
+                                    <option value="1">House/Apt not owned by family</option>
+                                    <option value="1">Other</option>
+                                </select>
+                                <div id="homemsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="car">Vehicle preference</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="car" id="car" required>
+                                    <option value="" disabled selected>Please select</option>
+                                    <option value="0.87">Seat Mii</option>
+                                    <option value="0.99">Hyundai i10</option>
+                                    <option value="1">Toyota Yaris</option>
+                                    <option value="1.01">Volkswagen Polo</option>
+                                </select>
+                                <div id="carmsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="address_l1">Address Line 1</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="address_l1" id="address_l1"
+                                    placeholder="First line of your address" required>
+                                <div id="adrmsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="address_l2">Address Line 2</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="address_l2" id="address_l2"
+                                    placeholder="Second line of your address">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="location">Area</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="location" id="location" required>
+                                    <option value="" disabled selected>Please select</option>
+                                    <option value="1.1045">Carlow</option>
+                                    <option value="1.11217">Cavan</option>
+                                    <option value="0.9961">Clare</option>
+                                    <option value="0.9828">Cork City North</option>
+                                    <option value="0.9847">Cork City South</option>
+                                    <option value="0.8623">Cork County</option>
+                                    <option value="1.0537">Donegal</option>
+                                    <option value="1.0279">Dublin 1</option>
+                                    <option value="0.9979">Dublin 2</option>
+                                    <option value="0.9977">Dublin 3</option>
+                                    <option value="0.9010">Dublin 4</option>
+                                    <option value="0.9977">Dublin 5</option>
+                                    <option value="0.9881">Dublin 6</option>
+                                    <option value="0.9414">Dublin 6W</option>
+                                    <option value="1.0137">Dublin 7</option>
+                                    <option value="1.0279">Dublin 8</option>
+                                    <option value="1.1469">Dublin 9</option>
+                                    <option value="1.0279">Dublin 10</option>
+                                    <option value="1.2044">Dublin 11</option>
+                                    <option value="1.0687">Dublin 12</option>
+                                    <option value="0.8541">Dublin 13</option>
+                                    <option value="0.7136">Dublin 14</option>
+                                    <option value="1.0415">Dublin 15</option>
+                                    <option value="1.006">Dublin 16</option>
+                                    <option value="1.1220">Dublin 17</option>
+                                    <option value="0.9702">Dublin 18</option>
+                                    <option value="1.1132">Dublin 20</option>
+                                    <option value="1.1132">Dublin 22</option>
+                                    <option value="1.0649">Dublin 24</option>
+                                    <option value="0.9184">Dun Laoghaire Rathdown</option>
+                                    <option value="0.9713">Fingal</option>
+                                    <option value="1.075">Dublin South</option>
+                                    <option value="1.0329">Galway City</option>
+                                    <option value="0.9751">Galway County</option>
+                                    <option value="0.9184">Dublin County</option>
+                                    <option value="0.9408">Kerry</option>
+                                    <option value="0.9785">Celbridge</option>
+                                    <option value="1.0459">Kilcock</option>
+                                    <option value="0.9941">Leixlip</option>
+                                    <option value="0.9651">Maynooth</option>
+                                    <option value="0.9164">Naas</option>
+                                    <option value="1.0104">Newbridge</option>
+                                    <option value="1">Straffan</option>
+                                    <option value="1.0521">Kildare County</option>
+                                    <option value="1.0414">Kilkenny</option>
+                                    <option value="1.0359">Laois</option>
+                                    <option value="1.2102">Leitrim</option>
+                                    <option value="1.1925">Limerick City</option>
+                                    <option value="1.1101">Limerick County</option>
+                                    <option value="1.2597">Longford</option>
+                                    <option value="1.1487">Ardee</option>
+                                    <option value="1.2087">Drogheda</option>
+                                    <option value="1.3885">Dundalk</option>
+                                    <option value="1.4611">Louth North County</option>
+                                    <option value="1.1487">Louth South County</option>
+                                    <option value="0.9120">Mayo</option>
+                                    <option value="1.0113">Ashbourne</option>
+                                    <option value="1.1487">Clonee</option>
+                                    <option value="0.9709">Dunboyne</option>
+                                    <option value="0.9324">Dunshaughlin</option>
+                                    <option value="0.9425">Enfield</option>
+                                    <option value="1.0968">Garristown</option>
+                                    <option value="1.0968">Navan</option>
+                                    <option value="1.1426">Oldtown</option>
+                                    <option value="1.0214">Rathoath</option>
+                                    <option value="1.0214">Summerhill</option>
+                                    <option value="1.0968">Meath County</option>
+                                    <option value="0.9871">Monaghan</option>
+                                    <option value="0.9423">Offaly</option>
+                                    <option value="1.1657">Roscommon</option>
+                                    <option value="1.1288">Sligo</option>
+                                    <option value="0.9997">Tipperary North County</option>
+                                    <option value="0.9991">Tipperary South County</option>
+                                    <option value="0.9483">Waterford City</option>
+                                    <option value="0.9033">Waterford County</option>
+                                    <option value="1.0861">Westmeath</option>
+                                    <option value="0.8941">Wexford</option>
+                                    <option value="1.0433">Blessington</option>
+                                    <option value="0.9977">Bray</option>
+                                    <option value="1.0651">Greystones</option>
+                                    <option value="0.9604">Wicklow County</option>
+                                </select>
+                                <div id="locmsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="licence">Licence Type</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="licence" id="licence" required>
+                                    <option value="" disabled selected>Please select</option>
+                                    <option value="0.7084">Full Licence</option>
+                                    <option value="1">Provisional Licence</option>
+                                </select>
+                                <div id="licmsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="ncb">Years experience driving (claims free)</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="ncb" id="ncb" required>
+                                    <option value="" disabled selected>Please select</option>
+                                    <option value="1">0 Years</option>
+                                    <option value="0.5980">1 Year</option>
+                                    <option value="0.5618">2 Years</option>
+                                    <option value="0.5026">3 Years</option>
+                                    <option value="0.4433">4 Years</option>
+                                    <option value="0.3841">5 Years</option>
+                                    <option value="0.3249">6 Years</option>
+                                    <option value="0.2656">7 Years</option>
+                                    <option value="0.2064">8 Years</option>
+                                    <option value="0.1471">9 Years</option>
+                                    <option value="0.0879">10 Years</option>
+                                </select>
+                                <div id="ncbmsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="namedexp">Years experience driving (named driver)</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="namedexp" id="namedexp" required>
+                                    <option value="" disabled selected>Please select</option>
+                                    <option value="1">0 Years</option>
+                                    <option value="0.9443">1 Year</option>
+                                    <option value="0.9443">2 Years</option>
+                                    <option value="0.9443">3 Years</option>
+                                    <option value="0.9443">4 Years</option>
+                                    <option value="0.9443">5 Years</option>
+                                    <option value="0.9443">6+ Years</option>
+                                </select>
+                                <div id="nxpmsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="penalty">Have you any penalty points?</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="penalty" id="penalty" required>
+                                    <option value="" disabled selected>Please select</option>
+                                    <option value="1">0</option>
+                                    <option value="1">1</option>
+                                    <option value="1">2</option>
+                                    <option value="1.05">3</option>
+                                    <option value="1.05">4</option>
+                                    <option value="1.1">5</option>
+                                    <option value="1.1">6+</option>
+                                </select>
+                                <div id="penmsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="addDrivers">Additional Drivers</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="addDrivers" id="addDrivers" required>
+                                    <option value="" disabled selected>Please select</option>
+                                    <option value="1">0 named driver</option>
+                                    <option value="1">1 named driver</option>
+                                    <option value="1">2 named drivers</option>
+                                </select>
+                                <div id="addmsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="claims">Claims in the last 5 Years</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="claims" id="claims" required>
+                                    <option value="" disabled selected>Please select</option>
+                                    <option value="1">0</option>
+                                    <option value="1.05">1</option>
+                                    <option value="1.1">2+</option>
+                                </select>
+                                <div id="clmmsg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn" type="button" onclick="return calculatePremium()" value="javaScript">
+                                Submit (JS)
+                            </button>
 
-                </div>
-                <div class="row">
+                        </div>
+                        <div class="row">
 
-                    <button class="btn" type="submit" name="submit" value="python">
-                        Purchase (PY)
-                    </button>
-                </div>
+                            <button class="btn" type="submit" name="submit" value="python">
+                                Purchase (PY)
+                            </button>
+                        </div>
 
 
-            </form>
+                    </form>
 
-            <div>
-                <!-- outputs the users name and insurance -->
-                <h2 id="personal"></h2>
-                <h3 id="nameTitle"></h3>
-                <p id="name"></p>
-                <h3 id="addressTitle"></h3>
-                <p id="address"></p>
-                <h3 id="ageTitle"></h3>
-                <p id="age"></p>
+                    <div class="return">
+                        <!-- outputs the users name and insurance -->
+                        <div class="column">
+                            <div class="card">
+                                <h2 id="personal"></h2>
+                                <h3 id="nameTitle"></h3>
+                                <p id="name"></p>
+                                <h3 id="addressTitle"></h3>
+                                <p id="address"></p>
+                                <h3 id="ageTitle"></h3>
+                                <p id="age"></p>
+                                <img src="" style="width:100%">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <h2 id="Vehicle"></h2>
+                                <h3 id="brandTitle"></h3>
+                                <p id="brand"></p>
+                                <h3 id="engTitle"></h3>
+                                <p id="eng"></p>
+                                <h3 id="yearTitle"></h3>
+                                <p id="year"></p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <h2 id="member"></h2>
+                                <h3 id="premTitle"></h3>
+                                <p id="prem"></p>
+                                <h3 id="premMonthTitle"></h3>
+                                <p id="premMonth"></p>
+                                <h3 id="excessTitle"></h3>
+                                <p id="excess"></p>
+                                <h3 id="useClassTitle"></h3>
+                                <p id="useClass"></p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <h2 id="driver"></h2>
+                                <h3 id="licenceTitle"></h3>
+                                <p id="licenceType"></p>
+                                <h3 id="ncbTitle"></h3>
+                                <p id="ncbYears"></p>
+                                <h3 id="nexpTitle"></h3>
+                                <p id="namedExp"></p>
+                                <h3 id="penTitle"></h3>
+                                <p id="penPoints"></p>
+                                <h3 id="addDriveTitle"></h3>
+                                <p id="addDrive"></p>
+                                <h3 id="claimTitle"></h3>
+                                <p id="claim"></p>
+                            </div>
+                        </div>
 
-                <h2 id="Vehicle"></h2>
-                <h3 id="brandTitle"></h3>
-                <p id="brand"></p>
-                <h3 id="engTitle"></h3>
-                <p id="eng"></p>
-                <h3 id="yearTitle"></h3>
-                <p id="year"></p>
-
-                <h2 id="member"></h2>
-                <h3 id="premTitle"></h3>
-                <p id="prem"></p>
-                <h3 id="premMonthTitle"></h3>
-                <p id="premMonth"></p>
-                <h3 id="excessTitle"></h3>
-                <p id="excess"></p>
-                <h3 id="useClassTitle"></h3>
-                <p id="useClass"></p>
-
-                <h2 id="driver"></h2>
-                <h3 id="licenceTitle"></h3>
-                <p id="licenceType"></p>
-                <h3 id="ncbTitle"></h3>
-                <p id="ncbYears"></p>
-                <h3 id="nexpTitle"></h3>
-                <p id="namedExp"></p>
-                <h3 id="penTitle"></h3>
-                <p id="penPoints"></p>
-                <h3 id="addDriveTitle"></h3>
-                <p id="addDrive"></p>
-                <h3 id="claimTitle"></h3>
-                <p id="claim"></p>
-
-                <!-- <p id="output1"></p>
+                        <!-- <p id="output1"></p>
                 <p id="output2"></p> -->
 
 
 
 
-            </div>
+                    </div>
+                </div>
         </div>
 
         <!-- FOOTER -->
         <div class="ft-container">
-            <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <footer id="footer" class="pt-4 my-md-5 pt-md-5 border-top">
                 <p class="float-right">
                     <a href="#">Back to top</a>
                 </p>
@@ -520,14 +539,15 @@
                 </div>
             </footer>
         </div>
-    </main>
+        </main>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="{% static 'index_css/vendor/jquery/jquery.min.js' %} "></script>
-    <script src="{% static 'index_css/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <!-- Scrolling Header JavaScript -->
-    <script src="{% static 'custom_js/scroll.js' %}"></script>
-    <script src="{% static 'custom_js/quoteCalc.js' %}"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script src="{% static 'index_css/vendor/jquery/jquery.min.js' %} "></script>
+        <script src="{% static 'index_css/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <!-- Scrolling Header JavaScript -->
+        <script src="{% static 'custom_js/scroll.js' %}"></script>
+        <script src="{% static 'custom_js/quoteCalc.js' %}"></script>
+    </div>
 </body>
 
 </html>

@@ -119,7 +119,7 @@ function calculatePremium() {
         // alert("You must be aged 21-29 in order to use TourGo");
         document.forms["calculator"]["title"].style.border = "1px solid red";
         document.getElementById("titlemsg").innerHTML = "Please enter your title";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["title"].style.border = "";
@@ -129,7 +129,7 @@ function calculatePremium() {
     if (fname == "") {
         document.forms["calculator"]["fname"].style.border = "1px solid red";
         document.getElementById("fnamemsg").innerHTML = "Please enter your first name";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["fname"].style.border = "";
@@ -139,7 +139,7 @@ function calculatePremium() {
     if (lname == "") {
         document.forms["calculator"]["lname"].style.border = "1px solid red";
         document.getElementById("lnamemsg").innerHTML = "Please enter your last name";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["lname"].style.border = "";
@@ -149,7 +149,7 @@ function calculatePremium() {
     if (!(age > 20 && age < 30)) {
         document.forms["calculator"]["bday"].style.border = "1px solid red";
         document.getElementById("bdaymsg").innerHTML = "TourGo members must be aged 21-29";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["bday"].style.border = "";
@@ -159,7 +159,7 @@ function calculatePremium() {
     if (occupation == "") {
         document.forms["calculator"]["occupation"].style.border = "1px solid red";
         document.getElementById("emplmsg").innerHTML = "Please enter your employment status";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["occupation"].style.border = "";
@@ -169,7 +169,7 @@ function calculatePremium() {
     if (household == "") {
         document.forms["calculator"]["household"].style.border = "1px solid red";
         document.getElementById("homemsg").innerHTML = "Please enter your home type";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["household"].style.border = "";
@@ -179,7 +179,7 @@ function calculatePremium() {
     if (car == "") {
         document.forms["calculator"]["car"].style.border = "1px solid red";
         document.getElementById("carmsg").innerHTML = "Please enter your preferred vehicle";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["car"].style.border = "";
@@ -190,7 +190,7 @@ function calculatePremium() {
     if (address_l1 == "") {
         document.forms["calculator"]["address_l1"].style.border = "1px solid red";
         document.getElementById("adrmsg").innerHTML = "Please enter your address";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["address_l1"].style.border = "";
@@ -200,7 +200,7 @@ function calculatePremium() {
     if (location == "") {
         document.forms["calculator"]["location"].style.border = "1px solid red";
         document.getElementById("locmsg").innerHTML = "Please enter the area you live";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["location"].style.border = "";
@@ -210,7 +210,7 @@ function calculatePremium() {
     if (licence == "") {
         document.forms["calculator"]["licence"].style.border = "1px solid red";
         document.getElementById("licmsg").innerHTML = "Please enter your licence type";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["licence"].style.border = "";
@@ -220,7 +220,7 @@ function calculatePremium() {
     if (ncb == "") {
         document.forms["calculator"]["ncb"].style.border = "1px solid red";
         document.getElementById("ncbmsg").innerHTML = "Please enter your claims-free own driving experience";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["ncb"].style.border = "";
@@ -230,7 +230,7 @@ function calculatePremium() {
     if (namedexp == "") {
         document.forms["calculator"]["namedexp"].style.border = "1px solid red";
         document.getElementById("nxpmsg").innerHTML = "Please enter your named driving experience";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["namedexp"].style.border = "";
@@ -240,7 +240,7 @@ function calculatePremium() {
     if (penalty == "") {
         document.forms["calculator"]["penalty"].style.border = "1px solid red";
         document.getElementById("penmsg").innerHTML = "Please enter the number of penalty points you have";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["penalty"].style.border = "";
@@ -250,7 +250,7 @@ function calculatePremium() {
     if (addDrivers == "") {
         document.forms["calculator"]["addDrivers"].style.border = "1px solid red";
         document.getElementById("addmsg").innerHTML = "Please enter the number of additional drivers you want on your policy";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["addDrivers"].style.border = "";
@@ -260,7 +260,7 @@ function calculatePremium() {
     if (claims == "") {
         document.forms["calculator"]["claims"].style.border = "1px solid red";
         document.getElementById("clmmsg").innerHTML = "Please enter the number of claims you've made in the past 5 years";
-        scroll(0, 0)
+        // scroll(0, 0)
         dataIsValid = false;
     } else {
         document.forms["calculator"]["claims"].style.border = "";
@@ -268,7 +268,8 @@ function calculatePremium() {
     }
 
     if (dataIsValid) { } else {
-        alert("You didn't fill out all the fields or filled something in wrong");
+        // alert("You didn't fill out all the fields or filled something in wrong");
+        window.scrollTo(0, 0)
         return false;
     }
 
