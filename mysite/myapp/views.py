@@ -17,22 +17,14 @@ def index(request):
 
 def quote(request, ):
     # print (request.user)
-    user_id = request.GET.get('user_id')
+  
     name1 = request.GET.get('name1')
+    fname = request.GET.get('fname')
 
     print(name1)
+    print (fname)
+    context = {}
 
-    km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
-										from myapp_journeys
-										where Driver_id = 1 ;
-								 	''',)
-
-    for x in km_driven:
-        print(x.km_driven)
-
-    context = {
-        "km_driven": km_driven,
-    }
 
     return render(request, "quote.html", context)
 

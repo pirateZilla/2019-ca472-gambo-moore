@@ -268,10 +268,10 @@ SFS dark red = #9f2026; */
     </header>
     <!-- Page Content -->
     <main role="main">
-            <div class="jumbotron"></div>
+        <div class="jumbotron"></div>
         <div class="container-form">
-
             <h1>Speed Learning</h1>
+            <div class="text_block">
             <p>This section describes the rules for keeping pace in traffic and the speed limits that apply on different
                 types of road and to different vehicles.</p>
             <p>If you'd like to look at other lessons currently available to you, please select from below.</p>
@@ -280,23 +280,17 @@ SFS dark red = #9f2026; */
                 <a href="{% url 'smoothness_learn' %}">Smoothness</a>
                 <a href="{% url 'fatigue_learn' %}">Fatigue</a>
                 <a href="{% url 'tod_learn' %}">Time of Day</a>
-              </div>
-            <!-- <ul>
-                <li>
-                    <a class="learn-link" href="{% url 'speed_learn' %}">Speed Learning</a>
-                </li>
-                <li>
-                    <a class="learn-link" href="{% url 'fatigue_learn' %}">Fatigue Learning</a>
-                </li>
-                <li>
-                    <a class="learn-link" href="{% url 'smoothness_learn' %}">Smoothness Learning</a>
-                </li>
-                <li>
-                    <a class="learn-link" href="{% url 'tod_learn' %}">Time of Day Learning</a>
-                </li>
-            </ul> -->
+            </div>
+            </div>
+            <div class="codegena_iframe" data-src="https://www.youtube.com/embed/LC5oMrwAovg"
+                style="height:505px;width:853px;" data-responsive="true"
+                data-img="https://www.scienceabc.com/wp-content/uploads/2015/10/Car-driving-on-freeway-at-sunset-motion-blur-full-speed-06photos.jpg"
+                data-css="background:url('//codegena.com/wp-content/uploads/2015/09/loading.gif') white center center no-repeat;border:0px;">
+            </div>
+            <script src="https://rawgit.com/shaneapen/Codegena/master/async-iframe.js"></script>
 
-            
+
+
             <p>Remember, a vehicle must not be driven at a speed exceeding that which will enable its driver to bring it
                 to a halt within a distance the driver can see to be clear.</p>
             <p>As a driver, you must always be aware of your speed and judge the appropriate speed for you vehicle,
@@ -344,7 +338,8 @@ SFS dark red = #9f2026; */
                     </td>
                     <td>
                         <div>
-                            <p class="question">2. What is the minimum stopping distance of a vehicle in normal conditions travelling at 120kmph?</p>
+                            <p class="question">2. What is the minimum stopping distance of a vehicle in normal
+                                conditions travelling at 120kmph?</p>
 
                             <ul>
                                 <input class="answer" type="radio" name="q2" value="0">
