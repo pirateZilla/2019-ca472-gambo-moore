@@ -39,6 +39,7 @@
     <!-- Custom Page CSS -->
     <link href="{% static 'custom_css/index.css' %}" rel="stylesheet">
     <link href="{% static 'custom_css/quote.css' %}" rel="stylesheet">
+    <link href="{% static 'custom_css/learning.css' %}" rel="stylesheet">
 
     <!-- Scroll JS -->
 
@@ -267,13 +268,20 @@ SFS dark red = #9f2026; */
     </header>
     <!-- Page Content -->
     <main role="main">
+            <div class="jumbotron"></div>
         <div class="container-form">
-            <br />
-            <br />
-            <br />
 
             <h1>Speed Learning</h1>
-            <ul>
+            <p>This section describes the rules for keeping pace in traffic and the speed limits that apply on different
+                types of road and to different vehicles.</p>
+            <p>If you'd like to look at other lessons currently available to you, please select from below.</p>
+            <div class="button-area-line">
+                <a href="{% url 'speed_learn' %}">Speed</a>
+                <a href="{% url 'smoothness_learn' %}">Smoothness</a>
+                <a href="{% url 'fatigue_learn' %}">Fatigue</a>
+                <a href="{% url 'tod_learn' %}">Time of Day</a>
+              </div>
+            <!-- <ul>
                 <li>
                     <a class="learn-link" href="{% url 'speed_learn' %}">Speed Learning</a>
                 </li>
@@ -286,10 +294,9 @@ SFS dark red = #9f2026; */
                 <li>
                     <a class="learn-link" href="{% url 'tod_learn' %}">Time of Day Learning</a>
                 </li>
-            </ul>
+            </ul> -->
 
-            <p>This section describes the rules for keeping pace in traffic and the speed limits that apply on different
-                types of road and to different vehicles.</p>
+            
             <p>Remember, a vehicle must not be driven at a speed exceeding that which will enable its driver to bring it
                 to a halt within a distance the driver can see to be clear.</p>
             <p>As a driver, you must always be aware of your speed and judge the appropriate speed for you vehicle,
@@ -354,7 +361,7 @@ SFS dark red = #9f2026; */
                             </ul>
                         </div>
                     </td>
-                    
+
                 </tr>
                 <tr>
                     <td>

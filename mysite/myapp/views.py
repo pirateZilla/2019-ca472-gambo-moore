@@ -18,8 +18,9 @@ def index(request):
 def quote(request, ):
     # print (request.user)
     user_id = request.GET.get('user_id')
+    name1 = request.GET.get('name1')
 
-    # print (user_id)
+    print(name1)
 
     km_driven = Journeys.objects.raw('''select myapp_journeys.id,  sum(myapp_journeys.distance) AS km_driven
 										from myapp_journeys

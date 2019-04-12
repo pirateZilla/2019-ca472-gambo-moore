@@ -273,6 +273,9 @@ function calculatePremium() {
         return false;
     }
 
+    var img1 = document.createElement("img");
+    img1.src = "http://path/to/image";
+
     document.getElementById("personal").innerHTML = "Personal Details";
     document.getElementById("nameTitle").innerHTML = "Name";
     document.getElementById("name").innerHTML = title + " " + fname + " " + lname;
@@ -312,6 +315,23 @@ function calculatePremium() {
     document.getElementById("addDrive").innerHTML = additionalDrivers;
     document.getElementById("claimTitle").innerHTML = "Number of Recent Claims";
     document.getElementById("claim").innerHTML = numberOfClaims;
+
+
+    document.getElementById("name1").innerHTML = title + " " + fname + " " + lname;
+    document.getElementById("address1").innerHTML = address_l1 + ", " + address_l2 + ", " + area;
+    document.getElementById("age1").innerHTML = age;
+    document.getElementById("brand1").innerHTML = model;
+    document.getElementById("prem1").innerHTML = "€" + totalCost;
+    document.getElementById("premMonth1").innerHTML = "€" + roundedMonthlyFinalInsurancePrice;
+    document.getElementById("excess1").innerHTML = "€" + excess;
+    document.getElementById("driver1").innerHTML = "Driver Details";
+    document.getElementById("licenceType1").innerHTML = licenceType;
+    document.getElementById("ncbYears1").innerHTML = ncbYears;
+    document.getElementById("namedExp1").innerHTML = namedExperience;
+    document.getElementById("penPoints1").innerHTML = penPoints;
+    document.getElementById("addDrive1").innerHTML = additionalDrivers;
+    document.getElementById("claim1").innerHTML = numberOfClaims;
+
 
     // document.getElementById("output1").innerHTML = "The base price is €" + basePrice;
     // //prints to the html 

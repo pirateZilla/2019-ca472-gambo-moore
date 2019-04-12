@@ -414,7 +414,7 @@
                             <button class="btn" type="button" onclick="return calculatePremium()" value="javaScript">
                                 Submit (JS)
                             </button>
-
+                            <input type="hidden" id="name1" name="name1"></input>
                         </div>
                         <div class="row">
 
@@ -422,7 +422,7 @@
                                 Purchase (PY)
                             </button>
                         </div>
-
+                        
 
                     </form>
 
@@ -430,14 +430,15 @@
                         <!-- outputs the users name and insurance -->
                         <div class="column">
                             <div class="card">
-                                <h2 id="personal"></h2>
+                                <h2 id="personal" name="personal"></h2>
                                 <h3 id="nameTitle"></h3>
                                 <p id="name"></p>
                                 <h3 id="addressTitle"></h3>
                                 <p id="address"></p>
                                 <h3 id="ageTitle"></h3>
                                 <p id="age"></p>
-                                <img src="" style="width:100%">
+                                <img id="profilePic" src="" style="width:100%">                             
+                                
                             </div>
                         </div>
                         <div class="column">
@@ -449,6 +450,7 @@
                                 <p id="eng"></p>
                                 <h3 id="yearTitle"></h3>
                                 <p id="year"></p>
+                                <img id="carPhoto" src="" style="width:100%">
                             </div>
                         </div>
                         <div class="column">
