@@ -317,7 +317,7 @@ function calculatePremium() {
     document.getElementById("claim").innerHTML = numberOfClaims;
 
 
-    document.getElementById("name1").innerHTML = title + " " + fname + " " + lname;
+    document.getElementById("name1").value = title + " " + fname + " " + lname;
     document.getElementById("address1").innerHTML = address_l1 + ", " + address_l2 + ", " + area;
     document.getElementById("age1").innerHTML = age;
     document.getElementById("brand1").innerHTML = model;
