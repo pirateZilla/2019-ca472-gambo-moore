@@ -60,14 +60,6 @@ input[type=date] {
   resize: vertical;
 }
 
-.jumbotron {
-  background-image: url("../images/quote.jpg") !important;
-  background-size: cover;
-  min-height: 600px;
-  margin-bottom: 4rem;
-  top: 0;
-}
-
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
