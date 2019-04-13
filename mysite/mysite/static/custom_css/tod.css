@@ -1,0 +1,7 @@
+.jumbotron {
+    background-image: url("../images/tod.jpg");
+    background-size: cover;
+    min-height: 600px;
+    margin-bottom: 4rem;
+    top: 0;
+}
