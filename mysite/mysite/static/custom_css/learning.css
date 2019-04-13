@@ -54,23 +54,26 @@ h3 {
     justify-content: space-between;
     flex-wrap: nowrap;
     /* max-width: 90%; */
+    border-radius: .25rem;
 }
 
 .button-area-line>a {
     background: #1565c0;
     padding: 1em;
-    font-size: .9em;
+    font-size: 1em;
     margin: .3em;
+    font-weight: 400;
     color: white;
     text-decoration: none;
     flex-grow: 1;
     text-align: center;
+    border-radius: .25rem;
 }
 
 .button-area-line>a:hover {
     background: #003c8f;
     padding: 1em;
-    font-size: .9em;
+    font-size: 1em;
     margin: .3em;
     color: white;
     text-decoration: none;
