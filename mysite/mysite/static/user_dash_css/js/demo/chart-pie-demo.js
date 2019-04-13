@@ -1,6 +1,7 @@
 // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
+Chart.defaults.global.defaultFontStyle = 'bold';
 
 // Pie Chart Example
 var score = parseInt(document.getElementById("score").value);
@@ -13,8 +14,8 @@ var myPieChart = new Chart(ctx, {
     labels: ["Positive", "Negative"],
     datasets: [{
       data: [score, negscore],
-      backgroundColor: ['#1565c0', '#f4b30d'],
-      hoverBackgroundColor: ['#3f81cb', '#f6c039'],
+      backgroundColor: ['#1565c0', '#dc3545'],
+      hoverBackgroundColor: ['#3f81cb', '#E54C59'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],
   },
@@ -33,7 +34,7 @@ var myPieChart = new Chart(ctx, {
     legend: {
       display: false
     },
-    cutoutPercentage: 70,
+    cutoutPercentage: 60,
   },
 });
 
