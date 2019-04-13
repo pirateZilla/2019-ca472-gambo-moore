@@ -241,10 +241,8 @@ SFS dark red = #9f2026; */
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'index' %}">home</a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'quote' %}">get a quote
-                                <span class="sr-only">(current)</span>
-                            </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'quote' %}">get a quote</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'about' %}">how it works</a>
@@ -272,15 +270,16 @@ SFS dark red = #9f2026; */
         <div class="container-form">
             <h1>Speed Learning</h1>
             <div class="text_block">
-            <p>This section describes the rules for keeping pace in traffic and the speed limits that apply on different
-                types of road and to different vehicles.</p>
-            <p>If you'd like to look at other lessons currently available to you, please select from below.</p>
-            <div class="button-area-line">
-                <a href="{% url 'speed_learn' %}">Speed</a>
-                <a href="{% url 'smoothness_learn' %}">Smoothness</a>
-                <a href="{% url 'fatigue_learn' %}">Fatigue</a>
-                <a href="{% url 'tod_learn' %}">Time of Day</a>
-            </div>
+                <p>This section describes the rules for keeping pace in traffic and the speed limits that apply on
+                    different
+                    types of road and to different vehicles.</p>
+                <p>If you'd like to look at other lessons currently available to you, please select from below.</p>
+                <div class="button-area-line">
+                    <a href="{% url 'speed_learn' %}">Speed</a>
+                    <a href="{% url 'smoothness_learn' %}">Smoothness</a>
+                    <a href="{% url 'fatigue_learn' %}">Fatigue</a>
+                    <a href="{% url 'tod_learn' %}">Time of Day</a>
+                </div>
             </div>
             <div class="codegena_iframe" data-src="https://www.youtube.com/embed/LC5oMrwAovg"
                 style="height:505px;width:853px;" data-responsive="true"
