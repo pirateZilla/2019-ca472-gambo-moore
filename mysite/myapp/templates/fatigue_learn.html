@@ -39,6 +39,8 @@
     <!-- Custom Page CSS -->
     <link href="{% static 'custom_css/index.css' %}" rel="stylesheet">
     <link href="{% static 'custom_css/quote.css' %}" rel="stylesheet">
+    <link href="{% static 'custom_css/learning.css' %}" rel="stylesheet">
+    <link href="{% static 'custom_css/fatigue.css' %}" rel="stylesheet">
 
     <!-- Scroll JS -->
 
@@ -48,11 +50,6 @@
 
     <style>
         /* css here */
-
-            {
-            border: 1px dotted black;
-        }
-
         p.question {
             font-family: Arial, sans-serif;
             font-size: 20px;
@@ -121,20 +118,33 @@
             text-decoration: none;
         }
 
-        table {
+        /* table {
             background-color: #F2F2F2;
             border: 1px solid #BDBDBD;
             border-radius: 5px;
             padding: 10px;
             padding-left: 25px;
             box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 1px 0px;
-        }
+        } */
 
         th {}
 
-        tr {}
+        tr {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-        td {}
+        td {
+            flex-grow: 1;
+            min-width: 25%;
+            overflow: hidden;
+            display: flex;           /* new */
+            flex-direction: column;  /* new */
+            padding: 10px;
+            margin: 5px;
+            text-align: left;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
 
         .submitter {
             width: 85px;
@@ -240,10 +250,8 @@ SFS dark red = #9f2026; */
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'index' %}">home</a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'quote' %}">get a quote
-                                <span class="sr-only">(current)</span>
-                            </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'quote' %}">get a quote</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'about' %}">how it works</a>
@@ -267,109 +275,144 @@ SFS dark red = #9f2026; */
     </header>
     <!-- Page Content -->
     <main role="main">
+        <div class="jumbotron">
+           
+        </div>
         <div class="container-form">
-            <br />
-            <br />
-            <br />
+            <h1>Speed Learning</h1>
+            <div class="text_block">
+                <p>This section describes the rules for keeping pace in traffic and the speed limits that apply on
+                    different
+                    types of road and to different vehicles.</p>
+                <p>If you'd like to look at other lessons currently available to you, please select from below.</p>
+                <div class="button-area-line">
+                    <a href="{% url 'speed_learn' %}">Speed</a>
+                    <a href="{% url 'smoothness_learn' %}">Smoothness</a>
+                    <a href="{% url 'fatigue_learn' %}">Fatigue</a>
+                    <a href="{% url 'tod_learn' %}">Time of Day</a>
+                </div>
+            </div>
+            <div class="codegena_iframe" data-src="https://www.youtube.com/embed/LC5oMrwAovg"
+                style="height:505px;width:853px;" data-responsive="true"
+                data-img="https://www.scienceabc.com/wp-content/uploads/2015/10/Car-driving-on-freeway-at-sunset-motion-blur-full-speed-06photos.jpg"
+                data-css="background:url('//codegena.com/wp-content/uploads/2015/09/loading.gif') white center center no-repeat;border:0px;">
+            </div>
+            <script src="https://rawgit.com/shaneapen/Codegena/master/async-iframe.js"></script>
 
-            <h1>Fatigue Learning</h1>
+
+
+            <p>Remember, a vehicle must not be driven at a speed exceeding that which will enable its driver to bring it
+                to a halt within a distance the driver can see to be clear.</p>
+            <p>As a driver, you must always be aware of your speed and judge the appropriate speed for you vehicle,
+                taking into account:</p>
             <ul>
-                <li>
-                    <a class="learn-link" href="{% url 'speed_learn' %}">Speed Learning</a>
-                </li>
-                <li>
-                    <a class="learn-link" href="{% url 'fatigue_learn' %}">Fatigue Learning</a>
-                </li>
-                <li>
-                    <a class="learn-link" href="{% url 'smoothness_learn' %}">Smoothness Learning</a>
-                </li>
-                <li>
-                    <a class="learn-link" href="{% url 'tod_learn' %}">Time of Day Learning</a>
-                </li>
+                <li>driving conditions;</li>
+                <li>other users of the road;</li>
+                <li>current weather conditions;</li>
+                <li>all possible hazards; and</li>
+                <li>speed limits.</li>
             </ul>
+            <p>Driving conditions relate to the volume of traffic around you and the quality of the road.</p>
+            <p>Other users of the road include motorcyclists, cyclists, pedestrians, school children, animals and all
+                others you, as a driver, should expect to see on the road.</p>
+            <p>Possible hazards include anything you can see that could cause an emergency, such as oncoming traffic if
+                you are turning onto a major road. They also include anything you cannot yet see and anything you can
+                reasonably expect to happen, such as a pedestrian walking onto the road in front of you, a child running
+                onto the road between parked cars, or animals on the roadway. It includes your own physical and mental
+                state while driving (for example whether you are stressed or tired) and the condition of your vehicle.
+            </p>
 
 
+            <h2 class="quizHeader">Test Yourself! Be a better driver.</h2>
 
-            <h2 class="quizHeader">Take a Quiz!</h2>
-
-            <table style="width:583px">
+            <table style="width:100%">
                 <tr>
                     <td>
-                        <div>
-                            <p class="question">1. Quiz question #1</p>
+                        <div class="col-sm d-flex">
+                            <div class="card card-body flex-fill">
+                                <p class="question">1. Who is responsible for a vehicle on the road?</p>
 
-                            <ul>
-                                <input class="answer" type="radio" name="q1" value="1">
-                                <label id="correctString1">correct answer 1</label>
-                                <br>
-                                <input class="answer" type="radio" name="q1" value="0">
-                                <label>wrong answer</label>
-                                <br>
-                                <input class="answer" type="radio" name="q1" value="0">
-                                <label>wrong answer</label>
-                                <br>
-                                <input class="answer" type="radio" name="q1" value="0">
-                                <label>wrong answer</label>
-                            </ul>
+                                <ul>
+                                    <input class="answer" type="radio" name="q1" value="1">
+                                    <label id="correctString1">The Driver</label>
+                                    <br>
+                                    <input class="answer" type="radio" name="q1" value="0">
+                                    <label>The Owner.</label>
+                                    <br>
+                                    <input class="answer" type="radio" name="q1" value="0">
+                                    <label>A Traffic Warden</label>
+                                    <br>
+                                    <input class="answer" type="radio" name="q1" value="0">
+                                    <label>Local Authorities</label>
+                                </ul>
+                            </div>
                         </div>
                     </td>
                     <td>
-                        <div>
-                            <p class="question">2. Quiz question #2</p>
+                        <div class="col-sm d-flex">
+                            <div class="card card-body flex-fill">
+                                <p class="question">2. What is the minimum stopping distance of a vehicle in normal
+                                    conditions travelling at 120kmph?</p>
 
-                            <ul>
-                                <input class="answer" type="radio" name="q2" value="0">
-                                <label>wrong answer</label>
-                                <br>
-                                <input class="answer" type="radio" name="q2" value="1">
-                                <label id="correctString2">correct answer 2</label>
-                                <br>
-                                <input class="answer" type="radio" name="q2" value="0">
-                                <label>wrong answer</label>
-                                <br>
-                                <input class="answer" type="radio" name="q2" value="0">
-                                <label>wrong answer</label>
-                            </ul>
+                                <ul>
+                                    <input class="answer" type="radio" name="q2" value="0">
+                                    <label>36m</label>
+                                    <br>
+                                    <input class="answer" type="radio" name="q2" value="1">
+                                    <label id="correctString2">102m</label>
+                                    <br>
+                                    <input class="answer" type="radio" name="q2" value="0">
+                                    <label>365m</label>
+                                    <br>
+                                    <input class="answer" type="radio" name="q2" value="0">
+                                    <label>52m</label>
+                                </ul>
+                            </div>
                         </div>
                     </td>
+
                 </tr>
                 <tr>
                     <td>
-                        <div>
-                            <p class="question">3. Quiz question #3</p>
+                        <div class="col-sm d-flex">
+                            <div class="card card-body flex-fill">
+                                <p class="question">3. Quiz question #3</p>
 
-                            <ul>
-                                <input class="answer" type="radio" name="q3" value="0">
-                                <label>wrong answer</label>
-                                <br>
-                                <input class="answer" type="radio" name="q3" value="1">
-                                <label id="correctString3">correct answer 3</label>
-                                <br>
-                                <input class="answer" type="radio" name="q3" value="0">
-                                <label>wrong answer</label>
-                                <br>
-                                <input class="answer" type="radio" name="q3" value="0">
-                                <label>wrong answer</label>
-                            </ul>
+                                <ul>
+                                    <input class="answer" type="radio" name="q3" value="0">
+                                    <label>wrong answer</label>
+                                    <br>
+                                    <input class="answer" type="radio" name="q3" value="1">
+                                    <label id="correctString3">correct answer 3</label>
+                                    <br>
+                                    <input class="answer" type="radio" name="q3" value="0">
+                                    <label>wrong answer</label>
+                                    <br>
+                                    <input class="answer" type="radio" name="q3" value="0">
+                                    <label>wrong answer</label>
+                                </ul>
+                            </div>
                         </div>
                     </td>
                     <td>
-                        <div>
-                            <p class="question">4. Quiz question #4</p>
+                        <div class="col-sm d-flex">
+                            <div class="card card-body flex-fill">
+                                <p class="question">4. Quiz question #4</p>
 
-                            <ul>
-                                <input class="answer" type="radio" name="q4" value="0">
-                                <label>wrong answer</label>
-                                <br>
-                                <input class="answer" type="radio" name="q4" value="1">
-                                <label id="correctString4">correct answer 4</label>
-                                <br>
-                                <input class="answer" type="radio" name="q4" value="0">
-                                <label>wrong answer</label>
-                                <br>
-                                <input class="answer" type="radio" name="q4" value="0">
-                                <label>wrong answer</label>
-                            </ul>
+                                <ul>
+                                    <input class="answer" type="radio" name="q4" value="0">
+                                    <label>wrong answer</label>
+                                    <br>
+                                    <input class="answer" type="radio" name="q4" value="1">
+                                    <label id="correctString4">correct answer 4</label>
+                                    <br>
+                                    <input class="answer" type="radio" name="q4" value="0">
+                                    <label>wrong answer</label>
+                                    <br>
+                                    <input class="answer" type="radio" name="q4" value="0">
+                                    <label>wrong answer</label>
+                                </ul>
+                            </div>
                         </div>
                     </td>
                 </tr>

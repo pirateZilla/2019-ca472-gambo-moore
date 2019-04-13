@@ -1,0 +1,8 @@
+.jumbotron {
+    background-image: url("../images/fatigue.jpg");
+    background-size: cover;
+    min-height: 600px;
+    margin-bottom: 4rem;
+    top: 50px;
+}
+

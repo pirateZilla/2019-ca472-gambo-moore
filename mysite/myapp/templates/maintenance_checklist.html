@@ -39,6 +39,7 @@
     <!-- Custom Page CSS -->
     <link href="{% static 'custom_css/index.css' %}" rel="stylesheet">
     <link href="{% static 'custom_css/quote.css' %}" rel="stylesheet">
+    <link href="{% static 'custom_css/maintenance.css' %}" rel="stylesheet">
 
     <!-- Scroll JS -->
 
@@ -72,10 +73,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'index' %}">home</a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'quote' %}">get a quote
-                                <span class="sr-only">(current)</span>
-                            </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'quote' %}">get a quote</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'about' %}">how it works</a>
@@ -99,6 +98,7 @@
     </header>
     <!-- Page Content -->
     <main role="main">
+        <div class="jumbotron"></div>
         <div class="container-form">
             <br />
             <br />

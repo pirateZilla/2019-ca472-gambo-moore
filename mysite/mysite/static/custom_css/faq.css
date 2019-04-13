@@ -2,6 +2,14 @@ body {
     /* margin-top: 30px; */
     background-color: #eee;
   }
+
+  .jumbotron {
+    background-image: url("../images/image4.jpg");
+    background-size: cover;
+    min-height: 600px;
+    margin-bottom: 4rem;
+    top: 0;
+}
   
   .faq-nav {
     flex-direction: column;

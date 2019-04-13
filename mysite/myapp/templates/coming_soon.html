@@ -39,7 +39,6 @@
     <!-- Custom Page CSS -->
     <link href="{% static 'custom_css/index.css' %}" rel="stylesheet">
     <link href="{% static 'custom_css/quote.css' %}" rel="stylesheet">
-    <link href="{% static 'custom_css/learning.css' %}" rel="stylesheet">
 
     <!-- Scroll JS -->
 
@@ -73,8 +72,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'index' %}">home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'quote' %}">get a quote</a>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'quote' %}">get a quote
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'about' %}">how it works</a>
@@ -98,41 +98,19 @@
     </header>
     <!-- Page Content -->
     <main role="main">
-        <div class="jumbotron"></div>
-        <div class="container-form">
-            <br />
-            <br />
-            <br />
-
-            <h1>Welcome to the learning platform</h1>
-            <ul>
-                <li>
-                    <a class="learn-link" href="{% url 'speed_learn' %}">dashboard</a>
-                </li>
-                <li>
-                    <a class="learn-link" href="{% url 'fatigue_learn' %}">dashboard</a>
-                </li>
-                <li>
-                    <a class="learn-link" href="{% url 'smoothness_learn' %}">dashboard</a>
-                </li>
-                <li>
-                    <a class="learn-link" href="{% url 'tod_learn' %}">dashboard</a>
-                </li>
-            </ul>
-
-            <tr>
-                <td width='50%'><a
-                        href="//www.google.com/maps/embed/v1/place?key=AIzaSyAEIIVLTLc_JfDkoF_j3lv8Y5j6qpf5NoI&q=lucan"
-                        target="iframe_a">google maps</a></td>
-            </tr>
-
-            <iframe class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" frameborder="0" style="border:0"
-                src="https://www.google.com/maps/embed/v1/directions?origin=53.3857717,-6.2543246&destination=53.2836717,-6.4230018&key=AIzaSyAEIIVLTLc_JfDkoF_j3lv8Y5j6qpf5NoI"
-                allowfullscreen></iframe>
-
-
-
-
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1> Coming Soon</h1>
+                    <br/>
+                    <p>This part of TourGo's application is still under contruction and will be added soon.</p>
+                    <p>Return to <a href="{% url 'index' %}">home</a> and check out the rest of the site.</p>
+                </div>
+            </div>
         </div>
 
         <!-- FOOTER -->

@@ -1,5 +1,8 @@
 @import "compass/css3";
 
+.main { display: flex; flex-flow: column-reverse;
+    height: 100%; }
+
 h3 {
     text-align: center;
     max-width: 320px;
@@ -76,9 +79,19 @@ h3 {
 }
 
 .jumbotron {
-    background-image: url("../images/speed.jpg");
+    background-image: url("../images/learn.jpg");
     background-size: cover;
     min-height: 600px;
     margin-bottom: 4rem;
     top: 0;
+}
+
+
+.codegena_iframe {
+    margin: auto;
+}
+
+.container-form > .text-block {
+    padding: 1em;
+    margin: .3em;
 }

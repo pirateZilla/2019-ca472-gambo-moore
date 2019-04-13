@@ -253,6 +253,9 @@ def maintenance_checklist(request):
 
     return render(request, "maintenance_checklist.html")
 
+def coming_soon(request):
+
+    return render(request, "coming_soon.html")
 
 def learning_platform(request):
 
