@@ -100,76 +100,85 @@
     <main role="main">
         <div class="jumbotron opacity"></div>
         <div class="container-form">
-            <h1>welcome to the maintenance checklist </h1>
+            <div class="container">
+            <h1>Maintenance Checklist</h1>
+            <p>On a weekly basis you are expected to perform a handful of routine checks on your car, to ensure it's in
+                proper running order and to foresee any potential
+                service requirements in the future. Additionally, performing this regular checks helps you to learn more
+                about your vehicle, your driving and how to keep
+                your car on the road.</p>
+            <p>Follow the guide for each check and fill in the form below. Each week the form will reset, requiring a
+                new checklist be completed. Should you find any part
+                of your car unsatisfactory to passing on of the checks please select "I found a problem" in the form. A
+                customer service representative will contact you
+                within 48 hours to advise further and arrange any necessary service appointments.
+            </p>
+            </div>
             <form action='.' method='GET'>
                 <div class="row">
                     <div class="col-25">
-                        <label for="title">Have you checked the oil level </label>
+                        <label for="title">Oil Level</label>
                     </div>
                     <div class="col-75">
                         <select name="oil_level">
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
-                            <option value="n/a">N/A</option>
+                            <option value="n/a" disabled selected>Unchecked</option>
+                            <option value="1">Checked with no problems</option>
+                            <option value="0">I found a problem</option>
 
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="fname">Have you checked the Battery</label>
+                        <label for="fname">Battery</label>
                     </div>
                     <div class="col-75">
                         <select name="battery_level">
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                            <option value="n/a">N/A</option>
-
+                            <option value="n/a" disabled selected>Unchecked</option>
+                            <option value="1">Checked with no problems</option>
+                            <option value="0">I found a problem</option>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="lname">Have you checked the coolent level</label>
+                        <label for="lname">Coolant Level</label>
                     </div>
                     <div class="col-75">
                         <select name="coolent_level">
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                            <option value="n/a">N/A</option>
-
+                            <option value="n/a" disabled selected>Unchecked</option>
+                            <option value="1">Checked with no problems</option>
+                            <option value="0">I found a problem</option>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="date">Have you checked Tyre depth</label>
+                        <label for="date">Tyre Thread Depth</label>
                     </div>
                     <div class="col-75">
                         <select name="tyre_depth">
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                            <option value="n/a">N/A</option>
-
+                            <option value="n/a" disabled selected>Unchecked</option>
+                            <option value="1">Checked with no problems</option>
+                            <option value="0">I found a problem</option>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="employment">Have you checked the Windscreen washer level </label>
+                        <label for="employment">Windscreen Washer Fluid Level</label>
                     </div>
                     <div class="col-75">
                         <select name="windscreen_washer_level">
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                            <option value="n/a">N/A</option>
-
+                            <option value="n/a" disabled selected>Unchecked</option>
+                            <option value="1">Checked with no problems</option>
+                            <option value="0">I found a problem</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="row">
-                    <input type="submit" value="Submit" />
+                    <input class="btn" type="submit" value="Submit" />
                 </div>
 
             </form>
