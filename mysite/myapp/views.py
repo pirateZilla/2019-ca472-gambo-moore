@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 # imports the  driver model so we can save the data to it
-from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay, Month_journey
+from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay, Month_journey, Real_user
 import pprint
 import json
 from django.core.serializers.json import DjangoJSONEncoder
@@ -12,6 +12,7 @@ from django.core.serializers.json import DjangoJSONEncoder
 
 
 def index(request):
+
     return render_to_response("index.html")
 
 
@@ -258,6 +259,13 @@ def coming_soon(request):
     return render(request, "coming_soon.html")
 
 def learning_platform(request):
+    TEST = Real_user.objects.raw('''select id, time, lat, lon 
+from  myapp_real_user
+where id = 1;
+''')
+
+    for x in TEST:
+        print (x.time, x.lat, x.lon)
 
     return render(request, "learning_platform.html")
 
