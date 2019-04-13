@@ -5,3 +5,11 @@
     border-radius: 4px;
     resize: vertical;
 }
+
+.jumbotron {
+    background-image: url("../images/reg.jpg");
+    background-size: cover;
+    min-height: 600px;
+    margin-bottom: 4rem;
+    top: 0;
+}
