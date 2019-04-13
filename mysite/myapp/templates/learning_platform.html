@@ -100,26 +100,27 @@
     <main role="main">
         <div class="jumbotron"></div>
         <div class="container-form">
-            <br />
-            <br />
-            <br />
-
-            <h1>Welcome to the learning platform</h1>
-            <ul>
-                <li>
-                    <a class="learn-link" href="{% url 'speed_learn' %}">dashboard</a>
-                </li>
-                <li>
-                    <a class="learn-link" href="{% url 'fatigue_learn' %}">dashboard</a>
-                </li>
-                <li>
-                    <a class="learn-link" href="{% url 'smoothness_learn' %}">dashboard</a>
-                </li>
-                <li>
-                    <a class="learn-link" href="{% url 'tod_learn' %}">dashboard</a>
-                </li>
-            </ul>
-
+                <h1>Welcome to the Learning Platform</h1>
+                <div class="text_block">
+                    <p>This section describes the rules for keeping pace in traffic and the speed limits that apply on
+                        different
+                        types of road and to different vehicles.</p>
+                    <p>If you'd like to look at other lessons currently available to you, please select from below.</p>
+                    <div class="button-area-line">
+                        <a href="{% url 'speed_learn' %}">Speed</a>
+                        <a href="{% url 'smoothness_learn' %}">Smoothness</a>
+                        <a href="{% url 'fatigue_learn' %}">Fatigue</a>
+                        <a href="{% url 'tod_learn' %}">Time of Day</a>
+                    </div>
+                </div>
+                <div class="codegena_iframe" data-src="https://www.youtube.com/embed/LC5oMrwAovg"
+                    style="height:505px;width:853px;" data-responsive="true"
+                    data-img="https://www.scienceabc.com/wp-content/uploads/2015/10/Car-driving-on-freeway-at-sunset-motion-blur-full-speed-06photos.jpg"
+                    data-css="background:url('//codegena.com/wp-content/uploads/2015/09/loading.gif') white center center no-repeat;border:0px;">
+                </div>
+                <script src="https://rawgit.com/shaneapen/Codegena/master/async-iframe.js"></script>
+    
+    
             <tr>
                 <td width='50%'><a
                         href="//www.google.com/maps/embed/v1/place?key=AIzaSyAEIIVLTLc_JfDkoF_j3lv8Y5j6qpf5NoI&q=lucan"
