@@ -451,8 +451,8 @@
               {{ x.car_type }}
               {% endfor %}
             </h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-car-side fa-sm text-white-50"></i> Vehicle Profile</a>
+            <button onclick="scrollWin()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-car-side fa-sm text-white-50"></i> Vehicle Profile</button>
           </div>
 
           <!-- Content Row -->
@@ -836,6 +836,10 @@
       </div>
     </div>
   </div>
+  <script>
+
+      </script>
+      
 
   <!-- Bootstrap core JavaScript-->
   <script src="{% static 'user_dash_css/vendor/jquery/jquery.min.js' %}"></script>
@@ -851,6 +855,7 @@
   <script src="{% static 'user_dash_css/vendor/chart.js/Chart.min.js' %}"></script>
 
   <!-- Page level custom scripts -->
+  <script src="{% static 'custom_js/scroll.js' %}"></script>
   <script src="{% static 'user_dash_css/js/demo/chart-area-demo.js' %}"></script>
   <script src="{% static 'user_dash_css/js/demo/chart-pie-demo.js' %}"></script>
 
