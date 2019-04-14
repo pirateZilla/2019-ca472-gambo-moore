@@ -259,15 +259,38 @@ def coming_soon(request):
     return render(request, "coming_soon.html")
 
 def learning_platform(request):
-    TEST = Real_user.objects.raw('''select id, time, lat, lon 
+    start_location = Real_user.objects.raw('''select id, time, lat, lon 
 from  myapp_real_user
 where id = 1;
 ''')
+    end_location = Real_user.objects.raw('''select id, time, lat, lon 
+from  myapp_real_user
+where id = 47;
+''')
+    start_lat =0
+    start_lon = 0
+    for x in start_location:
+        start_lat = x.lat
+        start_lon = x.lon
 
-    for x in TEST:
-        print (x.time, x.lat, x.lon)
+    end_lat =0
+    end_lon = 0
+    for x in end_location:
+        end_lat = x.lat
+        end_lon = x.lon
+       
 
-    return render(request, "learning_platform.html")
+    
+
+     # google maps link with API key for real journeys collected 
+    src2 = "https://www.google.com/maps/embed/v1/directions?origin=" + start_lat+ "," + start_lon + "&" + "destination="+ end_lat+ "," + end_lon + "&key=AIzaSyAEIIVLTLc_JfDkoF_j3lv8Y5j6qpf5NoI"
+
+    context = {
+
+    "src2":src2
+    }
+
+    return render(request, "learning_platform.html", context)
 
 
 def speed_learn(request):
