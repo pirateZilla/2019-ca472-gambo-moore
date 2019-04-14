@@ -662,6 +662,8 @@
                     <canvas id="myPieChart"></canvas>
                     <input type="hidden" id="score" name="score"
                       value="{% for x in journey_score %}{{ x.avg_journey_score }},{% endfor %}">
+                      <input type="hidden" id="last_month_avg" name="last_month_avg" value="{{last_month_avg}}"/>
+                      <input type="hidden" id="total_avg" name="total_avg" value="{{total_avg}}"/>
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">

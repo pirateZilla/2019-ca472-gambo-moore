@@ -18,14 +18,13 @@ def index(request):
 
 def quote(request, ):
     # print (request.user)
-  
+
     name1 = request.GET.get('name1')
     fname = request.GET.get('fname')
 
     print(name1)
-    print (fname)
+    print(fname)
     context = {}
-
 
     return render(request, "quote.html", context)
 
@@ -109,14 +108,9 @@ def user_dash(request):
                                                     WHERE myapp_day_journey.Driver_id = %s;
                                                     ''', [user_id])
 
-
-
-
     # collects the start and end location of a driver journey n.b it only looks at the last journey
     start_location = Journeys.objects.raw('''select myapp_journeys.id, myapp_journeys.distance, myapp_journeys.journey_score, myapp_journeys.end_time, myapp_journeys.start_time, myapp_journeys.start_location, myapp_journeys.end_location
 		from myapp_journeys where myapp_journeys.Driver_id= %s''', [user_id])
-
-    
 
     # has to have a defult figure or map functionality wont work
     month_score_array = []
@@ -135,7 +129,15 @@ def user_dash(request):
     day_score = "0"
     for x in day_journey_score:
         day_score = x.daily_journey_score
-        day_score_array.append(day_score)        
+        day_score_array.append(day_score)
+
+    last_month_avg = "0"
+    last_month_avg = (
+        week_score_array[3]+week_score_array[4]+week_score_array[5]+week_score_array[6])/4
+    print(last_month_avg)
+
+    total_avg = "0"
+    total_avg = sum(day_score_array)/len(day_score_array)
 
     maps_start = "0"
     maps_end = "0"
@@ -165,8 +167,7 @@ def user_dash(request):
 
     todScoreWeekAvg = "0"
     for x in TimeOfDay_level:
-       todScoreWeekAvg = x.avg_timeofday
-
+        todScoreWeekAvg = x.avg_timeofday
 
     # google maps link with API key for journey locations
     src = "https://www.google.com/maps/embed/v1/directions?origin=" + maps_start + \
@@ -195,7 +196,9 @@ def user_dash(request):
         "todScoreWeekAvg": todScoreWeekAvg,
         "dayArray": day_score_array,
         "weekArray": week_score_array,
-        "monthArray": month_score_array
+        "monthArray": month_score_array,
+        "last_month_avg": last_month_avg,
+        "total_avg": total_avg
     }
     return render_to_response("user_dash.html", context)
 
@@ -272,9 +275,11 @@ def maintenance_checklist(request):
 
     return render(request, "maintenance_checklist.html")
 
+
 def coming_soon(request):
 
     return render(request, "coming_soon.html")
+
 
 def learning_platform(request):
     TEST = Real_user.objects.raw('''select id, time, lat, lon 
@@ -283,7 +288,7 @@ where id = 1;
 ''')
 
     for x in TEST:
-        print (x.time, x.lat, x.lon)
+        print(x.time, x.lat, x.lon)
 
     return render(request, "learning_platform.html")
 

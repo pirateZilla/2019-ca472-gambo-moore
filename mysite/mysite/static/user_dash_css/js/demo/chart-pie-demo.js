@@ -6,10 +6,10 @@ Chart.defaults.global.defaultFontStyle = 'bold';
 // Pie Chart Example
 var score = parseInt(document.getElementById("score").value);
 var negscore = 100 - score;
-var lastMonthScore = 70;
-var negLastMonthScore = 100 - 70;
-var avgMonthScore = 56;
-var negAvgMonthScore = 100 - 56;
+var lastMonthScore = parseInt(document.getElementById("last_month_avg").value);
+var negLastMonthScore = 100 - lastMonthScore;
+var avgMonthScore = parseInt(document.getElementById("total_avg").value);
+var negAvgMonthScore = 100 - avgMonthScore;
 
 var chart_label = ["Positive", "Negative"];
 var pie_dataset = [score, negscore];
