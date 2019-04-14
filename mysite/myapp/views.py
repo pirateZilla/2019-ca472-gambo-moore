@@ -307,16 +307,9 @@ where id = 47;
 
      # google maps link with API key for real journeys collected 
     src2 = "https://www.google.com/maps/embed/v1/directions?origin=" + start_lat+ "," + start_lon + "&" + "destination="+ end_lat+ "," + end_lon + "&key=AIzaSyAEIIVLTLc_JfDkoF_j3lv8Y5j6qpf5NoI"
-
-<<<<<<< HEAD
     context = {
-
-    "src2":src2
+    "src2": src2
     }
-=======
-    for x in TEST:
-        print(x.time, x.lat, x.lon)
->>>>>>> fa9d9f5c076f1bce993169d0224dd5fb3a3c87ed
 
     return render(request, "learning_platform.html", context)
 
