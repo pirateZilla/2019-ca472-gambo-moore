@@ -5,10 +5,20 @@ Chart.defaults.global.defaultFontStyle = 'bold';
 
 // Pie Chart Example
 var score = parseInt(document.getElementById("score").value);
-console.log(score);
 var negscore = 100 - score;
+var lastMonthScore = 70;
+var negLastMonthScore = 100 - 70;
+var avgMonthScore = 56;
+var negAvgMonthScore = 100 - 56;
+
+var chart_label = ["Positive", "Negative"];
+var pie_dataset = [score, negscore];
+
+
+
 var ctx = document.getElementById("myPieChart");
-var myPieChart = new Chart(ctx, {
+
+var config ={
   type: 'doughnut',
   data: {
     labels: ["Positive", "Negative"],
@@ -36,28 +46,58 @@ var myPieChart = new Chart(ctx, {
     },
     cutoutPercentage: 60,
   },
-});
-
-Chart.pluginService.register({
-  beforeDraw: function (chart) {
-    var width = chart.chart.width,
-      height = chart.chart.height,
-      ctx = chart.chart.ctx;
-    type = chart.config.type;
-
-    ctx.restore();
-
-    if (type == 'doughnut') {
-      var fontSize = (height / 80).toFixed(2);
-      ctx.font = fontSize + "em Roboto";
-      ctx.textBaseline = "middle";
-
-      var text = score + "%",
-        textX = Math.round((width - ctx.measureText(text).width) / 2),
-        textY = height / 2;
-
-      ctx.fillText(text, textX, textY);
-      ctx.save();
-    }
+  centerText: {
+    display: true,
+    text: "280"
   }
+};
+
+var myPieChart = new Chart(ctx, config);
+
+
+// Chart.pluginService.register({
+//   beforeDraw: function (chart) {
+//     var width = chart.chart.width,
+//       height = chart.chart.height,
+//       ctx = chart.chart.ctx;
+//     type = chart.config.type;
+
+//     ctx.restore();
+
+//     if (type == 'doughnut') {
+//       var fontSize = (height / 80).toFixed(2);
+//       ctx.font = fontSize + "em Roboto";
+//       ctx.textBaseline = "middle";
+
+//       var text = pie_dataset[0] + "%",
+//         textX = Math.round((width - ctx.measureText(text).width) / 2),
+//         textY = height / 2;
+
+//       ctx.fillText(text, textX, textY);
+//       ctx.save();
+//     }
+//   }
+// });
+
+
+
+$("#0").click(function() {
+  var data = myPieChart.config.data;
+  data.datasets[0].data = pie_dataset;
+  data.labels = chart_label;
+  myPieChart.update();
+});
+$("#1").click(function() {
+  var pie_dataset = [lastMonthScore, negLastMonthScore];
+  var data = myPieChart.config.data;
+  data.datasets[0].data = pie_dataset;
+  data.labels = chart_label;
+  myPieChart.update();
+});
+$("#2").click(function() {
+  var pie_dataset = [avgMonthScore, negAvgMonthScore];
+  var data = myPieChart.config.data;
+  data.datasets[0].data = pie_dataset;
+  data.labels = chart_label;
+  myPieChart.update();
 });
