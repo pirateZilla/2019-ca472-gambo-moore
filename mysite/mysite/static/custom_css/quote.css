@@ -7,6 +7,10 @@ html {
 
 }
 
+h1 {
+  color: #003c8f;
+}
+
 /* body {
   display: flex;
   flex-direction: column;
@@ -89,6 +93,7 @@ label {
   padding: 20px;
   width: 50%;
   margin: 0 auto;
+  text-align: left;
 }
 
 .col-25 {

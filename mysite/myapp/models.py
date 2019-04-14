@@ -106,6 +106,22 @@ class Month_journey(models.Model):
     monthly_journey_score =  models.PositiveIntegerField( blank=True)
     def  __str__(self):
         return self.month
+
+class Week_journey(models.Model):
+    Driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
+    week =  models.CharField(max_length=20, blank=True)
+    weekly_journey_score =  models.PositiveIntegerField( blank=True)
+    def  __str__(self):
+        return self.week
+
+class Day_journey(models.Model):
+    Driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
+    day =  models.CharField(max_length=20, blank=True)
+    daily_journey_score =  models.PositiveIntegerField( blank=True)
+    def  __str__(self):
+        return self.day
+
+
 class Real_user(models.Model):
 
   time=  models.CharField(max_length=20, blank=True)

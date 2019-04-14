@@ -40,6 +40,7 @@
 	<!-- Custom Page CSS -->
 	<link href="{% static 'custom_css/index.css' %}" rel="stylesheet">
 	<link href="{% static 'custom_css/about.css' %}" rel="stylesheet">
+	<link href="{% static 'custom_css/quote.css' %}" rel="stylesheet">
 	<link href="{% static 'custom_css/login.css' %}" rel="stylesheet">
 
 
@@ -90,9 +91,7 @@
 	<main role="main">
 		<div class="jumbotron opacity"></div>
 		<div class="container">
-			<br />
-			<br />
-			<br />
+
 			{% if form.errors %}
 
 			<p>her is something wrong with what you've entered</p>
@@ -102,14 +101,14 @@
 			<p>hey you can't access this page </p>
 			{% endif %}
 
-			<h1>Login to TourGo</h1>
+			<h1>Log In to your TourGo Profile</h1>
 			<form method="post" action="{% url 'quote' %}">
 				{% csrf_token %}
 				<!-- dec i need you to find out how to edit this to look nicer -----REPLY I FIGURED IT OUT WITH WIDGET TWEAKS -->
 				<P>Username: {{ form.username|add_class:"input-lg" }} </P>
 				<P>Password: {{ form.password|add_class:"input-lg" }}</P>
 
-				<P><input type="submit"=value="login"></P>
+				<P><input class="btn" type="submit" value="Log In"></P>
 				<input type="hidden" name="next" value="{{ next }}">
 
 			</form>
@@ -161,7 +160,7 @@
 			</footer>
 		</div>
 	</main>
-
+	<script src="{% static 'custom_js/scroll.js' %}"></script>
 </body>
 
 </html>

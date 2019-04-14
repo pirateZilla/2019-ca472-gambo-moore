@@ -110,7 +110,13 @@
                 {% else %}
                 <h1> your're not logged in </h1>
                 {% endif %} -->
-                        <h1>Get a Quote</h1>
+                        <div class="row">
+                            <h1>Get a Quote</h1>
+                        </div>
+                        <div class="row">
+                            <p>Why not see for yourself what TourGo would cost you. Try the quote calculator below.</p>
+                        </div>
+
                         <div class="row">
                             <div class="col-25">
                                 <label for="title">Title</label>
@@ -131,7 +137,6 @@
                                 <label for="fname">First Name</label>
                             </div>
                             <div class="col-75">
-                                <input type="hidden" id="name1" name="name1" value="">
                                 <input type="text" name="fname" id="fname" placeholder="Your First Name..." required>
                                 <div id="fnamemsg"></div>
                             </div>
@@ -411,7 +416,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <button class="btn" type="button" onclick="return calculatePremium()" value="javaScript">
+                            <button class="btn" type="button" onclick="return quoteReturn()" value="javaScript">
                                 Submit (JS)
                             </button>
 

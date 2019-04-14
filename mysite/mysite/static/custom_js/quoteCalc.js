@@ -339,3 +339,14 @@ function calculatePremium() {
 
 
 }
+
+
+function scrollQuote() {
+    window.scrollBy(0, 2000);
+  }
+
+function quoteReturn() {
+    scrollQuote();
+    calculatePremium();
+    
+}

@@ -142,3 +142,19 @@ html {
     background: #3f81cb !important;
     line-height: 46px;
   }
+
+  .mr-2 {
+      text-transform: capitalize;
+  }
+
+  .text-white-50 {
+    text-transform: capitalize;
+  }
+
+  .mb-0 {
+    text-transform: capitalize;
+  }
+
+  .place {
+      text-transform: capitalize;
+  }

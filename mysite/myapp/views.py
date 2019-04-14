@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 # imports the  driver model so we can save the data to it
-from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay, Month_journey, Real_user
+from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay, Month_journey, Week_journey, Day_journey, Real_user
 import pprint
 import json
 from django.core.serializers.json import DjangoJSONEncoder
@@ -18,14 +18,13 @@ def index(request):
 
 def quote(request, ):
     # print (request.user)
-  
+
     name1 = request.GET.get('name1')
     fname = request.GET.get('fname')
 
     print(name1)
-    print (fname)
+    print(fname)
     context = {}
-
 
     return render(request, "quote.html", context)
 
@@ -99,25 +98,46 @@ def user_dash(request):
                                                     WHERE myapp_month_journey.Driver_id = %s;
                                                     ''', [user_id])
 
+    week_journey_score = Week_journey.objects.raw('''SELECT myapp_week_journey.id, myapp_week_journey.week, myapp_week_journey.weekly_journey_score
+		                                            from myapp_week_journey 
+                                                    WHERE myapp_week_journey.Driver_id = %s;
+                                                    ''', [user_id])
 
-
+    day_journey_score = Day_journey.objects.raw('''SELECT myapp_day_journey.id, myapp_day_journey.day, myapp_day_journey.daily_journey_score
+		                                            from myapp_day_journey 
+                                                    WHERE myapp_day_journey.Driver_id = %s;
+                                                    ''', [user_id])
 
     # collects the start and end location of a driver journey n.b it only looks at the last journey
     start_location = Journeys.objects.raw('''select myapp_journeys.id, myapp_journeys.distance, myapp_journeys.journey_score, myapp_journeys.end_time, myapp_journeys.start_time, myapp_journeys.start_location, myapp_journeys.end_location
 		from myapp_journeys where myapp_journeys.Driver_id= %s''', [user_id])
 
-    
-
     # has to have a defult figure or map functionality wont work
     month_score_array = []
     month_score = "0"
     for x in month_journey_score:
-        
         month_score = x.monthly_journey_score
         month_score_array.append(month_score)
-    #     print(month_score)
 
-    # print(month_score_array)
+    week_score_array = []
+    week_score = "0"
+    for x in week_journey_score:
+        week_score = x.weekly_journey_score
+        week_score_array.append(week_score)
+
+    day_score_array = []
+    day_score = "0"
+    for x in day_journey_score:
+        day_score = x.daily_journey_score
+        day_score_array.append(day_score)
+
+    last_month_avg = "0"
+    last_month_avg = (
+        week_score_array[3]+week_score_array[4]+week_score_array[5]+week_score_array[6])/4
+    print(last_month_avg)
+
+    total_avg = "0"
+    total_avg = sum(day_score_array)/len(day_score_array)
 
     maps_start = "0"
     maps_end = "0"
@@ -147,8 +167,7 @@ def user_dash(request):
 
     todScoreWeekAvg = "0"
     for x in TimeOfDay_level:
-       todScoreWeekAvg = x.avg_timeofday
-
+        todScoreWeekAvg = x.avg_timeofday
 
     # google maps link with API key for journey locations
     src = "https://www.google.com/maps/embed/v1/directions?origin=" + maps_start + \
@@ -175,9 +194,11 @@ def user_dash(request):
         "fatigueScoreWeekAvg": fatigueScoreWeekAvg,
         "smoothScoreWeekAvg": smoothScoreWeekAvg,
         "todScoreWeekAvg": todScoreWeekAvg,
-        "month_score": month_score,
-        "array": month_score_array
-
+        "dayArray": day_score_array,
+        "weekArray": week_score_array,
+        "monthArray": month_score_array,
+        "last_month_avg": last_month_avg,
+        "total_avg": total_avg
     }
     return render_to_response("user_dash.html", context)
 
@@ -254,9 +275,11 @@ def maintenance_checklist(request):
 
     return render(request, "maintenance_checklist.html")
 
+
 def coming_soon(request):
 
     return render(request, "coming_soon.html")
+
 
 def learning_platform(request):
     start_location = Real_user.objects.raw('''select id, time, lat, lon 
@@ -285,10 +308,15 @@ where id = 47;
      # google maps link with API key for real journeys collected 
     src2 = "https://www.google.com/maps/embed/v1/directions?origin=" + start_lat+ "," + start_lon + "&" + "destination="+ end_lat+ "," + end_lon + "&key=AIzaSyAEIIVLTLc_JfDkoF_j3lv8Y5j6qpf5NoI"
 
+<<<<<<< HEAD
     context = {
 
     "src2":src2
     }
+=======
+    for x in TEST:
+        print(x.time, x.lat, x.lon)
+>>>>>>> fa9d9f5c076f1bce993169d0224dd5fb3a3c87ed
 
     return render(request, "learning_platform.html", context)
 

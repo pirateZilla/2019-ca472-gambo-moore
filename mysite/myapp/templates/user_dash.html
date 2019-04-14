@@ -64,7 +64,6 @@
         <div class="sidebar-brand-text mx-3">
           <span class="tour">Tour</span><span class="go">Go</span><img src="{% static 'images/car.png' %}" width="60" />
         </div>
-
       </a>
 
       <!-- Divider -->
@@ -295,7 +294,7 @@
                 <h6 class="dropdown-header">
                   Alerts Center
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'learning_platform'  %}">
                   <div class="mr-3">
                     <div class="icon-circle bg-denim">
                       <i class="fas fa-file-alt text-white"></i>
@@ -307,7 +306,7 @@
                       Check them out!</span>
                   </div>
                 </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'coming_soon'  %}">
                   <div class="mr-3">
                     <div class="icon-circle bg-success">
                       <i class="fas fa-donate text-white"></i>
@@ -318,7 +317,7 @@
                     Payment has been received for this month.
                   </div>
                 </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'contact'  %}">
                   <div class="mr-3">
                     <div class="icon-circle bg-warning">
                       <i class="fas fa-exclamation-triangle text-white"></i>
@@ -329,13 +328,13 @@
                     Alert: You're due for a service soon. Please contact our service center to arrange a checkup.
                   </div>
                 </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                <a class="dropdown-item text-center small text-gray-500" href="{% url 'coming_soon'  %}">Show All Alerts</a>
               </div>
             </li>
 
             <!-- Nav Item - Messages -->
             <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link nav-link-icon dropdown-toggle" href="#" id="messagesDropdown" role="button"
+              <a class="nav-link nav-link-icon dropdown-toggle" href="{% url 'coming_soon'  %}" id="messagesDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw text-denim-300"></i>
                 <!-- Counter - Messages -->
@@ -347,7 +346,7 @@
                 <h6 class="dropdown-header">
                   Message Center
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'coming_soon'  %}">
                   <div class="dropdown-list-image mr-3">
                     <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
                     <div class="status-indicator bg-success"></div>
@@ -358,7 +357,7 @@
                     <div class="small text-gray-500">Emma (Vehicles) · 58m</div>
                   </div>
                 </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'coming_soon'  %}">
                   <div class="dropdown-list-image mr-3">
                     <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
                     <div class="status-indicator"></div>
@@ -369,7 +368,7 @@
                     <div class="small text-gray-500">Jae (Learning) · 1d</div>
                   </div>
                 </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'coming_soon'  %}">
                   <div class="dropdown-list-image mr-3">
                     <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
                     <div class="status-indicator bg-warning"></div>
@@ -451,8 +450,8 @@
               {{ x.car_type }}
               {% endfor %}
             </h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-car-side fa-sm text-white-50"></i> Vehicle Profile</a>
+            <button onclick="scrollWin()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-car-side fa-sm text-white-50"></i> Vehicle Profile</button>
           </div>
 
           <!-- Content Row -->
@@ -585,28 +584,50 @@
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                       aria-labelledby="dropdownMenuLink">
                       <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
+                      <button id="3" class="dropdown-item">Month View</button>
+                      <button id="4" class="dropdown-item">Week View</button>
+                      <button id="5" class="dropdown-item">Day View</button>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                      <a class="dropdown-item" href="#">Report a Problem</a>
                     </div>
                   </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-area">
-                      <input  type="hidden" id="jan" name="jan" value="{% if array %}{{array.0}}{% endif %}">
-                      <input  type="hidden" id="feb" name="feb" value="{% if array %}{{array.1}}{% endif %}">
-                      <input  type="hidden" id="mar" name="mar" value="{% if array %}{{array.2}}{% endif %}">
-                      <input  type="hidden" id="apr" name="apr" value="{% if array %}{{array.3}}{% endif %}">
-                      <input  type="hidden" id="may" name="may" value="{% if array %}{{array.4}}{% endif %}">
-                      <input  type="hidden" id="jun" name="jun" value="{% if array %}{{array.5}}{% endif %}">
-                      <input  type="hidden" id="jul" name="jul" value="{% if array %}{{array.6}}{% endif %}">
-                      <input  type="hidden" id="aug" name="aug" value="{% if array %}{{array.7}}{% endif %}">
-                      <input  type="hidden" id="sep" name="sep" value="{% if array %}{{array.8}}{% endif %}">
-                      <input  type="hidden" id="oct" name="oct" value="{% if array %}{{array.9}}{% endif %}">
-                      <input  type="hidden" id="nov" name="nov" value="{% if array %}{{array.10}}{% endif %}">
-                      <input  type="hidden" id="dec" name="dec" value="{% if array %}{{array.11}}{% endif %}">
+                      <input  type="hidden" id="jan" name="jan" value="{% if monthArray %}{{monthArray.0}}{% endif %}">
+                      <input  type="hidden" id="feb" name="feb" value="{% if monthArray %}{{monthArray.1}}{% endif %}">
+                      <input  type="hidden" id="mar" name="mar" value="{% if monthArray %}{{monthArray.2}}{% endif %}">
+                      <input  type="hidden" id="apr" name="apr" value="{% if monthArray %}{{monthArray.3}}{% endif %}">
+                      <input  type="hidden" id="may" name="may" value="{% if monthArray %}{{monthArray.4}}{% endif %}">
+                      <input  type="hidden" id="jun" name="jun" value="{% if monthArray %}{{monthArray.5}}{% endif %}">
+                      <input  type="hidden" id="jul" name="jul" value="{% if monthArray %}{{monthArray.6}}{% endif %}">
+                      <input  type="hidden" id="aug" name="aug" value="{% if monthArray %}{{monthArray.7}}{% endif %}">
+                      <input  type="hidden" id="sep" name="sep" value="{% if monthArray %}{{monthArray.8}}{% endif %}">
+                      <input  type="hidden" id="oct" name="oct" value="{% if monthArray %}{{monthArray.9}}{% endif %}">
+                      <input  type="hidden" id="nov" name="nov" value="{% if monthArray %}{{monthArray.10}}{% endif %}">
+                      <input  type="hidden" id="dec" name="dec" value="{% if monthArray %}{{monthArray.11}}{% endif %}">
+
+                      <input  type="hidden" id="wk1" name="wk1" value="{% if weekArray %}{{weekArray.0}}{% endif %}">
+                      <input  type="hidden" id="wk2" name="wk2" value="{% if weekArray %}{{weekArray.1}}{% endif %}">
+                      <input  type="hidden" id="wk3" name="wk3" value="{% if weekArray %}{{weekArray.2}}{% endif %}">
+                      <input  type="hidden" id="wk4" name="wk4" value="{% if weekArray %}{{weekArray.3}}{% endif %}">
+                      <input  type="hidden" id="wk5" name="wk5" value="{% if weekArray %}{{weekArray.4}}{% endif %}">
+                      <input  type="hidden" id="wk6" name="wk6" value="{% if weekArray %}{{weekArray.5}}{% endif %}">
+                      <input  type="hidden" id="wk7" name="wk7" value="{% if weekArray %}{{weekArray.6}}{% endif %}">
+                      <input  type="hidden" id="wk8" name="wk8" value="{% if weekArray %}{{weekArray.7}}{% endif %}">
+                      <input  type="hidden" id="wk9" name="wk9" value="{% if weekArray %}{{weekArray.8}}{% endif %}">
+                      <input  type="hidden" id="wk10" name="wk10" value="{% if weekArray %}{{weekArray.9}}{% endif %}">
+
+                      <input  type="hidden" id="mon" name="mon" value="{% if dayArray %}{{dayArray.0}}{% endif %}">
+                      <input  type="hidden" id="tue" name="tue" value="{% if dayArray %}{{dayArray.1}}{% endif %}">
+                      <input  type="hidden" id="wed" name="wed" value="{% if dayArray %}{{dayArray.2}}{% endif %}">
+                      <input  type="hidden" id="thu" name="thu" value="{% if dayArray %}{{dayArray.3}}{% endif %}">
+                      <input  type="hidden" id="fri" name="fri" value="{% if dayArray %}{{dayArray.4}}{% endif %}">
+                      <input  type="hidden" id="sat" name="sat" value="{% if dayArray %}{{dayArray.5}}{% endif %}">
+                      <input  type="hidden" id="sun" name="sun" value="{% if dayArray %}{{dayArray.6}}{% endif %}">
+
+                      
                     <canvas id="myAreaChart"></canvas>
                   </div>
                 </div>
@@ -627,10 +648,11 @@
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                       aria-labelledby="dropdownMenuLink">
                       <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
+                      <button id="0" class="dropdown-item">This Month</button>
+                      <button id="1" class="dropdown-item">Last Month</button>
+                      <button id="2" class="dropdown-item">Average</button>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                      <a class="dropdown-item" href="#">Report a Problem</a>
                     </div>
                   </div>
                 </div>
@@ -640,6 +662,8 @@
                     <canvas id="myPieChart"></canvas>
                     <input type="hidden" id="score" name="score"
                       value="{% for x in journey_score %}{{ x.avg_journey_score }},{% endfor %}">
+                      <input type="hidden" id="last_month_avg" name="last_month_avg" value="{{last_month_avg}}"/>
+                      <input type="hidden" id="total_avg" name="total_avg" value="{{total_avg}}"/>
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
@@ -780,8 +804,8 @@
                     <iframe class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 50rem; height: 26.5rem;" frameborder="0" style="border:0" src={{src}} allowfullscreen></iframe>
 
                   </div>
-                  <h4 class="small font-weight-bold">Your latest adventure</h4>
-                  <p>Most recently your travelled from {{start}} to {{end}}. Your travelled a distance of
+                  <h4 class="small font-weight-bold">Recent Journey</h4>
+                  <p>Most recently your travelled from <span class="place">{{start}}</span> to <span class="place">{{end}}</span>. You travelled a distance of
                     {{distance}}km. Your driver score was {{score}}. You departed at {{time_start}} and arrived at
                     {{time_end}}.</p>
                 </div>
@@ -836,6 +860,10 @@
       </div>
     </div>
   </div>
+  <script>
+
+      </script>
+      
 
   <!-- Bootstrap core JavaScript-->
   <script src="{% static 'user_dash_css/vendor/jquery/jquery.min.js' %}"></script>
@@ -851,6 +879,7 @@
   <script src="{% static 'user_dash_css/vendor/chart.js/Chart.min.js' %}"></script>
 
   <!-- Page level custom scripts -->
+  <script src="{% static 'custom_js/scroll.js' %}"></script>
   <script src="{% static 'user_dash_css/js/demo/chart-area-demo.js' %}"></script>
   <script src="{% static 'user_dash_css/js/demo/chart-pie-demo.js' %}"></script>
 

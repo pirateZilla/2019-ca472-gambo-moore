@@ -5,10 +5,20 @@ Chart.defaults.global.defaultFontStyle = 'bold';
 
 // Pie Chart Example
 var score = parseInt(document.getElementById("score").value);
-console.log(score);
 var negscore = 100 - score;
+var lastMonthScore = parseInt(document.getElementById("last_month_avg").value);
+var negLastMonthScore = 100 - lastMonthScore;
+var avgMonthScore = parseInt(document.getElementById("total_avg").value);
+var negAvgMonthScore = 100 - avgMonthScore;
+
+var chart_label = ["Positive", "Negative"];
+var pie_dataset = [score, negscore];
+
+
+
 var ctx = document.getElementById("myPieChart");
-var myPieChart = new Chart(ctx, {
+
+var config ={
   type: 'doughnut',
   data: {
     labels: ["Positive", "Negative"],
@@ -36,7 +46,10 @@ var myPieChart = new Chart(ctx, {
     },
     cutoutPercentage: 60,
   },
-});
+};
+
+var myPieChart = new Chart(ctx, config);
+
 
 Chart.pluginService.register({
   beforeDraw: function (chart) {
@@ -52,7 +65,7 @@ Chart.pluginService.register({
       ctx.font = fontSize + "em Roboto";
       ctx.textBaseline = "middle";
 
-      var text = score + "%",
+      var text = pie_dataset[0] + "%",
         textX = Math.round((width - ctx.measureText(text).width) / 2),
         textY = height / 2;
 
@@ -60,4 +73,27 @@ Chart.pluginService.register({
       ctx.save();
     }
   }
+});
+
+
+
+$("#0").click(function() {
+  var data = myPieChart.config.data;
+  data.datasets[0].data = pie_dataset;
+  data.labels = chart_label;
+  myPieChart.update();
+});
+$("#1").click(function() {
+  var pie_dataset = [lastMonthScore, negLastMonthScore];
+  var data = myPieChart.config.data;
+  data.datasets[0].data = pie_dataset;
+  data.labels = chart_label;
+  myPieChart.update();
+});
+$("#2").click(function() {
+  var pie_dataset = [avgMonthScore, negAvgMonthScore];
+  var data = myPieChart.config.data;
+  data.datasets[0].data = pie_dataset;
+  data.labels = chart_label;
+  myPieChart.update();
 });

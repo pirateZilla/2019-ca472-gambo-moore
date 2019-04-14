@@ -10,3 +10,11 @@ function myFunction() {
     navbar.classList.remove("sticky");
   }
 }
+
+function scrollWin() {
+  window.scrollBy(0, 2000);
+}
+
+function goBack() {
+  window.history.back();
+}
