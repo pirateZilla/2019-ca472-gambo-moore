@@ -596,18 +596,39 @@
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-area">
-                      <input  type="hidden" id="jan" name="jan" value="{% if array %}{{array.0}}{% endif %}">
-                      <input  type="hidden" id="feb" name="feb" value="{% if array %}{{array.1}}{% endif %}">
-                      <input  type="hidden" id="mar" name="mar" value="{% if array %}{{array.2}}{% endif %}">
-                      <input  type="hidden" id="apr" name="apr" value="{% if array %}{{array.3}}{% endif %}">
-                      <input  type="hidden" id="may" name="may" value="{% if array %}{{array.4}}{% endif %}">
-                      <input  type="hidden" id="jun" name="jun" value="{% if array %}{{array.5}}{% endif %}">
-                      <input  type="hidden" id="jul" name="jul" value="{% if array %}{{array.6}}{% endif %}">
-                      <input  type="hidden" id="aug" name="aug" value="{% if array %}{{array.7}}{% endif %}">
-                      <input  type="hidden" id="sep" name="sep" value="{% if array %}{{array.8}}{% endif %}">
-                      <input  type="hidden" id="oct" name="oct" value="{% if array %}{{array.9}}{% endif %}">
-                      <input  type="hidden" id="nov" name="nov" value="{% if array %}{{array.10}}{% endif %}">
-                      <input  type="hidden" id="dec" name="dec" value="{% if array %}{{array.11}}{% endif %}">
+                      <input  type="hidden" id="jan" name="jan" value="{% if monthArray %}{{monthArray.0}}{% endif %}">
+                      <input  type="hidden" id="feb" name="feb" value="{% if monthArray %}{{monthArray.1}}{% endif %}">
+                      <input  type="hidden" id="mar" name="mar" value="{% if monthArray %}{{monthArray.2}}{% endif %}">
+                      <input  type="hidden" id="apr" name="apr" value="{% if monthArray %}{{monthArray.3}}{% endif %}">
+                      <input  type="hidden" id="may" name="may" value="{% if monthArray %}{{monthArray.4}}{% endif %}">
+                      <input  type="hidden" id="jun" name="jun" value="{% if monthArray %}{{monthArray.5}}{% endif %}">
+                      <input  type="hidden" id="jul" name="jul" value="{% if monthArray %}{{monthArray.6}}{% endif %}">
+                      <input  type="hidden" id="aug" name="aug" value="{% if monthArray %}{{monthArray.7}}{% endif %}">
+                      <input  type="hidden" id="sep" name="sep" value="{% if monthArray %}{{monthArray.8}}{% endif %}">
+                      <input  type="hidden" id="oct" name="oct" value="{% if monthArray %}{{monthArray.9}}{% endif %}">
+                      <input  type="hidden" id="nov" name="nov" value="{% if monthArray %}{{monthArray.10}}{% endif %}">
+                      <input  type="hidden" id="dec" name="dec" value="{% if monthArray %}{{monthArray.11}}{% endif %}">
+
+                      <input  type="hidden" id="wk1" name="wk1" value="{% if weekArray %}{{weekArray.0}}{% endif %}">
+                      <input  type="hidden" id="wk2" name="wk2" value="{% if weekArray %}{{weekArray.1}}{% endif %}">
+                      <input  type="hidden" id="wk3" name="wk3" value="{% if weekArray %}{{weekArray.2}}{% endif %}">
+                      <input  type="hidden" id="wk4" name="wk4" value="{% if weekArray %}{{weekArray.3}}{% endif %}">
+                      <input  type="hidden" id="wk5" name="wk5" value="{% if weekArray %}{{weekArray.4}}{% endif %}">
+                      <input  type="hidden" id="wk6" name="wk6" value="{% if weekArray %}{{weekArray.5}}{% endif %}">
+                      <input  type="hidden" id="wk7" name="wk7" value="{% if weekArray %}{{weekArray.6}}{% endif %}">
+                      <input  type="hidden" id="wk8" name="wk8" value="{% if weekArray %}{{weekArray.7}}{% endif %}">
+                      <input  type="hidden" id="wk9" name="wk9" value="{% if weekArray %}{{weekArray.8}}{% endif %}">
+                      <input  type="hidden" id="wk10" name="wk10" value="{% if weekArray %}{{weekArray.9}}{% endif %}">
+
+                      <input  type="hidden" id="mon" name="mon" value="{% if dayArray %}{{dayArray.0}}{% endif %}">
+                      <input  type="hidden" id="tue" name="tue" value="{% if dayArray %}{{dayArray.1}}{% endif %}">
+                      <input  type="hidden" id="wed" name="wed" value="{% if dayArray %}{{dayArray.2}}{% endif %}">
+                      <input  type="hidden" id="thu" name="thu" value="{% if dayArray %}{{dayArray.3}}{% endif %}">
+                      <input  type="hidden" id="fri" name="fri" value="{% if dayArray %}{{dayArray.4}}{% endif %}">
+                      <input  type="hidden" id="sat" name="sat" value="{% if dayArray %}{{dayArray.5}}{% endif %}">
+                      <input  type="hidden" id="sun" name="sun" value="{% if dayArray %}{{dayArray.6}}{% endif %}">
+
+                      
                     <canvas id="myAreaChart"></canvas>
                   </div>
                 </div>

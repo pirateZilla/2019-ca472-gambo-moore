@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 # imports the  driver model so we can save the data to it
-from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay, Month_journey, Real_user
+from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay, Month_journey, Week_journey, Day_journey, Real_user
 import pprint
 import json
 from django.core.serializers.json import DjangoJSONEncoder
@@ -99,6 +99,16 @@ def user_dash(request):
                                                     WHERE myapp_month_journey.Driver_id = %s;
                                                     ''', [user_id])
 
+    week_journey_score = Week_journey.objects.raw('''SELECT myapp_week_journey.id, myapp_week_journey.week, myapp_week_journey.weekly_journey_score
+		                                            from myapp_week_journey 
+                                                    WHERE myapp_week_journey.Driver_id = %s;
+                                                    ''', [user_id])
+
+    day_journey_score = Day_journey.objects.raw('''SELECT myapp_day_journey.id, myapp_day_journey.day, myapp_day_journey.daily_journey_score
+		                                            from myapp_day_journey 
+                                                    WHERE myapp_day_journey.Driver_id = %s;
+                                                    ''', [user_id])
+
 
 
 
@@ -112,12 +122,20 @@ def user_dash(request):
     month_score_array = []
     month_score = "0"
     for x in month_journey_score:
-        
         month_score = x.monthly_journey_score
         month_score_array.append(month_score)
-    #     print(month_score)
 
-    # print(month_score_array)
+    week_score_array = []
+    week_score = "0"
+    for x in week_journey_score:
+        week_score = x.weekly_journey_score
+        week_score_array.append(week_score)
+
+    day_score_array = []
+    day_score = "0"
+    for x in day_journey_score:
+        day_score = x.daily_journey_score
+        day_score_array.append(day_score)        
 
     maps_start = "0"
     maps_end = "0"
@@ -175,9 +193,9 @@ def user_dash(request):
         "fatigueScoreWeekAvg": fatigueScoreWeekAvg,
         "smoothScoreWeekAvg": smoothScoreWeekAvg,
         "todScoreWeekAvg": todScoreWeekAvg,
-        "month_score": month_score,
-        "array": month_score_array
-
+        "dayArray": day_score_array,
+        "weekArray": week_score_array,
+        "monthArray": month_score_array
     }
     return render_to_response("user_dash.html", context)
 

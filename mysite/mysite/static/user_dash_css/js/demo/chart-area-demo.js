@@ -41,11 +41,31 @@ var sep = parseInt(document.getElementById("sep").value);
 var oct = parseInt(document.getElementById("oct").value);
 var nov = parseInt(document.getElementById("nov").value);
 var dec = parseInt(document.getElementById("dec").value);
+
+var wk1 = parseInt(document.getElementById("wk1").value);
+var wk2 = parseInt(document.getElementById("wk2").value);
+var wk3 = parseInt(document.getElementById("wk3").value);
+var wk4 = parseInt(document.getElementById("wk4").value);
+var wk5 = parseInt(document.getElementById("wk5").value);
+var wk6 = parseInt(document.getElementById("wk6").value);
+var wk7 = parseInt(document.getElementById("wk7").value);
+var wk8 = parseInt(document.getElementById("wk8").value);
+var wk9 = parseInt(document.getElementById("wk9").value);
+var wk10 = parseInt(document.getElementById("wk10").value);
+
+var mon = parseInt(document.getElementById("mon").value);
+var tue = parseInt(document.getElementById("tue").value);
+var wed = parseInt(document.getElementById("wed").value);
+var thu = parseInt(document.getElementById("thu").value);
+var fri = parseInt(document.getElementById("fri").value);
+var sat = parseInt(document.getElementById("sat").value);
+var sun = parseInt(document.getElementById("sun").value);
+
 var monthDataset = [jun, jul, aug, sep, oct, nov, dec, jan, feb, mar, apr, may];
 var monthLabels = ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May"];
-var weekDataset = [60, 51, 54, 57, 58, 56, 57, 58, 59, 63];
+var weekDataset = [wk1, wk2, wk3, wk4, wk5, wk6, wk7, wk8, wk9, wk10];
 var weekLabels = ["17/03", "24/03", "31/03", "07/04", "14/04", "21/04", "28/04", "05/05", "12/05", "19/05"];
-var dayDataset = [58, 61, 63, 60, 59, 64, 62];
+var dayDataset = [fri, sat, sun, mon, tue, wed, thu];
 var dayLabels = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed", "Thu"];
 
 var chartDataset = monthDataset;
