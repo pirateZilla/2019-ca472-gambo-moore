@@ -64,7 +64,6 @@
         <div class="sidebar-brand-text mx-3">
           <span class="tour">Tour</span><span class="go">Go</span><img src="{% static 'images/car.png' %}" width="60" />
         </div>
-
       </a>
 
       <!-- Divider -->
@@ -295,7 +294,7 @@
                 <h6 class="dropdown-header">
                   Alerts Center
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'learning_platform'  %}">
                   <div class="mr-3">
                     <div class="icon-circle bg-denim">
                       <i class="fas fa-file-alt text-white"></i>
@@ -307,7 +306,7 @@
                       Check them out!</span>
                   </div>
                 </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'coming_soon'  %}">
                   <div class="mr-3">
                     <div class="icon-circle bg-success">
                       <i class="fas fa-donate text-white"></i>
@@ -318,7 +317,7 @@
                     Payment has been received for this month.
                   </div>
                 </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'contact'  %}">
                   <div class="mr-3">
                     <div class="icon-circle bg-warning">
                       <i class="fas fa-exclamation-triangle text-white"></i>
@@ -329,13 +328,13 @@
                     Alert: You're due for a service soon. Please contact our service center to arrange a checkup.
                   </div>
                 </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                <a class="dropdown-item text-center small text-gray-500" href="{% url 'coming_soon'  %}">Show All Alerts</a>
               </div>
             </li>
 
             <!-- Nav Item - Messages -->
             <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link nav-link-icon dropdown-toggle" href="#" id="messagesDropdown" role="button"
+              <a class="nav-link nav-link-icon dropdown-toggle" href="{% url 'coming_soon'  %}" id="messagesDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw text-denim-300"></i>
                 <!-- Counter - Messages -->
@@ -347,7 +346,7 @@
                 <h6 class="dropdown-header">
                   Message Center
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'coming_soon'  %}">
                   <div class="dropdown-list-image mr-3">
                     <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
                     <div class="status-indicator bg-success"></div>
@@ -358,7 +357,7 @@
                     <div class="small text-gray-500">Emma (Vehicles) · 58m</div>
                   </div>
                 </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'coming_soon'  %}">
                   <div class="dropdown-list-image mr-3">
                     <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
                     <div class="status-indicator"></div>
@@ -369,7 +368,7 @@
                     <div class="small text-gray-500">Jae (Learning) · 1d</div>
                   </div>
                 </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'coming_soon'  %}">
                   <div class="dropdown-list-image mr-3">
                     <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
                     <div class="status-indicator bg-warning"></div>
@@ -803,8 +802,8 @@
                     <iframe class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 50rem; height: 26.5rem;" frameborder="0" style="border:0" src={{src}} allowfullscreen></iframe>
 
                   </div>
-                  <h4 class="small font-weight-bold">Your latest adventure</h4>
-                  <p>Most recently your travelled from {{start}} to {{end}}. Your travelled a distance of
+                  <h4 class="small font-weight-bold">Recent Journey</h4>
+                  <p>Most recently your travelled from <span class="place">{{start}}</span> to <span class="place">{{end}}</span>. You travelled a distance of
                     {{distance}}km. Your driver score was {{score}}. You departed at {{time_start}} and arrived at
                     {{time_end}}.</p>
                 </div>
