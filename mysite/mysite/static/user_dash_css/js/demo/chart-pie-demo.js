@@ -46,38 +46,34 @@ var config ={
     },
     cutoutPercentage: 60,
   },
-  centerText: {
-    display: true,
-    text: "280"
-  }
 };
 
 var myPieChart = new Chart(ctx, config);
 
 
-// Chart.pluginService.register({
-//   beforeDraw: function (chart) {
-//     var width = chart.chart.width,
-//       height = chart.chart.height,
-//       ctx = chart.chart.ctx;
-//     type = chart.config.type;
+Chart.pluginService.register({
+  beforeDraw: function (chart) {
+    var width = chart.chart.width,
+      height = chart.chart.height,
+      ctx = chart.chart.ctx;
+    type = chart.config.type;
 
-//     ctx.restore();
+    ctx.restore();
 
-//     if (type == 'doughnut') {
-//       var fontSize = (height / 80).toFixed(2);
-//       ctx.font = fontSize + "em Roboto";
-//       ctx.textBaseline = "middle";
+    if (type == 'doughnut') {
+      var fontSize = (height / 80).toFixed(2);
+      ctx.font = fontSize + "em Roboto";
+      ctx.textBaseline = "middle";
 
-//       var text = pie_dataset[0] + "%",
-//         textX = Math.round((width - ctx.measureText(text).width) / 2),
-//         textY = height / 2;
+      var text = pie_dataset[0] + "%",
+        textX = Math.round((width - ctx.measureText(text).width) / 2),
+        textY = height / 2;
 
-//       ctx.fillText(text, textX, textY);
-//       ctx.save();
-//     }
-//   }
-// });
+      ctx.fillText(text, textX, textY);
+      ctx.save();
+    }
+  }
+});
 
 
 

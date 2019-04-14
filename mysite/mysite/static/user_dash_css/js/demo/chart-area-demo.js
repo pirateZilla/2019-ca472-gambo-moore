@@ -41,10 +41,20 @@ var sep = parseInt(document.getElementById("sep").value);
 var oct = parseInt(document.getElementById("oct").value);
 var nov = parseInt(document.getElementById("nov").value);
 var dec = parseInt(document.getElementById("dec").value);
-var myLineChart = new Chart(ctx, {
+var monthDataset = [jun, jul, aug, sep, oct, nov, dec, jan, feb, mar, apr, may];
+var monthLabels = ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May"];
+var weekDataset = [60, 51, 54, 57, 58, 56, 57, 58, 59, 63];
+var weekLabels = ["17/03", "24/03", "31/03", "07/04", "14/04", "21/04", "28/04", "05/05", "12/05", "19/05"];
+var dayDataset = [58, 61, 63, 60, 59, 64, 62];
+var dayLabels = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed", "Thu"];
+
+var chartDataset = monthDataset;
+var chartLabels = monthLabels;
+
+var config = {
   type: 'line',
   data: {
-    labels: ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May"],
+    labels: monthLabels,
     datasets: [{
       label: "Score",
       lineTension: 0.3,
@@ -58,7 +68,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(63, 129, 203, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [jun, jul, aug, sep, oct, nov, dec, jan, feb, mar, apr, may],
+      data: monthDataset,
     }],
   },
   options: {
@@ -127,6 +137,34 @@ var myLineChart = new Chart(ctx, {
       }
     }
   }
+}
+
+
+var myLineChart = new Chart(ctx, config);
+
+$("#3").click(function() {
+  var chartDataset = monthDataset;
+  var data = myLineChart.config.data;
+  data.datasets[0].data = chartDataset;
+  chartLabels = monthLabels;
+  data.labels = chartLabels;
+  myLineChart.update();
+});
+$("#4").click(function() {
+  var chartDataset = weekDataset;
+  var data = myLineChart.config.data;
+  data.datasets[0].data = chartDataset;
+  chartLabels = weekLabels;
+  data.labels = chartLabels;
+  myLineChart.update();
+});
+$("#5").click(function() {
+  var chartDataset = dayDataset;
+  var data = myLineChart.config.data;
+  data.datasets[0].data = chartDataset;
+  chartLabels = dayLabels;
+  data.labels = chartLabels;
+  myLineChart.update();
 });
 
 Chart.pluginService.register({
