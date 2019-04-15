@@ -513,7 +513,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <a href="/learning_platform/">
+                      <a href="{{learning_url}}">
                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Learning Tasks</div>
                       </a>
                       <div class="row no-gutters align-items-center">
@@ -692,20 +692,22 @@
                 <div class="card-body">
                   <h4 class="small font-weight-bold">Speed <span class="float-right">{{speedScoreWeekAvg}}%</span></h4>
                   <div class="progress mb-4">
+
+
                     <!-- ASSESS THIS -->
                     <div class="progress-bar bg-danger" role="progressbar" style="width: {{speedScoreWeekAvg}}%"
                       aria-valuenow="{{speedScoreWeekAvg}}" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                   <h4 class="small font-weight-bold">Smoothness <span
-                      class="float-right">{{fatigueScoreWeekAvg}}%</span></h4>
+                      class="float-right">{{smoothScoreWeekAvg}}%</span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: {{fatigueScoreWeekAvg}}%"
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: {{smoothScoreWeekAvg}}%"
                       aria-valuenow="{{fatigueScoreWeekAvg}}" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Fatigue <span class="float-right">{{smoothScoreWeekAvg}}%</span>
+                  <h4 class="small font-weight-bold">Fatigue <span class="float-right">{{fatigueScoreWeekAvg}}%</span>
                   </h4>
                   <div class="progress mb-4">
-                    <div class="bg-denim progress-bar" role="progressbar" style="width: {{smoothScoreWeekAvg}}%"
+                    <div class="bg-denim progress-bar" role="progressbar" style="width: {{fatigueScoreWeekAvg}}%"
                       aria-valuenow="{{smoothScoreWeekAvg}}" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                   <h4 class="small font-weight-bold">Time of Day <span class="float-right">{{todScoreWeekAvg}}%</span>

@@ -93,6 +93,8 @@ def user_dash(request):
 											where myapp_car.Driver_id = %s;
 	 									''', [user_id])
 
+    #sql queries used to create the data needed for a dynamic view of trends 
+
     month_journey_score = Month_journey.objects.raw('''SELECT myapp_month_journey.id, myapp_month_journey.month, myapp_month_journey.monthly_journey_score
 		                                            from myapp_month_journey 
                                                     WHERE myapp_month_journey.Driver_id = %s;
@@ -131,6 +133,8 @@ def user_dash(request):
         day_score = x.daily_journey_score
         day_score_array.append(day_score)
 
+
+#functionality for dynamic pie chart --> will beark the application so 2user_dash url" must be "/user_dash/?user_id=1"
     last_month_avg = "0"
     last_month_avg = (
         week_score_array[3]+week_score_array[4]+week_score_array[5]+week_score_array[6])/4
@@ -153,6 +157,7 @@ def user_dash(request):
         time_end = x.end_time
         time_start = x.start_time
 
+#DEC do not change this without telling me as this till break the leaning task links 
     speedScoreWeekAvg = "0"
     for x in avg_speed:
         speedScoreWeekAvg = x.avg_speed
@@ -172,6 +177,35 @@ def user_dash(request):
     # google maps link with API key for journey locations
     src = "https://www.google.com/maps/embed/v1/directions?origin=" + maps_start + \
         "&" + "destination="+maps_end + "&key=AIzaSyAEIIVLTLc_JfDkoF_j3lv8Y5j6qpf5NoI"
+
+    #funtion is to redirect a user to specfic  learning task based on the users lowest of the 4 catigories of their score breakdown 
+
+   
+
+
+
+    #this finds the lowest value of the 4 catigories of driving behaviours 
+    list_of_socre_breakdown = [speedScoreWeekAvg,fatigueScoreWeekAvg, smoothScoreWeekAvg, todScoreWeekAvg]
+    lowest_score = min(list_of_socre_breakdown)
+   
+   
+    # this sends a specific learning url based on the users lowest score in their score breakdown
+    learning_url = 0
+    if lowest_score == speedScoreWeekAvg:
+        learning_url = "/speed_learn/"
+
+    elif lowest_score == smoothScoreWeekAvg:
+        print("yes")
+        learning_url = "/smoothness_learn/"
+
+    elif lowest_score == fatigueScoreWeekAvg:
+        print("no")
+        learning_url = "/fatigue_learn/"
+
+    elif lowest_score == todScoreWeekAvg:
+        learning_url = "/tod_learn/"
+    else:
+        learning_url = "/learning_platform/"
 
     context = {
 
@@ -198,7 +232,8 @@ def user_dash(request):
         "weekArray": week_score_array,
         "monthArray": month_score_array,
         "last_month_avg": last_month_avg,
-        "total_avg": total_avg
+        "total_avg": total_avg,
+        "learning_url": learning_url
     }
     return render_to_response("user_dash.html", context)
 
