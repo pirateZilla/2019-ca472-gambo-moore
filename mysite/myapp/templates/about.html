@@ -36,6 +36,10 @@
   <!-- Bootstrap core CSS -->
   <link href="{% static 'index_css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link href="{% static 'custom_css/nav.css' %}" rel="stylesheet">
+
   <!-- Custom Page CSS -->
   <link href="{% static 'custom_css/index.css' %}" rel="stylesheet">
   <link href="{% static 'custom_css/quote.css' %}" rel="stylesheet">
@@ -83,14 +87,19 @@
               <a class="nav-link" href="{% url 'contact' %}">contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/user_dash?user_id=1">dashboard</a>
+              <a class="nav-link" href="/user_dash?user_id=1">dashboard <i class="fas fa-caret-down"></i></a>
+              <ul class="pull-left">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'learning_platform' %}">learning
+                    platform</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'maintenance_checklist' %}">maintenance
+                    checklist
+                  </a>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item">
-							<a class="nav-link" href="{% url 'learning_platform' %}">learning platform</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{% url 'maintenance_checklist' %}">maintenance checklist</a>
-						</li>
           </ul>
         </div>
       </div>
@@ -117,9 +126,11 @@
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>About TourGo</h2>
-            <p class="lead">TourGo is Ireland's first Car as a Service telematics provider. Our service combines the costs of getting on the road,
-            spreading it across monthly installments. TourGo finds the best priced, quality vehicles and gets you behind the wheel cheaper and easier
-            than anyone else. Included in your TourGo membership you get:
+            <p class="lead">TourGo is Ireland's first Car as a Service telematics provider. Our service combines the
+              costs of getting on the road,
+              spreading it across monthly installments. TourGo finds the best priced, quality vehicles and gets you
+              behind the wheel cheaper and easier
+              than anyone else. Included in your TourGo membership you get:
             </p>
             <ul>
               <li>Your choice of vehicle from a list of brand new, top spec models.</li>
@@ -136,10 +147,14 @@
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>Who is TourGo for?</h2>
-            <p class="lead">TourGo is aimed at young and new drivers. We understand that getting on the road can be very challenging for young drivers
-              and TourGo wants to make it easier and safer for young people to get started. We've teamed up with some of Ireland's leading motor industry
-              leaders to give you the best options, tailored to you! At present TourGo accepts drivers aged between 21 to 29. We hope to bring our services
-              to people aged 18-21 from 2021. For drivers aged 30+ please contact our Customer Service and we'll see if we can find the right fit for you.
+            <p class="lead">TourGo is aimed at young and new drivers. We understand that getting on the road can be very
+              challenging for young drivers
+              and TourGo wants to make it easier and safer for young people to get started. We've teamed up with some of
+              Ireland's leading motor industry
+              leaders to give you the best options, tailored to you! At present TourGo accepts drivers aged between 21
+              to 29. We hope to bring our services
+              to people aged 18-21 from 2021. For drivers aged 30+ please contact our Customer Service and we'll see if
+              we can find the right fit for you.
             </p>
           </div>
         </div>
@@ -150,13 +165,18 @@
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>How is TourGo able to provide this service?</h2>
-            <p class="lead">Through TourGo's learning platform, we can offer our customers highly competitive insurance and vehicles by passively
-              improving our customer driving quality. As a TourGo member you'll receive a weekly score for your performance driving over the past 
-              7 days. You'll then be asked to complete a brief lesson plan based on your weaker areas of driving. You'll have 7 days to complete your 
-              learning modules. What these lessons do is provide you with continuous feedback, in a casual, passive way to improve how you drive over
-              time. TourGo promises to revolutionise the telematics leasing industry and thankfully our partners believe in this vision too. Through
-              proving that our model works to make drivers better and safer, we'll be able ... 
-              
+            <p class="lead">Through TourGo's learning platform, we can offer our customers highly competitive insurance
+              and vehicles by passively
+              improving our customer driving quality. As a TourGo member you'll receive a weekly score for your
+              performance driving over the past
+              7 days. You'll then be asked to complete a brief lesson plan based on your weaker areas of driving. You'll
+              have 7 days to complete your
+              learning modules. What these lessons do is provide you with continuous feedback, in a casual, passive way
+              to improve how you drive over
+              time. TourGo promises to revolutionise the telematics leasing industry and thankfully our partners believe
+              in this vision too. Through
+              proving that our model works to make drivers better and safer, we'll be able ...
+
             </p>
           </div>
         </div>
@@ -214,7 +234,7 @@
               <li><a class="text-muted" href="{% url 'quote' %}">Join TourGo</a></li>
               <li><a class="text-muted" href="{% url 'login' %}">Login</a></li>
               <li><a class="text-muted" href="/user_dash?user_id=1">Dashboard</a></li>
-							<li><a class="text-muted" href="/user_dash?user_id=1">Learning platform</a></li>
+              <li><a class="text-muted" href="/user_dash?user_id=1">Learning platform</a></li>
             </ul>
           </div>
           <div class="col-6 col-md">

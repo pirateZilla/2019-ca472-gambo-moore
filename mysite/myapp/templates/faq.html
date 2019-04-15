@@ -36,6 +36,10 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static 'index_css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="{% static 'custom_css/nav.css' %}" rel="stylesheet">
+    
     <!-- Custom Page CSS -->
     <link href="{% static 'custom_css/index.css' %}" rel="stylesheet">
     <link href="{% static 'custom_css/faq.css' %}" rel="stylesheet">
@@ -82,14 +86,20 @@
                             <a class="nav-link" href="{% url 'contact' %}">contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/user_dash?user_id=1">dashboard</a>
+                            <a class="nav-link" href="/user_dash?user_id=1">dashboard <i
+                                    class="fas fa-caret-down"></i></a>
+                            <ul class="pull-left">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'learning_platform' %}">learning
+                                        platform</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'maintenance_checklist' %}">maintenance
+                                        checklist
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="{% url 'learning_platform' %}">learning platform</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{% url 'maintenance_checklist' %}">maintenance checklist</a>
-						</li>
                     </ul>
                 </div>
             </div>
@@ -577,7 +587,7 @@
                             <li><a class="text-muted" href="{% url 'quote' %}">Join TourGo</a></li>
                             <li><a class="text-muted" href="{% url 'login' %}">Login</a></li>
                             <li><a class="text-muted" href="/user_dash?user_id=1">Dashboard</a></li>
-							<li><a class="text-muted" href="/user_dash?user_id=1">Learning platform</a></li>
+                            <li><a class="text-muted" href="/user_dash?user_id=1">Learning platform</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md">

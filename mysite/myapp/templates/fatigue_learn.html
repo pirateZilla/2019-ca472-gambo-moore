@@ -36,6 +36,10 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static 'index_css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="{% static 'custom_css/nav.css' %}" rel="stylesheet">
+
     <!-- Custom Page CSS -->
     <link href="{% static 'custom_css/index.css' %}" rel="stylesheet">
     <link href="{% static 'custom_css/quote.css' %}" rel="stylesheet">
@@ -157,16 +161,21 @@
                             <a class="nav-link" href="{% url 'contact' %}">contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/user_dash?user_id=1">dashboard</a>
+                            <a class="nav-link" href="/user_dash?user_id=1">dashboard <i
+                                    class="fas fa-caret-down"></i></a>
+                            <ul class="pull-left">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'learning_platform' %}">learning
+                                        platform
+                                        <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'maintenance_checklist' %}">maintenance
+                                        checklist
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="nav-item active">
-							<a class="nav-link" href="{% url 'learning_platform' %}">learning platform
-                                <span class="sr-only">(current)</span>
-                            </a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{% url 'maintenance_checklist' %}">maintenance checklist</a>
-						</li>
                     </ul>
                 </div>
             </div>
@@ -180,7 +189,17 @@
         <div class="container-form">
             <h1>Fatigue</h1>
             <div class="text_block">
-                <p>Fatigue is the physical and mental impairment brought about by inadequate rest over a period of time. Ideally, people need 7/8 hours’ sleep every night. Drivers suffering from a sleep debt are at risk of ‘nodding off’ whilst driving and substantially increasing their risk of being involved in a crash. It is estimated that driver fatigue is a contributory factor in as many as 1 in 5 driver deaths in Ireland every year. Furthermore, tiredness-related collisions are 3 times more likely to be fatal or result in a serious injury because of the high impact speed and lack of avoiding action. A survey* of drivers’ attitudes to driver fatigue conducted by the RSA in 2014 revealed that over 1 in 10 motorists have fallen asleep at the wheel.  The survey also found that motorists who drive as part of their work, and motorists who admit to driving after taking any amount of alcohol, had a higher than average incidence of falling asleep at the wheel (almost 1 in 5 fell asleep at the wheel). </p>
+                <p>Fatigue is the physical and mental impairment brought about by inadequate rest over a period of time.
+                    Ideally, people need 7/8 hours’ sleep every night. Drivers suffering from a sleep debt are at risk
+                    of ‘nodding off’ whilst driving and substantially increasing their risk of being involved in a
+                    crash. It is estimated that driver fatigue is a contributory factor in as many as 1 in 5 driver
+                    deaths in Ireland every year. Furthermore, tiredness-related collisions are 3 times more likely to
+                    be fatal or result in a serious injury because of the high impact speed and lack of avoiding action.
+                    A survey* of drivers’ attitudes to driver fatigue conducted by the RSA in 2014 revealed that over 1
+                    in 10 motorists have fallen asleep at the wheel. The survey also found that motorists who drive as
+                    part of their work, and motorists who admit to driving after taking any amount of alcohol, had a
+                    higher than average incidence of falling asleep at the wheel (almost 1 in 5 fell asleep at the
+                    wheel). </p>
                 <p>If you'd like to look at other lessons currently available to you, please select from below.</p>
                 <div class="button-area-line">
                     <a href="{% url 'speed_learn' %}">Speed</a>
@@ -199,96 +218,102 @@
 
             <h2>Driver Fatigue</h2>
             <p>If a driver fights sleep while driving, it’s the same as driving while over the drink drive limit.</p>
-            <p>You should recognise the signs that you are too tired to continue driving, and then Stop, Sip, Sleep – Stop the car in a safe place, Sip a caffeine drink, and Sleep for 15-20 minutes. This should enable you to continue driving for another hour or so.</p>
-            <p>The RSA have the following advice for tired drivers: 
+            <p>You should recognise the signs that you are too tired to continue driving, and then Stop, Sip, Sleep –
+                Stop the car in a safe place, Sip a caffeine drink, and Sleep for 15-20 minutes. This should enable you
+                to continue driving for another hour or so.</p>
+            <p>The RSA have the following advice for tired drivers:
                 <ul>
-                <li>Stop, park in a safe place and take a nap for 15 minutes (set your mobile phone alarm). This is the most important tactic. </li>
-                <li>To really make the most of the break, take a caffeine drink before the nap (150mg of caffeine e.g. 2 cups of coffee). After the nap, the caffeine should have started to take effect. </li>
-                <li>Then get some fresh air and stretch your legs for a few minutes.</li>
-                <li>By following all of the above advice you should be able to drive for another hour or so. </li>
-            </ul>
+                    <li>Stop, park in a safe place and take a nap for 15 minutes (set your mobile phone alarm). This is
+                        the most important tactic. </li>
+                    <li>To really make the most of the break, take a caffeine drink before the nap (150mg of caffeine
+                        e.g. 2 cups of coffee). After the nap, the caffeine should have started to take effect. </li>
+                    <li>Then get some fresh air and stretch your legs for a few minutes.</li>
+                    <li>By following all of the above advice you should be able to drive for another hour or so. </li>
+                </ul>
             </p>
 
 
             <h2 class="quizHeader">Test Yourself! Be a better driver.</h2>
 
             <div style="width:100%">
-                        <div class="col-sm d-flex">
-                            <div class="card card-body flex-fill">
-                                <p class="question">1. If feeling drowsy behind the wheel, what should you do?</p>
+                <div class="col-sm d-flex">
+                    <div class="card card-body flex-fill">
+                        <p class="question">1. If feeling drowsy behind the wheel, what should you do?</p>
 
-                                <ul>
-                                    <input class="answer" type="radio" name="q1" value="1">
-                                    <label id="correctString1">Stop, Sip, and Sleep</label>
-                                    <br>
-                                    <input class="answer" type="radio" name="q1" value="0">
-                                    <label>If close to your destination, power through. You can rest when you get there.</label>
-                                    <br>
-                                    <input class="answer" type="radio" name="q1" value="0">
-                                    <label>Open your windows and let the fresh air keep you awake.</label>
-                                    <br>
-                                    <input class="answer" type="radio" name="q1" value="0">
-                                    <label>Turn up the radio.</label>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm d-flex">
-                            <div class="card card-body flex-fill">
-                                <p class="question">2. What proportion of Irish road deaths are as a result of driver fatigue each year?</p>
+                        <ul>
+                            <input class="answer" type="radio" name="q1" value="1">
+                            <label id="correctString1">Stop, Sip, and Sleep</label>
+                            <br>
+                            <input class="answer" type="radio" name="q1" value="0">
+                            <label>If close to your destination, power through. You can rest when you get there.</label>
+                            <br>
+                            <input class="answer" type="radio" name="q1" value="0">
+                            <label>Open your windows and let the fresh air keep you awake.</label>
+                            <br>
+                            <input class="answer" type="radio" name="q1" value="0">
+                            <label>Turn up the radio.</label>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm d-flex">
+                    <div class="card card-body flex-fill">
+                        <p class="question">2. What proportion of Irish road deaths are as a result of driver fatigue
+                            each year?</p>
 
-                                <ul>
-                                    <input class="answer" type="radio" name="q2" value="0">
-                                    <label>5%</label>
-                                    <br>
-                                    <input class="answer" type="radio" name="q2" value="1">
-                                    <label id="correctString2">20%</label>
-                                    <br>
-                                    <input class="answer" type="radio" name="q2" value="0">
-                                    <label>2%</label>
-                                    <br>
-                                    <input class="answer" type="radio" name="q2" value="0">
-                                    <label>15%</label>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm d-flex">
-                            <div class="card card-body flex-fill">
-                                <p class="question">3. How frequently should you take a break when driving?</p>
+                        <ul>
+                            <input class="answer" type="radio" name="q2" value="0">
+                            <label>5%</label>
+                            <br>
+                            <input class="answer" type="radio" name="q2" value="1">
+                            <label id="correctString2">20%</label>
+                            <br>
+                            <input class="answer" type="radio" name="q2" value="0">
+                            <label>2%</label>
+                            <br>
+                            <input class="answer" type="radio" name="q2" value="0">
+                            <label>15%</label>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm d-flex">
+                    <div class="card card-body flex-fill">
+                        <p class="question">3. How frequently should you take a break when driving?</p>
 
-                                <ul>
-                                    <input class="answer" type="radio" name="q3" value="0">
-                                    <label>Every 20 minutes</label>
-                                    <br>
-                                    <input class="answer" type="radio" name="q3" value="1">
-                                    <label id="correctString3">As often as necessary, avoid ever driving for longer than 90 minutes without a break.</label>
-                                    <br>
-                                    <input class="answer" type="radio" name="q3" value="0">
-                                    <label>At least every 3 hours.</label>
-                                    <br>
-                                    <input class="answer" type="radio" name="q3" value="0">
-                                    <label>Don't take breaks, it'll only increase your journey time.</label>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm d-flex">
-                            <div class="card card-body flex-fill">
-                                <p class="question">4. When pulling in for a rest, how long should you nap for?</p>
+                        <ul>
+                            <input class="answer" type="radio" name="q3" value="0">
+                            <label>Every 20 minutes</label>
+                            <br>
+                            <input class="answer" type="radio" name="q3" value="1">
+                            <label id="correctString3">As often as necessary, avoid ever driving for longer than 90
+                                minutes without a break.</label>
+                            <br>
+                            <input class="answer" type="radio" name="q3" value="0">
+                            <label>At least every 3 hours.</label>
+                            <br>
+                            <input class="answer" type="radio" name="q3" value="0">
+                            <label>Don't take breaks, it'll only increase your journey time.</label>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm d-flex">
+                    <div class="card card-body flex-fill">
+                        <p class="question">4. When pulling in for a rest, how long should you nap for?</p>
 
-                                <ul>
-                                    <input class="answer" type="radio" name="q4" value="0">
-                                    <label>2 hours</label>
-                                    <br>
-                                    <input class="answer" type="radio" name="q4" value="1">
-                                    <label id="correctString4">15-20 minutes</label>
-                                    <br>
-                                    <input class="answer" type="radio" name="q4" value="0">
-                                    <label>5 minutes</label>
-                                    <br>
-                                    <input class="answer" type="radio" name="q4" value="0">
-                                    <label>A full night's sleep</label>
-                                </ul>
-                            </div>
-                        </div>
+                        <ul>
+                            <input class="answer" type="radio" name="q4" value="0">
+                            <label>2 hours</label>
+                            <br>
+                            <input class="answer" type="radio" name="q4" value="1">
+                            <label id="correctString4">15-20 minutes</label>
+                            <br>
+                            <input class="answer" type="radio" name="q4" value="0">
+                            <label>5 minutes</label>
+                            <br>
+                            <input class="answer" type="radio" name="q4" value="0">
+                            <label>A full night's sleep</label>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <br />
             <div class="submitter">
@@ -339,7 +364,7 @@
                             <li><a class="text-muted" href="{% url 'quote' %}">Join TourGo</a></li>
                             <li><a class="text-muted" href="{% url 'login' %}">Login</a></li>
                             <li><a class="text-muted" href="/user_dash?user_id=1">Dashboard</a></li>
-							<li><a class="text-muted" href="/user_dash?user_id=1">Learning platform</a></li>
+                            <li><a class="text-muted" href="/user_dash?user_id=1">Learning platform</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md">

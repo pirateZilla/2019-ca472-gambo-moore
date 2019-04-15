@@ -36,6 +36,10 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static 'index_css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="{% static 'custom_css/nav.css' %}" rel="stylesheet">
+
     <!-- Custom Page CSS -->
     <link href="{% static 'custom_css/index.css' %}" rel="stylesheet">
     <link href="{% static 'custom_css/quote.css' %}" rel="stylesheet">
@@ -88,16 +92,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'contact' %}">contact</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">dashboard</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown04">
-                                <a class="dropdown-item" href="/user_dash?user_id=1">dashboard</a>
-                                <a class="dropdown-item" href="{% url 'learning_platform' %}">learning platform
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                                <a class="dropdown-item" href="{% url 'maintenance_checklist' %}">maintenance checklist</a>
-						
-                            </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user_dash?user_id=1">dashboard <i
+                                    class="fas fa-caret-down"></i></a>
+                            <ul class="pull-left">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'learning_platform' %}">learning
+                                        platform
+                                    <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'maintenance_checklist' %}">maintenance
+                                        checklist
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -108,39 +117,46 @@
     <main role="main">
         <div class="jumbotron"></div>
         <div class="container-form">
-                <h1>Welcome to the Learning Platform</h1>
-                <div class="text_block">
-                    <p>The learning platform is where you do your regular skills building for driving. Each week you'll be prompted to complete some lessons on the platform.
-                        Typically our platform will assess your dashboard and you'll be given lessons based on your weaker driving areas. The better your score, the fewer lessons
-                        you'll need to do. 
-                    </p>
-                    <p>The idea behind TourGo is passive reinforcement for driving improvements. Effectively a little bit of learning each week goes a long way to keeping you and those
-                        around you driving safely and most effectively.
-                    </p>
-                    <p>
-                        Why not check out some of the lessons in our library below to get your started. Each lesson will feature some reading material, followed by a video. Then you can test
-                        yourself on the quiz below. Once you've gotten all of the answers correct on the quiz you are marked as having completed the learning requirements for the week for that
-                        lesson. Like the maintenance checklist, part of your membership requires you keep up to date with these lessons. Combined the Maintenance Checklist and lessons should take 
-                        around 10 minutes each week.
-                    </p>
-                    <div class="button-area-line">
-                        <a href="{% url 'speed_learn' %}">Speed</a>
-                        <a href="{% url 'smoothness_learn' %}">Smoothness</a>
-                        <a href="{% url 'fatigue_learn' %}">Fatigue</a>
-                        <a href="{% url 'tod_learn' %}">Time of Day</a>
-                    </div>
+            <h1>Welcome to the Learning Platform</h1>
+            <div class="text_block">
+                <p>The learning platform is where you do your regular skills building for driving. Each week you'll be
+                    prompted to complete some lessons on the platform.
+                    Typically our platform will assess your dashboard and you'll be given lessons based on your weaker
+                    driving areas. The better your score, the fewer lessons
+                    you'll need to do.
+                </p>
+                <p>The idea behind TourGo is passive reinforcement for driving improvements. Effectively a little bit of
+                    learning each week goes a long way to keeping you and those
+                    around you driving safely and most effectively.
+                </p>
+                <p>
+                    Why not check out some of the lessons in our library below to get your started. Each lesson will
+                    feature some reading material, followed by a video. Then you can test
+                    yourself on the quiz below. Once you've gotten all of the answers correct on the quiz you are marked
+                    as having completed the learning requirements for the week for that
+                    lesson. Like the maintenance checklist, part of your membership requires you keep up to date with
+                    these lessons. Combined the Maintenance Checklist and lessons should take
+                    around 10 minutes each week.
+                </p>
+                <div class="button-area-line">
+                    <a href="{% url 'speed_learn' %}">Speed</a>
+                    <a href="{% url 'smoothness_learn' %}">Smoothness</a>
+                    <a href="{% url 'fatigue_learn' %}">Fatigue</a>
+                    <a href="{% url 'tod_learn' %}">Time of Day</a>
                 </div>
-                <div class="codegena_iframe" data-src="https://www.youtube.com/embed/sLjDVthx4cIg"
-                    style="height:505px;width:853px;" data-responsive="true"
-                    data-img="https://socaldrivingacademy.com/wp-content/uploads/2015/04/MAZDA3-DEMO-e1511128661205.jpg"
-                    data-css="background:url('//codegena.com/wp-content/uploads/2015/09/loading.gif') white center center no-repeat;border:0px;">
-                </div>
-                <script src="https://rawgit.com/shaneapen/Codegena/master/async-iframe.js"></script>
-    
-                <div class="text-center">
-                        <iframe class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 50rem; height: 26.5rem;" frameborder="0" style="border:0" src={{src2}} allowfullscreen></iframe>
-    
-                      </div>
+            </div>
+            <div class="codegena_iframe" data-src="https://www.youtube.com/embed/sLjDVthx4cIg"
+                style="height:505px;width:853px;" data-responsive="true"
+                data-img="https://socaldrivingacademy.com/wp-content/uploads/2015/04/MAZDA3-DEMO-e1511128661205.jpg"
+                data-css="background:url('//codegena.com/wp-content/uploads/2015/09/loading.gif') white center center no-repeat;border:0px;">
+            </div>
+            <script src="https://rawgit.com/shaneapen/Codegena/master/async-iframe.js"></script>
+
+            <div class="text-center">
+                <iframe class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 50rem; height: 26.5rem;" frameborder="0"
+                    style="border:0" src={{src2}} allowfullscreen></iframe>
+
+            </div>
 
         </div>
 
@@ -171,7 +187,7 @@
                             <li><a class="text-muted" href="{% url 'quote' %}">Join TourGo</a></li>
                             <li><a class="text-muted" href="{% url 'login' %}">Login</a></li>
                             <li><a class="text-muted" href="/user_dash?user_id=1">Dashboard</a></li>
-							<li><a class="text-muted" href="/user_dash?user_id=1">Learning platform</a></li>
+                            <li><a class="text-muted" href="/user_dash?user_id=1">Learning platform</a></li>
                         </ul>
                     </div>
 

@@ -36,6 +36,10 @@
   <!-- Bootstrap core CSS -->
   <link href="{% static 'index_css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link href="{% static 'custom_css/nav.css' %}" rel="stylesheet">
+
   <!-- Custom Page CSS -->
   <link href="{% static 'custom_css/index.css' %}" rel="stylesheet">
 
@@ -81,14 +85,19 @@
               <a class="nav-link" href="{% url 'contact' %}">contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/user_dash?user_id=1">dashboard</a>
+              <a class="nav-link" href="/user_dash?user_id=1">dashboard <i class="fas fa-caret-down"></i></a>
+              <ul class="pull-left">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'learning_platform' %}">learning
+                    platform</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'maintenance_checklist' %}">maintenance
+                    checklist
+                  </a>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item">
-							<a class="nav-link" href="{% url 'learning_platform' %}">learning platform</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{% url 'maintenance_checklist' %}">maintenance checklist</a>
-						</li>
           </ul>
         </div>
       </div>
@@ -197,8 +206,8 @@
           <p class="lead">TourGo is aimed at newer drivers. Our platform and membership make getting on the road easier
             and more affordable. Telematic technology allows us to make driving accessible and safe, helping you get on
             the road.</p>
-            <a href="{% url 'about' %}"> 
-              <button class="btn-ft">Tell me more</button></a>
+          <a href="{% url 'about' %}">
+            <button class="btn-ft">Tell me more</button></a>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-fluid mx-auto opacity" src="{% static 'images/road-ft.jpg' %}"
@@ -214,8 +223,8 @@
           <p class="lead">By bundling your vehicle leasing, insurance, tax, and maintenance into a monthly subscription,
             TourGo not only handles the headache of managing the costs, but spreads it across your contract period
             making it easier to manage.</p>
-            <a href="{% url 'quote' %}"> 
-                <button class="btn-ft">Get a quote</button></a>
+          <a href="{% url 'quote' %}">
+            <button class="btn-ft">Get a quote</button></a>
         </div>
         <div class="col-md-5 order-md-1">
           <img class="featurette-image img-fluid mx-auto opacity" src="{% static 'images/cost-ft.jpg' %}"
@@ -231,8 +240,8 @@
           <p class="lead">A telematics device in your car provides you with real time information about your driving
             which is then used to provide learning opportunities to make you a great driver. Learning on maintenance and
             fuel-efficient driving are also available to reduce the long term costs of driving.</p>
-            <a href="user_dash/?user_id=1"> 
-                <button class="btn-ft">See a sample dashboard</button></a>
+          <a href="user_dash/?user_id=1">
+            <button class="btn-ft">See a sample dashboard</button></a>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-fluid mx-auto opacity" src="{% static 'images/skill-ft.jpg' %}"
@@ -272,7 +281,7 @@
               <li><a class="text-muted" href="{% url 'quote' %}">Join TourGo</a></li>
               <li><a class="text-muted" href="{% url 'login' %}">Login</a></li>
               <li><a class="text-muted" href="/user_dash?user_id=1">Dashboard</a></li>
-							<li><a class="text-muted" href="/user_dash?user_id=1">Learning platform</a></li>
+              <li><a class="text-muted" href="/user_dash?user_id=1">Learning platform</a></li>
             </ul>
           </div>
           <div class="col-6 col-md">
