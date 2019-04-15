@@ -50,12 +50,12 @@ input.answer[type="radio"] {
 
 th {}
 
-tr {
+col-sm {
     display: flex;
     flex-wrap: wrap;
 }
 
-td {
+card-body {
     flex-grow: 1;
     min-width: 100%;
     overflow: hidden;
