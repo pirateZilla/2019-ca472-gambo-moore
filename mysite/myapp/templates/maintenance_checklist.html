@@ -90,15 +90,18 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/user_dash?user_id=1">dashboard</a>
+                            <ul>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'learning_platform' %}">learning platform</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'maintenance_checklist' %}">maintenance checklist
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-							<a class="nav-link" href="{% url 'learning_platform' %}">learning platform</a>
-						</li>
-						<li class="nav-item active">
-							<a class="nav-link" href="{% url 'maintenance_checklist' %}">maintenance checklist
-                                <span class="sr-only">(current)</span>
-                            </a>
-						</li>
+
                     </ul>
                 </div>
             </div>
@@ -109,18 +112,22 @@
         <div class="jumbotron opacity"></div>
         <div class="container-form">
             <div class="container">
-            <h1>Maintenance Checklist</h1>
-            <p>On a weekly basis you are expected to perform a handful of routine checks on your car, to ensure it's in
-                proper running order and to foresee any potential
-                service requirements in the future. Additionally, performing this regular checks helps you to learn more
-                about your vehicle, your driving and how to keep
-                your car on the road.</p>
-            <p>Follow the guide for each check and fill in the form below. Each week the form will reset, requiring a
-                new checklist be completed. Should you find any part
-                of your car unsatisfactory to passing on of the checks please select "I found a problem" in the form. A
-                customer service representative will contact you
-                within 48 hours to advise further and arrange any necessary service appointments.
-            </p>
+                <h1>Maintenance Checklist</h1>
+                <p>On a weekly basis you are expected to perform a handful of routine checks on your car, to ensure it's
+                    in
+                    proper running order and to foresee any potential
+                    service requirements in the future. Additionally, performing this regular checks helps you to learn
+                    more
+                    about your vehicle, your driving and how to keep
+                    your car on the road.</p>
+                <p>Follow the guide for each check and fill in the form below. Each week the form will reset, requiring
+                    a
+                    new checklist be completed. Should you find any part
+                    of your car unsatisfactory to passing on of the checks please select "I found a problem" in the
+                    form. A
+                    customer service representative will contact you
+                    within 48 hours to advise further and arrange any necessary service appointments.
+                </p>
             </div>
             <form action='.' method='GET'>
                 <div class="row">
@@ -227,7 +234,7 @@
                             <li><a class="text-muted" href="{% url 'quote' %}">Join TourGo</a></li>
                             <li><a class="text-muted" href="{% url 'login' %}">Login</a></li>
                             <li><a class="text-muted" href="/user_dash?user_id=1">Dashboard</a></li>
-							<li><a class="text-muted" href="/user_dash?user_id=1">Learning platform</a></li>
+                            <li><a class="text-muted" href="/user_dash?user_id=1">Learning platform</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md">
