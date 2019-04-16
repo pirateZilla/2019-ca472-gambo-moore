@@ -45,6 +45,14 @@ var config ={
       display: false
     },
     cutoutPercentage: 60,
+    elements: {
+				center: {
+					text: pie_dataset[0] + "%",
+          color: '#5a5c69', // Default is #000000
+          fontStyle: 'Roboto', // Default is Arial
+          sidePadding: 20 // Defualt is 20 (as a percentage)
+				}
+			}
   },
 };
 
@@ -53,47 +61,72 @@ var myPieChart = new Chart(ctx, config);
 
 Chart.pluginService.register({
   beforeDraw: function (chart) {
-    var width = chart.chart.width,
-      height = chart.chart.height,
-      ctx = chart.chart.ctx;
-    type = chart.config.type;
+    if (chart.config.options.elements.center) {
+      //Get ctx from string
+      var ctx = chart.chart.ctx;
+      
+      //Get options from the center object in options
+      var centerConfig = chart.config.options.elements.center;
+      var fontStyle = centerConfig.fontStyle || 'Arial';
+      var txt = centerConfig.text;
+      var color = centerConfig.color || '#000';
+      var sidePadding = centerConfig.sidePadding || 20;
+      var sidePaddingCalculated = (sidePadding/100) * (chart.innerRadius * 2)
+      //Start with a base font of 30px
+      ctx.font = "30px " + fontStyle;
+      
+      //Get the width of the string and also the width of the element minus 10 to give it 5px side padding
+      var stringWidth = ctx.measureText(txt).width;
+      var elementWidth = (chart.innerRadius * 2) - sidePaddingCalculated;
 
-    ctx.restore();
+      // Find out how much the font can grow in width.
+      var widthRatio = elementWidth / stringWidth;
+      var newFontSize = Math.floor(30 * widthRatio);
+      var elementHeight = (chart.innerRadius * 2);
 
-    if (type == 'doughnut') {
-      var fontSize = (height / 80).toFixed(2);
-      ctx.font = fontSize + "em Roboto";
-      ctx.textBaseline = "middle";
+      // Pick a new font size so it will not be larger than the height of label.
+      var fontSizeToUse = Math.min(newFontSize, elementHeight);
 
-      var text = pie_dataset[0] + "%",
-        textX = Math.round((width - ctx.measureText(text).width) / 2),
-        textY = height / 2;
-
-      ctx.fillText(text, textX, textY);
-      ctx.save();
+      //Set font settings to draw it correctly.
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
+      var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
+      ctx.font = fontSizeToUse+"px " + fontStyle;
+      ctx.fillStyle = color;
+      
+      //Draw text in center
+      ctx.fillText(txt, centerX, centerY);
     }
   }
 });
 
 
 
+
 $("#0").click(function() {
   var data = myPieChart.config.data;
+  var options = myPieChart.config.options;
   data.datasets[0].data = pie_dataset;
   data.labels = chart_label;
+  options.elements.center.text = pie_dataset[0] + "%";
   myPieChart.update();
 });
 $("#1").click(function() {
   var pie_dataset = [lastMonthScore, negLastMonthScore];
   var data = myPieChart.config.data;
+  var options = myPieChart.config.options;
   data.datasets[0].data = pie_dataset;
   data.labels = chart_label;
+  options.elements.center.text = pie_dataset[0] + "%";
   myPieChart.update();
 });
 $("#2").click(function() {
   var pie_dataset = [avgMonthScore, negAvgMonthScore];
   var data = myPieChart.config.data;
+  var options = myPieChart.config.options;
   data.datasets[0].data = pie_dataset;
   data.labels = chart_label;
+  options.elements.center.text = pie_dataset[0] + "%";
   myPieChart.update();
 });

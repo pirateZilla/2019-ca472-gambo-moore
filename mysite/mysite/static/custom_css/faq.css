@@ -1,6 +1,5 @@
 body {
     /* margin-top: 30px; */
-    background-color: #eee;
   }
 
   .jumbotron {
@@ -90,4 +89,12 @@ body {
   .collapse.show .card-body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
   }
-  
+
+  ul li::before {
+    content: "\2022";
+    color: black;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+  }
