@@ -317,20 +317,11 @@ function calculatePremium() {
     document.getElementById("claim").innerHTML = numberOfClaims;
 
 
-    document.getElementById("name1").value = title + " " + fname + " " + lname;
-    document.getElementById("address1").innerHTML = address_l1 + ", " + address_l2 + ", " + area;
-    document.getElementById("age1").innerHTML = age;
-    document.getElementById("brand1").innerHTML = model;
-    document.getElementById("prem1").innerHTML = "€" + totalCost;
-    document.getElementById("premMonth1").innerHTML = "€" + roundedMonthlyFinalInsurancePrice;
-    document.getElementById("excess1").innerHTML = "€" + excess;
-    document.getElementById("driver1").innerHTML = "Driver Details";
-    document.getElementById("licenceType1").innerHTML = licenceType;
-    document.getElementById("ncbYears1").innerHTML = ncbYears;
-    document.getElementById("namedExp1").innerHTML = namedExperience;
-    document.getElementById("penPoints1").innerHTML = penPoints;
-    document.getElementById("addDrive1").innerHTML = additionalDrivers;
-    document.getElementById("claim1").innerHTML = numberOfClaims;
+   //collects all the infroamtion from the js calculationns and sends it to hidden input tag in the quote html so that the views can retrieve it  
+    document.getElementById("address1").value= fname + " " + lname+ "," + "," + age + ", " + address_l1 + ", " + roundedMonthlyFinalInsurancePrice + ", " + area + "," + model + ", " +
+      totalCost  + ", " + excess + "," +licenceType + ", " + ncbYears + "," + namedExperience + ", " + penPoints + "," +additionalDrivers+ ", " + numberOfClaims;
+  
+
 
 
     // document.getElementById("output1").innerHTML = "The base price is €" + basePrice;

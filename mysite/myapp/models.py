@@ -145,4 +145,23 @@ class Real_user(models.Model):
   def  __str__(self):
      return self.time
 
+class Quote_data(models.Model):
+   
+    fname  =  models.CharField(max_length=20, blank=True)
+    lname  =  models.CharField(max_length=20, blank=True)
+    age  =  models.CharField(max_length=20, blank=True)
+    save_address  =  models.CharField(max_length=20, blank=True)
+    monthlyFinalInsurancePrice  =  models.CharField(max_length=20, blank=True)
+    area  =  models.CharField(max_length=20, blank=True)
+    car_model  =  models.CharField(max_length=20, blank=True)
+    total_cost  =  models.CharField(max_length=20, blank=True)
+    excess  =  models.CharField(max_length=20, blank=True)
+    licenceType  =  models.CharField(max_length=20, blank=True)
+    ncbYears  =  models.CharField(max_length=20, blank=True)
+    namedExp  =  models.CharField(max_length=20, blank=True)
+    penPoints  =  models.CharField(max_length=20, blank=True)
+    def  __str__(self):
+        return self.fname  
+
+
         
