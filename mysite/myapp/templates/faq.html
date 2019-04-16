@@ -37,12 +37,11 @@
     <link href="{% static 'index_css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-      
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link href="{% static 'custom_css/nav.css' %}" rel="stylesheet">
-    
+
     <!-- Custom Page CSS -->
     <link href="{% static 'custom_css/index.css' %}" rel="stylesheet">
     <link href="{% static 'custom_css/faq.css' %}" rel="stylesheet">
@@ -163,12 +162,15 @@
                                     <div class="collapse show" id="accordion-tab-1-content-1"
                                         aria-labelledby="accordion-tab-1-heading-1" data-parent="#accordion-tab-1">
                                         <div class="card-body">
-                                            <p>TourGo is a long term car leasing service for new and recent drivers. It promotes consistent, passive learning
-                                                to improve driving behaviours which in turn make it easier and more affordable for you as a driver. TourGo cars
-                                                are fitted with a telematics device which identifies your weaknesses on the road. You are provided with frequent,
-                                                short driver training lessons which improve your driving.
+                                            <p>TourGo is a Car as a Service platform which allows members easy access to
+                                                a new affordable car
+                                                throughout their subscription. We can achieve this by offering
+                                                continuous passive learning. A telematics device in each
+                                                TourGo vehicle gathers data on your driving behaviours and provides
+                                                weekly learning to promote consistent improvements
+                                                on the road. TourGo is working towards making driving safer and more
+                                                accessible through modern technology and analytics.
                                             </p>
-                                            <p><strong>Telematics: </strong></p>
                                         </div>
                                     </div>
                                 </div>
@@ -177,14 +179,46 @@
                                         <h5>
                                             <button class="btn btn-link" type="button" data-toggle="collapse"
                                                 data-target="#accordion-tab-1-content-2" aria-expanded="false"
-                                                aria-controls="accordion-tab-1-content-2">Sample Question</button>
+                                                aria-controls="accordion-tab-1-content-2">How does joining
+                                                work?</button>
                                         </h5>
                                     </div>
                                     <div class="collapse" id="accordion-tab-1-content-2"
                                         aria-labelledby="accordion-tab-1-heading-2" data-parent="#accordion-tab-1">
                                         <div class="card-body">
-                                            <p>Test Answer</p>
-                                            <p><strong>Example: </strong>Sample Example</p>
+                                            <p>
+                                                To join, you'll first need a quote. Head over to our <a
+                                                    href="{% url 'quote' %}">quote page</a> and enter your details. Once
+                                                you have your quote, you can register to purchase that policy. After
+                                                agreeing to the terms
+                                                and conditions and purchasing a policy you will be contacted within 48
+                                                hours by our customer service team to arrange a collection and pilot
+                                                drive date.
+
+                                            </p>
+                                            <p>
+                                                On the collection date you'll meet your account manager at our
+                                                fullfilment center. You'll be handed
+                                                the keys to your new vehicle and given a briefing on how membership
+                                                works. Your account manager will
+                                                be able to answer any additional questions you have on the service.
+                                                You'll then go on a pilot drive with
+                                                your account manager to ensure you're aware of all of the vehicle's
+                                                controls. The account manager will also
+                                                instruct you on how to use the learning platform and maintenance
+                                                checklists. This collection shouldn't take longer than an hour to
+                                                complete.
+                                            </p>
+                                            <p>
+
+                                            </p>
+                                            <p><strong>Learning: </strong>As part of your contract with TourGo you are
+                                                required to complete your
+                                                learning platform tasks on a weekly basis. This includes the maintenance
+                                                checklist. These aspects of the service
+                                                are what allow us to offer competitive services. Failure to complete
+                                                your learning tasks can result in termination
+                                                of your account without refund. </p>
                                         </div>
                                     </div>
                                 </div>
@@ -193,14 +227,21 @@
                                         <h5>
                                             <button class="btn btn-link" type="button" data-toggle="collapse"
                                                 data-target="#accordion-tab-1-content-3" aria-expanded="false"
-                                                aria-controls="accordion-tab-1-content-3">Test Question?</button>
+                                                aria-controls="accordion-tab-1-content-3">Is there an age limit for
+                                                TourGo?</button>
                                         </h5>
                                     </div>
                                     <div class="collapse" id="accordion-tab-1-content-3"
                                         aria-labelledby="accordion-tab-1-heading-3" data-parent="#accordion-tab-1">
                                         <div class="card-body">
-                                            <p>Test Answer</p>
-                                            <p><strong>Example: </strong>Sample Example</p>
+                                            <p>At present we offer our service to drivers aged over 21. We intend to
+                                                bring TourGo to younger drivers in the future.
+                                            </p>
+                                            <p><strong>Drivers aged 30+: </strong>Please <a
+                                                    href="{% url 'contact' %}">contact</a> our customer service team to
+                                                arrange
+                                                a personalised quote. At present our quote form only accepts users age
+                                                21-29.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -209,14 +250,27 @@
                                         <h5>
                                             <button class="btn btn-link" type="button" data-toggle="collapse"
                                                 data-target="#accordion-tab-1-content-4" aria-expanded="false"
-                                                aria-controls="accordion-tab-1-content-4">Test Question</button>
+                                                aria-controls="accordion-tab-1-content-4">What are the licence
+                                                requirements for TourGo?</button>
                                         </h5>
                                     </div>
                                     <div class="collapse" id="accordion-tab-1-content-4"
                                         aria-labelledby="accordion-tab-1-heading-4" data-parent="#accordion-tab-1">
                                         <div class="card-body">
-                                            <p>Test Answer</p>
-                                            <p><strong>Example: </strong>Sample Example</p>
+                                            <p>TourGo's service is available to all drivers in Ireland with an Irish
+                                                provisional or full licence. However we do suggest that
+                                                for provisionally licenced drivers with less than one year experience
+                                                should preferably be a named driver on another drivers
+                                                policy prior to joining TourGo, as you'll see a significant reduction in
+                                                your premium with some experience.
+                                            </p>
+                                            <p><strong>Non-Irish Driving Licences: </strong>For drivers with other
+                                                European Union drivers licence, please <a
+                                                    href="{% url 'contact' %}">contact</a>
+                                                our customer service team to arrange a personalised quote. For drivers
+                                                with non-EU driver licences, we unfortunately cannot provide you with
+                                                membership at
+                                                this time.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -433,14 +487,25 @@
                                         <h5>
                                             <button class="btn btn-link" type="button" data-toggle="collapse"
                                                 data-target="#accordion-tab-5-content-1" aria-expanded="false"
-                                                aria-controls="accordion-tab-5-content-1">Test Question</button>
+                                                aria-controls="accordion-tab-5-content-1">How does the learning platform work?</button>
                                         </h5>
                                     </div>
                                     <div class="collapse show" id="accordion-tab-5-content-1"
                                         aria-labelledby="accordion-tab-5-heading-1" data-parent="#accordion-tab-5">
                                         <div class="card-body">
-                                            <p>Test Answer</p>
-                                            <p><strong>Example: </strong>Sample Example</p>
+                                            <p>The learning platform is effectively a large library of learning resources and lessons
+                                                every time you drive your activities are assessed for quality and each journey is given
+                                                a driving score. Your score is made up of a variety of different category metrics which are
+                                                divided into:
+                                                <ul>
+                                                    <li><strong>Speed:</strong> The rate at which you comply to the speed limit.</li>
+                                                    <li><strong>Smoothness:</strong> How smooth your driving is. This is assessing your braking, acceleration, handling, as well as your control when taking corners.</li>
+                                                    <li><strong>Fatigue:</strong> How long your journeys are. Negative scoring comes into affect for journeys longer than 90 minutes without a sufficient break.</li>
+                                                    <li><strong>Time of Day:</strong> The time you drive impacts your risk of collision. As such negative scoring occurs for journeys during rush hour or overnight.</li>
+                                                </ul>
+                                            </p>
+                                            <p><strong>Scoring: </strong>The ideal situation for a TourGo customer is to see a consistent improvement to their driving score over time.
+                                            Don't worry about achieving a 100% score, this is almost impossible. The scoring is relative and the metrics of scoring can change over time.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -449,14 +514,18 @@
                                         <h5>
                                             <button class="btn btn-link" type="button" data-toggle="collapse"
                                                 data-target="#accordion-tab-5-content-2" aria-expanded="false"
-                                                aria-controls="accordion-tab-5-content-2">Test Question</button>
+                                                aria-controls="accordion-tab-5-content-2">Does my driver score affect my future premium?</button>
                                         </h5>
                                     </div>
                                     <div class="collapse" id="accordion-tab-5-content-2"
                                         aria-labelledby="accordion-tab-5-heading-2" data-parent="#accordion-tab-5">
                                         <div class="card-body">
-                                            <p>Test Answer</p>
-                                            <p><strong>Example: </strong>Sample Example</p>
+                                            <p>Unlike other telematics insurance services, TourGo's driver scores do not directly impact a driver's premium based on their insurance. TourGo's model
+                                                relies on pooling our customer base together and showing that average improvements across this group justify reductions to the group premium. So you
+                                                should see a change to your premium over time, but not as a direct result of your performance. This both incentivises drivers to improve while also not
+                                                looming a threat of hugely inflating their premium if they don't improve.
+                                            </p>
+                                            <p><strong>Note: </strong>TourGo reserves the right to refuse future service to customers who are consistently scoring low or presenting suspicious driving behaviours.</p>
                                         </div>
                                     </div>
                                 </div>
