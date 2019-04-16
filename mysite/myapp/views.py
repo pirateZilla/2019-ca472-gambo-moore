@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 # imports the  driver model so we can save the data to it
-from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay, Month_journey, Week_journey, Day_journey, Real_user
+from .models import Driver, Car, Maintenance, Journeys, Speed, Fatigue, Smoothness, TimeOfDay, Month_journey, Week_journey, Day_journey, Real_user, Quote_data
 import pprint
 import json
 from django.core.serializers.json import DjangoJSONEncoder
@@ -19,11 +19,59 @@ def index(request):
 def quote(request, ):
     # print (request.user)
 
-    name1 = request.GET.get('name1')
-    fname = request.GET.get('fname')
+    quote = Quote_data()
 
-    print(name1)
-    print(fname)
+   
+    """
+    driver.f_name = f_name
+    driver.l_name = l_name
+    driver.address1 = address1
+    driver.address2 = address2
+    driver.save()
+    """
+
+    #collects all the inforamtion from the java script 
+    address1 = request.GET.get('address1')
+
+    if address1 == None:
+        print ("0")
+    else:
+        fname = address1.split(',')[0]
+        lname =address1.split(',')[1]
+        age =  address1.split(',')[2]
+        save_address = address1.split(',')[3]
+        monthlyFinalInsurancePrice = address1.split(',')[4]
+        area = address1.split(',')[5]
+        car_model =address1.split(',')[6]
+        total_cost = address1.split(',')[7]
+        excess = address1.split(',')[8]
+        licenceType = address1.split(',')[9]
+        ncbYears = address1.split(',')[10]
+        namedExp = address1.split(',')[11]
+        penPoints = address1.split(',')[12]
+
+        quote.fname = fname
+        quote.lname = lname
+        quote.age = age
+        quote.save_address = save_address
+        quote.monthlyFinalInsurancePrice = monthlyFinalInsurancePrice
+        quote.area = area
+        quote.car_model = car_model
+        quote.total_cost = total_cost
+        quote.excess = excess
+        quote.licenceType = licenceType
+        quote.ncbYears = ncbYears
+        quote.namedExp = namedExp
+        quote.penPoints = penPoints
+        quote.save()
+        print (fname, lname, age , save_address, monthlyFinalInsurancePrice, area, car_model, total_cost,  excess, licenceType, ncbYears, namedExp , penPoints, )
+    
+  
+
+
+
+    #print(name1, address1, age1)
+
     context = {}
 
     return render(request, "quote.html", context)
