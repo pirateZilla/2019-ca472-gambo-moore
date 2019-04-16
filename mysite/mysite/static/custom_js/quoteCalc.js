@@ -317,6 +317,8 @@ function calculatePremium() {
     document.getElementById("claim").innerHTML = numberOfClaims;
 
 
+
+
    //collects all the infroamtion from the js calculationns and sends it to hidden input tag in the quote html so that the views can retrieve it  
     document.getElementById("address1").value= fname + " " + lname+ "," + "," + age + ", " + address_l1 + ", " + roundedMonthlyFinalInsurancePrice + ", " + area + "," + model + ", " +
       totalCost  + ", " + excess + "," +licenceType + ", " + ncbYears + "," + namedExperience + ", " + penPoints + "," +additionalDrivers+ ", " + numberOfClaims;
@@ -336,8 +338,20 @@ function scrollQuote() {
     window.scrollBy(0, 2000);
   }
 
+function showColumn() {
+    var col1 = document.getElementById("column1");
+    var col2 = document.getElementById("column2");
+    var col3 = document.getElementById("column3");
+    var col4 = document.getElementById("column4");
+    col1.style.visibility = "visible";
+    col2.style.visibility = "visible";
+    col3.style.visibility = "visible";
+    col4.style.visibility = "visible";
+}
+
 function quoteReturn() {
     scrollQuote();
     calculatePremium();
+    showColumn();
     
 }
