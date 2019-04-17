@@ -37,18 +37,44 @@ def quote(request, ):
         print ("0")
     else:
         fname = address1.split(',')[0]
+        #this collects the data and sendit to the register view 
+        request.session['fname'] = fname
+
         lname =address1.split(',')[1]
+        request.session['lname'] = lname
+
         age =  address1.split(',')[2]
+        request.session['age'] = age
+
         save_address = address1.split(',')[3]
+        request.session['save_address'] = save_address
+
         monthlyFinalInsurancePrice = address1.split(',')[4]
+        request.session['monthlyFinalInsurancePrice'] = monthlyFinalInsurancePrice
+
         area = address1.split(',')[5]
+        request.session['area'] = area
+
         car_model =address1.split(',')[6]
+        request.session['car_model'] = car_model
+
         total_cost = address1.split(',')[7]
+        request.session['total_cost'] = total_cost
+
         excess = address1.split(',')[8]
+        request.session['excess'] = excess
+
         licenceType = address1.split(',')[9]
+        request.session['licenceType'] = licenceType
+
         ncbYears = address1.split(',')[10]
+        request.session['ncbYears'] = ncbYears
+
         namedExp = address1.split(',')[11]
+        request.session['namedExp'] = namedExp
+
         penPoints = address1.split(',')[12]
+        request.session['penPoints'] = penPoints
 
         quote.fname = fname
         quote.lname = lname
@@ -64,7 +90,7 @@ def quote(request, ):
         quote.namedExp = namedExp
         quote.penPoints = penPoints
         quote.save()
-        print (fname, lname, age , save_address, monthlyFinalInsurancePrice, area, car_model, total_cost,  excess, licenceType, ncbYears, namedExp , penPoints, )
+        #print (fname, lname, age , save_address, monthlyFinalInsurancePrice, area, car_model, total_cost,  excess, licenceType, ncbYears, namedExp , penPoints, )
     
   
 
@@ -287,23 +313,6 @@ def user_dash(request):
 
 
 def registration(request):
-    driver = Driver()
-
-    f_name = request.GET.get('fname')
-    l_name = request.GET.get('lname')
-    dob = request.GET.get('bday')
-    address1 = request.GET.get('address_l1')
-    address2 = request.GET.get('address_l2')
-    print("the quote details are", f_name, l_name, dob, address1, address2)
-    # sends input data to the model
-    """
-	driver.f_name = f_name
-	driver.l_name = l_name
-	driver.address1 = address1
-	driver.address2 = address2
-	driver.save()
-	"""
-    # print(f_name, eircode, drive_exp)
 
     context = {}
     return render(request, "registration.html", context)
@@ -326,14 +335,49 @@ def register(request):
     else:
         form = UserCreationForm()
 
-    context = {'form': form}
+    fname = request.session.get('fname')
+    lname = request.session.get('lname')
+    age = request.session.get('age')
+    save_address = request.session.get('save_address')
+    monthlyFinalInsurancePrice = request.session.get('monthlyFinalInsurancePrice')
+    area = request.session.get('area')
+    car_model = request.session.get('car_model')
+    total_cost = request.session.get('total_cost')
+    excess = request.session.get('excess')
+    licenceType = request.session.get('licenceType')
+    ncbYears = request.session.get('ncbYears')
+    namedExp = request.session.get('namedExp')
+    penPoints = request.session.get('penPoints')
+    print (fname)
+
+    context ={
+    'form': form,
+    'fname': fname,
+    'lname': lname,
+    'age': age,
+    'save_address': save_address,
+    'monthlyFinalInsurancePrice':monthlyFinalInsurancePrice,
+    'area': area,
+    'car_model':car_model,
+    'total_cost':total_cost,
+    'excess': excess,
+    'licenceType': licenceType,
+    'ncbYears': ncbYears,
+    'namedExp': namedExp,
+    'penPoints': penPoints
+
+
+
+
+
+    }
     return render(request, "registration/register.html", context)
 
 
 def login(request, user):
 
     context = {}
-    return redirect('quote', context)
+    return redirect('/user_dash/?user_id=1', context)
 
 
 def maintenance_checklist(request):
