@@ -320,7 +320,7 @@ function calculatePremium() {
 
 
    //collects all the infroamtion from the js calculationns and sends it to hidden input tag in the quote html so that the views can retrieve it  
-    document.getElementById("address1").value= fname + " " + lname+ "," + "," + age + ", " + address_l1 + ", " + roundedMonthlyFinalInsurancePrice + ", " + area + "," + model + ", " +
+    document.getElementById("address1").value= fname + ", " + lname+ "," + "," + age + ", " + address_l1 + ", " + roundedMonthlyFinalInsurancePrice + ", " + area + "," + model + ", " +
       totalCost  + ", " + excess + "," +licenceType + ", " + ncbYears + "," + namedExperience + ", " + penPoints + "," +additionalDrivers+ ", " + numberOfClaims;
   
 

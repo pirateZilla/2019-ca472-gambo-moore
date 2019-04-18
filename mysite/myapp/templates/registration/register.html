@@ -115,7 +115,7 @@
 			<p>hey you can't access this page </p>
 			{% endif %}
 
-			<form method="post" action="{% url 'register' %}">
+			<form method="post" action="{% url 'learning_platform' %}">
 				{% csrf_token %}
 
 				{% if form.errors %}
@@ -127,7 +127,74 @@
 
 				<input class="btn" type="submit" value="Register">
 
+
 			</form>
+
+			<form>
+				
+
+				<a class="btn" href="/user_dash/?user_id=1">skip</a>
+
+				
+
+			</form>
+			 <div class="return">
+                        <!-- outputs the users name and insurance -->
+                        <div class="column">
+                            <div class="card">
+                                <h2 id="personal" name="personal"></h2>
+                                <h3 id="nameTitle"></h3>
+                                <p id="name">{{fname}},{{lname}}</p>
+                                <h3 id="addressTitle"></h3>
+                                <p id="address">{{save_address}}</p>
+                                <h3 id="ageTitle"></h3>
+                                <p id="age">{{age}}</p>
+                                <img id="profilePic" src="" style="width:100%">
+
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <h2 id="Vehicle"></h2>
+                                <h3 id="brandTitle"></h3>
+                                <p id="brand">{{car_model}}</p>
+                                <h3 id="engTitle"></h3>
+                                <p id="eng"> </p>
+                                <h3 id="yearTitle"></h3>
+                                <p id="year"></p>
+                                <img id="carPhoto" src="" style="width:100%">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <h2 id="member"></h2>
+                                <h3 id="premTitle"></h3>
+                                <p id="prem">{{total_cost}}</p>
+                                <h3 id="premMonthTitle"></h3>
+                                <p id="premMonth">{{monthlyFinalInsurancePrice}}</p>
+                                <h3 id="excessTitle"></h3>
+                                <p id="excess">{{excess}}</p>
+                                <h3 id="useClassTitle"></h3>
+                                <p id="useClass"></p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <h2 id="driver"></h2>
+                                <h3 id="licenceTitle"></h3>
+                                <p id="licenceType">{{licenceType}}</p>
+                                <h3 id="ncbTitle"></h3>
+                                <p id="ncbYears">{{ncbYears}}</p>
+                                <h3 id="nexpTitle"></h3>
+                                <p id="namedExp">{{namedExp}}</p>
+                                <h3 id="penTitle"></h3>
+                                <p id="penPoints">{{penPoints}}</p>
+                                <h3 id="addDriveTitle"></h3>
+                                <p id="addDrive"></p>
+                                <h3 id="claimTitle"></h3>
+                                <p id="claim"></p>
+                            </div>
+                        </div>
 		</div>
 		<div class="ft-container">
 			<footer class="pt-4 my-md-5 pt-md-5 border-top">
