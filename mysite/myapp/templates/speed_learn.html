@@ -37,7 +37,7 @@
     <link href="{% static 'index_css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="{% static 'custom_css/nav.css' %}" rel="stylesheet">
 
     <!-- Custom Page CSS -->
@@ -184,169 +184,183 @@
     <!-- Page Content -->
     <main role="main">
         <div class="jumbotron opacity"></div>
-        <div class="container-form">
-            <h1>Speed</h1>
-            <div class="text_block">
-                <p>This section describes the rules for keeping pace in traffic and the speed limits that apply on
-                    different
-                    types of road and to different vehicles.</p>
-                <p>If you'd like to look at other lessons currently available to you, please select from below.</p>
-                <div class="button-area-line">
-                    <a href="{% url 'speed_learn' %}">Speed</a>
-                    <a href="{% url 'smoothness_learn' %}">Smoothness</a>
-                    <a href="{% url 'fatigue_learn' %}">Fatigue</a>
-                    <a href="{% url 'tod_learn' %}">Time of Day</a>
+        <div class="container">
+            <div class="container-form">
+                <h1>Speed</h1>
+                <div class="text_block">
+                    <p>This section describes the rules for keeping pace in traffic and the speed limits that apply on
+                        different
+                        types of road and to different vehicles.</p>
+                    <p>If you'd like to look at other lessons currently available to you, please select from below.</p>
+                    <div class="button-area-line">
+                        <a href="{% url 'speed_learn' %}">Speed</a>
+                        <a href="{% url 'smoothness_learn' %}">Smoothness</a>
+                        <a href="{% url 'fatigue_learn' %}">Fatigue</a>
+                        <a href="{% url 'tod_learn' %}">Time of Day</a>
+                    </div>
                 </div>
-            </div>
-            <div class="codegena_iframe" data-src="https://www.youtube.com/embed/LC5oMrwAovg"
-                style="height:505px;width:853px;" data-responsive="true"
-                data-img="https://www.scienceabc.com/wp-content/uploads/2015/10/Car-driving-on-freeway-at-sunset-motion-blur-full-speed-06photos.jpg"
-                data-css="background:url('//codegena.com/wp-content/uploads/2015/09/loading.gif') white center center no-repeat;border:0px;">
-            </div>
-            <script src="https://rawgit.com/shaneapen/Codegena/master/async-iframe.js"></script>
+                <div class="codegena_iframe" data-src="https://www.youtube.com/embed/LC5oMrwAovg"
+                    style="height:505px;width:853px;" data-responsive="true"
+                    data-img="https://www.scienceabc.com/wp-content/uploads/2015/10/Car-driving-on-freeway-at-sunset-motion-blur-full-speed-06photos.jpg"
+                    data-css="background:url('//codegena.com/wp-content/uploads/2015/09/loading.gif') white center center no-repeat;border:0px;">
+                </div>
+                <script src="https://rawgit.com/shaneapen/Codegena/master/async-iframe.js"></script>
 
 
-            <h2>Speed limits</h2>
-            <p>Remember, a vehicle must not be driven at a speed exceeding that which will enable its driver to bring it
-                to a halt within a distance the driver can see to be clear.</p>
-            <p>As a driver, you must always be aware of your speed and judge the appropriate speed for you vehicle,
-                taking into account:</p>
-            <ul>
-                <li>driving conditions;</li>
-                <li>other users of the road;</li>
-                <li>current weather conditions;</li>
-                <li>all possible hazards; and</li>
-                <li>speed limits.</li>
-            </ul>
-            <p>Driving conditions relate to the volume of traffic around you and the quality of the road.</p>
-            <p>Other users of the road include motorcyclists, cyclists, pedestrians, school children, animals and all
-                others you, as a driver, should expect to see on the road.</p>
-            <p>Possible hazards include anything you can see that could cause an emergency, such as oncoming traffic if
-                you are turning onto a major road. They also include anything you cannot yet see and anything you can
-                reasonably expect to happen, such as a pedestrian walking onto the road in front of you, a child running
-                onto the road between parked cars, or animals on the roadway. It includes your own physical and mental
-                state while driving (for example whether you are stressed or tired) and the condition of your vehicle.
-            </p>
-            <h2>Driving safely in traffic - the two-second rule</h2>
-            <p>In traffic, the distance between your vehicle and the one in front of you is known as the ‘safe headway’.
-                Keep a safe headway by ensuring you are at least two seconds behind the vehicle in front. This is known
-                as the ‘two-second rule’. You can use the following steps to check if you are obeying the rule:
+                <h2>Speed limits</h2>
+                <p>Remember, a vehicle must not be driven at a speed exceeding that which will enable its driver to
+                    bring it
+                    to a halt within a distance the driver can see to be clear.</p>
+                <p>As a driver, you must always be aware of your speed and judge the appropriate speed for you vehicle,
+                    taking into account:</p>
                 <ul>
-                    <li>On a dry road, choose a point like a lamp post or road sign.</li>
-                    <li>When the vehicle in front passes that point, say out loud, ‘Only a fool breaks the two-second
-                        rule’.</li>
-                    <li>Check your position in relation to your chosen point as you finish saying this. If you have
-                        already passed the point, you are driving too close to the vehicle in front and need to pull
-                        back.</li>
-                    <li>In wet weather, double the distance between your vehicle and the one in front of you by saying
-                        ‘Only a fool breaks the two-second rule’ twice.</li>
-                    <li>If travelling in more severe conditions such as snow, fog and ice, you may need to repeat ‘only
-                        a fool breaks the two-second rule’ 4 or 5 times.</li>
+                    <li>driving conditions;</li>
+                    <li>other users of the road;</li>
+                    <li>current weather conditions;</li>
+                    <li>all possible hazards; and</li>
+                    <li>speed limits.</li>
                 </ul>
-            </p>
+                <p>Driving conditions relate to the volume of traffic around you and the quality of the road.</p>
+                <p>Other users of the road include motorcyclists, cyclists, pedestrians, school children, animals and
+                    all
+                    others you, as a driver, should expect to see on the road.</p>
+                <p>Possible hazards include anything you can see that could cause an emergency, such as oncoming traffic
+                    if
+                    you are turning onto a major road. They also include anything you cannot yet see and anything you
+                    can
+                    reasonably expect to happen, such as a pedestrian walking onto the road in front of you, a child
+                    running
+                    onto the road between parked cars, or animals on the roadway. It includes your own physical and
+                    mental
+                    state while driving (for example whether you are stressed or tired) and the condition of your
+                    vehicle.
+                </p>
+                <h2>Driving safely in traffic - the two-second rule</h2>
+                <p>In traffic, the distance between your vehicle and the one in front of you is known as the ‘safe
+                    headway’.
+                    Keep a safe headway by ensuring you are at least two seconds behind the vehicle in front. This is
+                    known
+                    as the ‘two-second rule’. You can use the following steps to check if you are obeying the rule:
+                    <ul>
+                        <li>On a dry road, choose a point like a lamp post or road sign.</li>
+                        <li>When the vehicle in front passes that point, say out loud, ‘Only a fool breaks the
+                            two-second
+                            rule’.</li>
+                        <li>Check your position in relation to your chosen point as you finish saying this. If you have
+                            already passed the point, you are driving too close to the vehicle in front and need to pull
+                            back.</li>
+                        <li>In wet weather, double the distance between your vehicle and the one in front of you by
+                            saying
+                            ‘Only a fool breaks the two-second rule’ twice.</li>
+                        <li>If travelling in more severe conditions such as snow, fog and ice, you may need to repeat
+                            ‘only
+                            a fool breaks the two-second rule’ 4 or 5 times.</li>
+                    </ul>
+                </p>
 
 
-            <h2 class="quizHeader">Test Yourself! Be a better driver.</h2>
+                <h2 class="quizHeader">Test Yourself! Be a better driver.</h2>
 
 
-            <div style="width:100%">
-                <div class="col-sm d-flex">
-                    <div class="card card-body flex-fill">
-                        <p class="question">1. Who is responsible for a vehicle on the road?</p>
+                <div style="width:100%">
+                    <div class="col-sm d-flex">
+                        <div class="card card-body flex-fill">
+                            <p class="question">1. Who is responsible for a vehicle on the road?</p>
 
-                        <ul>
-                            <input class="answer" type="radio" name="q1" value="1">
-                            <label id="correctString1">The Driver</label>
-                            <br>
-                            <input class="answer" type="radio" name="q1" value="0">
-                            <label>The Owner.</label>
-                            <br>
-                            <input class="answer" type="radio" name="q1" value="0">
-                            <label>A Traffic Warden</label>
-                            <br>
-                            <input class="answer" type="radio" name="q1" value="0">
-                            <label>Local Authorities</label>
-                        </ul>
+                            <ul>
+                                <input class="answer" type="radio" name="q1" value="1">
+                                <label id="correctString1">The Driver</label>
+                                <br>
+                                <input class="answer" type="radio" name="q1" value="0">
+                                <label>The Owner.</label>
+                                <br>
+                                <input class="answer" type="radio" name="q1" value="0">
+                                <label>A Traffic Warden</label>
+                                <br>
+                                <input class="answer" type="radio" name="q1" value="0">
+                                <label>Local Authorities</label>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm d-flex">
-                    <div class="card card-body flex-fill">
-                        <p class="question">2. What is the minimum stopping distance of a vehicle in normal
-                            conditions travelling at 120kmph?</p>
+                    <div class="col-sm d-flex">
+                        <div class="card card-body flex-fill">
+                            <p class="question">2. What is the minimum stopping distance of a vehicle in normal
+                                conditions travelling at 120kmph?</p>
 
-                        <ul>
-                            <input class="answer" type="radio" name="q2" value="0">
-                            <label>36m</label>
-                            <br>
-                            <input class="answer" type="radio" name="q2" value="1">
-                            <label id="correctString2">102m</label>
-                            <br>
-                            <input class="answer" type="radio" name="q2" value="0">
-                            <label>365m</label>
-                            <br>
-                            <input class="answer" type="radio" name="q2" value="0">
-                            <label>52m</label>
-                        </ul>
+                            <ul>
+                                <input class="answer" type="radio" name="q2" value="0">
+                                <label>36m</label>
+                                <br>
+                                <input class="answer" type="radio" name="q2" value="1">
+                                <label id="correctString2">102m</label>
+                                <br>
+                                <input class="answer" type="radio" name="q2" value="0">
+                                <label>365m</label>
+                                <br>
+                                <input class="answer" type="radio" name="q2" value="0">
+                                <label>52m</label>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm d-flex">
-                    <div class="card card-body flex-fill">
-                        <p class="question">3. What rule should you keep in mind in relation to distance between you and
-                            the car in front?</p>
+                    <div class="col-sm d-flex">
+                        <div class="card card-body flex-fill">
+                            <p class="question">3. What rule should you keep in mind in relation to distance between you
+                                and
+                                the car in front?</p>
 
-                        <ul>
-                            <input class="answer" type="radio" name="q3" value="0">
-                            <label>You should be close enough to no longer see the person in front's tyres.</label>
-                            <br>
-                            <input class="answer" type="radio" name="q3" value="1">
-                            <label id="correctString3">Only a fool breaks the 2-second rule.</label>
-                            <br>
-                            <input class="answer" type="radio" name="q3" value="0">
-                            <label>Keep an eye on their brake lights</label>
-                            <br>
-                            <input class="answer" type="radio" name="q3" value="0">
-                            <label>keep a distance of 100m from the car in front</label>
-                        </ul>
+                            <ul>
+                                <input class="answer" type="radio" name="q3" value="0">
+                                <label>You should be close enough to no longer see the person in front's tyres.</label>
+                                <br>
+                                <input class="answer" type="radio" name="q3" value="1">
+                                <label id="correctString3">Only a fool breaks the 2-second rule.</label>
+                                <br>
+                                <input class="answer" type="radio" name="q3" value="0">
+                                <label>Keep an eye on their brake lights</label>
+                                <br>
+                                <input class="answer" type="radio" name="q3" value="0">
+                                <label>keep a distance of 100m from the car in front</label>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm d-flex">
-                    <div class="card card-body flex-fill">
-                        <p class="question">4. What is the default speed limit in a 'Slow Zone' (like a school)?</p>
+                    <div class="col-sm d-flex">
+                        <div class="card card-body flex-fill">
+                            <p class="question">4. What is the default speed limit in a 'Slow Zone' (like a school)?</p>
 
-                        <ul>
-                            <input class="answer" type="radio" name="q4" value="0">
-                            <label>80km/h</label>
-                            <br>
-                            <input class="answer" type="radio" name="q4" value="1">
-                            <label id="correctString4">30km/h</label>
-                            <br>
-                            <input class="answer" type="radio" name="q4" value="0">
-                            <label>15km/h</label>
-                            <br>
-                            <input class="answer" type="radio" name="q4" value="0">
-                            <label>50km/h</label>
-                        </ul>
+                            <ul>
+                                <input class="answer" type="radio" name="q4" value="0">
+                                <label>80km/h</label>
+                                <br>
+                                <input class="answer" type="radio" name="q4" value="1">
+                                <label id="correctString4">30km/h</label>
+                                <br>
+                                <input class="answer" type="radio" name="q4" value="0">
+                                <label>15km/h</label>
+                                <br>
+                                <input class="answer" type="radio" name="q4" value="0">
+                                <label>50km/h</label>
+                            </ul>
+                        </div>
                     </div>
+
+                </div>
+                <br />
+                <div class="submitter">
+                    <button class="btn" id="btn" onClick="submitQuiz()">Submit Answers</button>
                 </div>
 
-            </div>
-            <br />
-            <div class="submitter">
-                <button class="btn" id="btn" onClick="submitQuiz()">Submit Answers</button>
-            </div>
+                <!--show only wrong answers on submit-->
+                <div class="quizAnswers" id="correctAnswer1"></div>
+                <div class="quizAnswers" id="correctAnswer2"></div>
+                <div class="quizAnswers" id="correctAnswer3"></div>
+                <div class="quizAnswers" id="correctAnswer4"></div>
 
-            <!--show only wrong answers on submit-->
-            <div class="quizAnswers" id="correctAnswer1"></div>
-            <div class="quizAnswers" id="correctAnswer2"></div>
-            <div class="quizAnswers" id="correctAnswer3"></div>
-            <div class="quizAnswers" id="correctAnswer4"></div>
-
-            <!--show score upon submit-->
-            <div>
-                <h2 class="quizScore" id="userScore"></h2>
+                <!--show score upon submit-->
+                <div>
+                    <h2 class="quizScore" id="userScore"></h2>
+                </div>
             </div>
         </div>
-
 
 
 

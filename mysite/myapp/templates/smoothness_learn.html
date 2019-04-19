@@ -37,7 +37,7 @@
     <link href="{% static 'index_css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="{% static 'custom_css/nav.css' %}" rel="stylesheet">
 
     <!-- Custom Page CSS -->
@@ -182,152 +182,158 @@
     <!-- Page Content -->
     <main role="main">
         <div class="jumbotron"></div>
-        <div class="container-form">
-            <h1>Smoothness Learning</h1>
-            <div class="text_block">
-                <p>This section describes best practice for smooth driving on the road. This includes things like clutch
-                    control, braking, cornering and other dynamic states of driving.</p>
-                <p>If you'd like to look at other lessons currently available to you, please select from below.</p>
-                <div class="button-area-line">
-                    <a href="{% url 'speed_learn' %}">Speed</a>
-                    <a href="{% url 'smoothness_learn' %}">Smoothness</a>
-                    <a href="{% url 'fatigue_learn' %}">Fatigue</a>
-                    <a href="{% url 'tod_learn' %}">Time of Day</a>
-                </div>
-            </div>
-            <div class="codegena_iframe" data-src="https://www.youtube.com/embed/VeIYyRmaxbM"
-                style="height:505px;width:853px;" data-responsive="true"
-                data-img="https://d1ix0byejyn2u7.cloudfront.net/drive/images/uploads/panel-images/Sudden_braking.jpg"
-                data-css="background:url('//codegena.com/wp-content/uploads/2015/09/loading.gif') white center center no-repeat;border:0px;">
-            </div>
-            <script src="https://rawgit.com/shaneapen/Codegena/master/async-iframe.js"></script>
-
-
-            <h2>Steering</h2>
-            <p>One of the fundamentals of controlling your car is to effectively manage your steering wheel. Always
-                remember to:
-                <ul>
-                    <li>Have both hands lightly gripped on the steering wheel at quarter-to-three position.</li>
-                    <li>Turn the steering wheel by feeding the wheel from one hand to the other, avoid letting either
-                        hand pass 12 o'clock.</li>
-                    <li>When turning the wheel back, gently feed it back as opposed to letting it slip back by itself,
-                        this allows you to maintain control.</li>
-                    <li>Look into the direction of the turn, not at the ground in front of the car.</li>
-                    <li>Reduce speed as necessary when coming up to bends in the road. Only increase your speed as the
-                        road straightens again.</li>
-                </ul>
-            </p>
-            <h2>Braking</h2>
-            <p>Being conscious of stopping distances is a crucial part of driving. Remember that average stopping
-                distance is the combined thinking distance and braking distance. The faster a car
-                is travelling the longer it will take to stop. Other factors that impact stopping distance include:
-                <ul>
-                    <li>Weather</li>
-                    <li>Road condition</li>
-                    <li>Driver condition</li>
-                    <li>Car condition</li>
-                </ul>
-            </p>
-            <h2 class="quizHeader">Test Yourself! Be a better driver.</h2>
-
-            <div style="width:100%">
-                <div class="col-sm d-flex">
-                    <div class="card card-body flex-fill">
-                        <p class="question">1. Where should your hands be when driving?</p>
-
-                        <ul>
-                            <input class="answer" type="radio" name="q1" value="1">
-                            <label id="correctString1">At 9 and 3 on the steering wheel</label>
-                            <br>
-                            <input class="answer" type="radio" name="q1" value="0">
-                            <label>Right hand on top of steering wheel; left hand on gear stick.</label>
-                            <br>
-                            <input class="answer" type="radio" name="q1" value="0">
-                            <label>on your lap.</label>
-                            <br>
-                            <input class="answer" type="radio" name="q1" value="0">
-                            <label>At the bottom of the steering wheel.</label>
-                        </ul>
+        <div class="container">
+            <div class="container-form">
+                <h1>Smoothness</h1>
+                <div class="text_block">
+                    <p>This section describes best practice for smooth driving on the road. This includes things like
+                        clutch
+                        control, braking, cornering and other dynamic states of driving.</p>
+                    <p>If you'd like to look at other lessons currently available to you, please select from below.</p>
+                    <div class="button-area-line">
+                        <a href="{% url 'speed_learn' %}">Speed</a>
+                        <a href="{% url 'smoothness_learn' %}">Smoothness</a>
+                        <a href="{% url 'fatigue_learn' %}">Fatigue</a>
+                        <a href="{% url 'tod_learn' %}">Time of Day</a>
                     </div>
                 </div>
-                <div class="col-sm d-flex">
-                    <div class="card card-body flex-fill">
-                        <p class="question">2. What is the minimum stopping distance of a vehicle in normal
-                            conditions travelling at 120kmph?</p>
-
-                        <ul>
-                            <input class="answer" type="radio" name="q2" value="0">
-                            <label>36m</label>
-                            <br>
-                            <input class="answer" type="radio" name="q2" value="1">
-                            <label id="correctString2">102m</label>
-                            <br>
-                            <input class="answer" type="radio" name="q2" value="0">
-                            <label>365m</label>
-                            <br>
-                            <input class="answer" type="radio" name="q2" value="0">
-                            <label>52m</label>
-                        </ul>
-                    </div>
+                <div class="codegena_iframe" data-src="https://www.youtube.com/embed/VeIYyRmaxbM"
+                    style="height:505px;width:853px;" data-responsive="true"
+                    data-img="https://d1ix0byejyn2u7.cloudfront.net/drive/images/uploads/panel-images/Sudden_braking.jpg"
+                    data-css="background:url('//codegena.com/wp-content/uploads/2015/09/loading.gif') white center center no-repeat;border:0px;">
                 </div>
-                <div class="col-sm d-flex">
-                    <div class="card card-body flex-fill">
-                        <p class="question">3. Which of the following isn't a factor in stopping distance?</p>
+                <script src="https://rawgit.com/shaneapen/Codegena/master/async-iframe.js"></script>
 
-                        <ul>
-                            <input class="answer" type="radio" name="q3" value="0">
-                            <label>road condition</label>
-                            <br>
-                            <input class="answer" type="radio" name="q3" value="1">
-                            <label id="correctString3">time of day</label>
-                            <br>
-                            <input class="answer" type="radio" name="q3" value="0">
-                            <label>weather</label>
-                            <br>
-                            <input class="answer" type="radio" name="q3" value="0">
-                            <label>vehicle condition</label>
-                        </ul>
+
+                <h2>Steering</h2>
+                <p>One of the fundamentals of controlling your car is to effectively manage your steering wheel. Always
+                    remember to:
+                    <ul>
+                        <li>Have both hands lightly gripped on the steering wheel at quarter-to-three position.</li>
+                        <li>Turn the steering wheel by feeding the wheel from one hand to the other, avoid letting
+                            either
+                            hand pass 12 o'clock.</li>
+                        <li>When turning the wheel back, gently feed it back as opposed to letting it slip back by
+                            itself,
+                            this allows you to maintain control.</li>
+                        <li>Look into the direction of the turn, not at the ground in front of the car.</li>
+                        <li>Reduce speed as necessary when coming up to bends in the road. Only increase your speed as
+                            the
+                            road straightens again.</li>
+                    </ul>
+                </p>
+                <h2>Braking</h2>
+                <p>Being conscious of stopping distances is a crucial part of driving. Remember that average stopping
+                    distance is the combined thinking distance and braking distance. The faster a car
+                    is travelling the longer it will take to stop. Other factors that impact stopping distance include:
+                    <ul>
+                        <li>Weather</li>
+                        <li>Road condition</li>
+                        <li>Driver condition</li>
+                        <li>Car condition</li>
+                    </ul>
+                </p>
+                <h2 class="quizHeader">Test Yourself! Be a better driver.</h2>
+
+                <div style="width:100%">
+                    <div class="col-sm d-flex">
+                        <div class="card card-body flex-fill">
+                            <p class="question">1. Where should your hands be when driving?</p>
+
+                            <ul>
+                                <input class="answer" type="radio" name="q1" value="1">
+                                <label id="correctString1">At 9 and 3 on the steering wheel</label>
+                                <br>
+                                <input class="answer" type="radio" name="q1" value="0">
+                                <label>Right hand on top of steering wheel; left hand on gear stick.</label>
+                                <br>
+                                <input class="answer" type="radio" name="q1" value="0">
+                                <label>on your lap.</label>
+                                <br>
+                                <input class="answer" type="radio" name="q1" value="0">
+                                <label>At the bottom of the steering wheel.</label>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm d-flex">
-                    <div class="card card-body flex-fill">
-                        <p class="question">4. What should you do when approaching a bend?</p>
+                    <div class="col-sm d-flex">
+                        <div class="card card-body flex-fill">
+                            <p class="question">2. What is the minimum stopping distance of a vehicle in normal
+                                conditions travelling at 120kmph?</p>
 
-                        <ul>
-                            <input class="answer" type="radio" name="q4" value="0">
-                            <label>a handbrake turn</label>
-                            <br>
-                            <input class="answer" type="radio" name="q4" value="1">
-                            <label id="correctString4">Reduce your speed as necessary to be able to slow down or stop if
-                                required.</label>
-                            <br>
-                            <input class="answer" type="radio" name="q4" value="0">
-                            <label>accelerate</label>
-                            <br>
-                            <input class="answer" type="radio" name="q4" value="0">
-                            <label>stop the car</label>
-                        </ul>
+                            <ul>
+                                <input class="answer" type="radio" name="q2" value="0">
+                                <label>36m</label>
+                                <br>
+                                <input class="answer" type="radio" name="q2" value="1">
+                                <label id="correctString2">102m</label>
+                                <br>
+                                <input class="answer" type="radio" name="q2" value="0">
+                                <label>365m</label>
+                                <br>
+                                <input class="answer" type="radio" name="q2" value="0">
+                                <label>52m</label>
+                            </ul>
+                        </div>
                     </div>
+                    <div class="col-sm d-flex">
+                        <div class="card card-body flex-fill">
+                            <p class="question">3. Which of the following isn't a factor in stopping distance?</p>
+
+                            <ul>
+                                <input class="answer" type="radio" name="q3" value="0">
+                                <label>road condition</label>
+                                <br>
+                                <input class="answer" type="radio" name="q3" value="1">
+                                <label id="correctString3">time of day</label>
+                                <br>
+                                <input class="answer" type="radio" name="q3" value="0">
+                                <label>weather</label>
+                                <br>
+                                <input class="answer" type="radio" name="q3" value="0">
+                                <label>vehicle condition</label>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm d-flex">
+                        <div class="card card-body flex-fill">
+                            <p class="question">4. What should you do when approaching a bend?</p>
+
+                            <ul>
+                                <input class="answer" type="radio" name="q4" value="0">
+                                <label>a handbrake turn</label>
+                                <br>
+                                <input class="answer" type="radio" name="q4" value="1">
+                                <label id="correctString4">Reduce your speed as necessary to be able to slow down or
+                                    stop if
+                                    required.</label>
+                                <br>
+                                <input class="answer" type="radio" name="q4" value="0">
+                                <label>accelerate</label>
+                                <br>
+                                <input class="answer" type="radio" name="q4" value="0">
+                                <label>stop the car</label>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <br />
+                <div class="submitter">
+                    <button class="btn" id="btn" onClick="submitQuiz()">Submit Answers</button>
                 </div>
 
-            </div>
-            <br />
-            <div class="submitter">
-                <button class="btn" id="btn" onClick="submitQuiz()">Submit Answers</button>
-            </div>
+                <!--show only wrong answers on submit-->
+                <div class="quizAnswers" id="correctAnswer1"></div>
+                <div class="quizAnswers" id="correctAnswer2"></div>
+                <div class="quizAnswers" id="correctAnswer3"></div>
+                <div class="quizAnswers" id="correctAnswer4"></div>
 
-            <!--show only wrong answers on submit-->
-            <div class="quizAnswers" id="correctAnswer1"></div>
-            <div class="quizAnswers" id="correctAnswer2"></div>
-            <div class="quizAnswers" id="correctAnswer3"></div>
-            <div class="quizAnswers" id="correctAnswer4"></div>
-
-            <!--show score upon submit-->
-            <div>
-                <h2 class="quizScore" id="userScore"></h2>
+                <!--show score upon submit-->
+                <div>
+                    <h2 class="quizScore" id="userScore"></h2>
+                </div>
             </div>
         </div>
-
 
 
 
