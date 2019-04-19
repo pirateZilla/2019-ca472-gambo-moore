@@ -32,7 +32,7 @@ def quote(request, ):
 
     #collects all the inforamtion from the java script 
     address1 = request.GET.get('address1')
-    print(address1)
+  
 
     if address1 == None:
         print ("0")
@@ -122,6 +122,10 @@ def user_dash(request):
 
     # collects the driver ID from the dropdown
     user_id = request.GET.get('user_id')
+
+
+
+    fname = request.session.get('fname')
 
     # SQL QUERIES for diffent drivers
     average_JS = Driver.objects.raw('''select myapp_driver.id,  ROUND(AVG(journey_score)) AS avg_journey_score, myapp_driver.f_name, myapp_driver.l_name
@@ -308,7 +312,8 @@ def user_dash(request):
         "monthArray": month_score_array,
         "last_month_avg": last_month_avg,
         "total_avg": total_avg,
-        "learning_url": learning_url
+        "learning_url": learning_url,
+        "fname":fname
     }
     return render_to_response("user_dash.html", context)
 
@@ -336,6 +341,8 @@ def register(request):
     else:
         form = UserCreationForm()
 
+
+        #collects the data entered from the quote page so it can be printed in the register page 
     fname = request.session.get('fname')
     lname = request.session.get('lname')
     age = request.session.get('age')
@@ -349,7 +356,7 @@ def register(request):
     ncbYears = request.session.get('ncbYears')
     namedExp = request.session.get('namedExp')
     penPoints = request.session.get('penPoints')
-    print (fname)
+ 
 
     context ={
     'form': form,
